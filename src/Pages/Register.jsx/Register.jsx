@@ -1,5 +1,7 @@
 import React from 'react';
 import { FaUserAlt, FaLock, FaMailBulk } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import SocialLogin from '../../components/SocialLogin';
 
 const Register = () => {
     return (
@@ -32,8 +34,10 @@ const Register = () => {
                         </div>
                         <input type="password" name="userPass" id="" className='bg-[#4169e1] text-white placeholder-white px-5 py-3 rounded-lg shadow-2xl shadow-black' placeholder='Password' />
                     </div>
-                    <button className='bg-white px-6 py-2 rounded-2xl text-[#4169e1] font-bold text-3xl shadow-2xl shadow-black hover:bg-[#4169e1] hover:text-white'>Sign-up</button>
+                    <button className='bg-white px-6 py-2 rounded-2xl text-[#4169e1] font-bold text-3xl shadow-2xl shadow-black hover:bg-[#4169e1] hover:text-white transition ease-in-out delay-150 hover:-translate-y-3 hover:scale-110 duration-300'>Sign-up</button>
                 </div>
+                <p className='text-center text-white mt-10'>Already have an Account? Please <Link to='/login'><span className='font-bold text-blue-700'>Sign-In</span></Link></p>
+                <SocialLogin></SocialLogin>
             </div>
         </div>
     );
