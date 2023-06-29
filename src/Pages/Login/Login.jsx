@@ -1,7 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import { FaUserAlt, FaLock } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import SocialLogin from '../../components/SocialLogin';
 import { AuthContext } from '../../Providers/AuthProvider';
@@ -9,6 +9,8 @@ import { AuthContext } from '../../Providers/AuthProvider';
 const Login = () => {
 
     const {signIn} = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     const handleLogin = event => {
         event.preventDefault();
@@ -33,6 +35,7 @@ const Login = () => {
             })
             console.log(loggedUser);
             form.reset();
+            navigate('/');
         })
     }
 

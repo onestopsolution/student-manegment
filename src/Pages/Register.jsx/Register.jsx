@@ -2,7 +2,7 @@ import { updateProfile } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import { FaUserAlt, FaLock, FaMailBulk, FaImage } from 'react-icons/fa';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import SocialLogin from '../../components/SocialLogin';
 import { AuthContext } from '../../Providers/AuthProvider';
@@ -10,6 +10,8 @@ import { AuthContext } from '../../Providers/AuthProvider';
 const Register = () => {
 
     const {createUser} = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     const handleRegister = event => {
         event.preventDefault();
@@ -39,6 +41,7 @@ const Register = () => {
             updateInformation(createdUser, name, photoURL);
             console.log(createdUser);
             form.reset();
+            navigate('/');
         })
 
 

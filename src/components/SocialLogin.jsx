@@ -2,12 +2,15 @@ import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { FaGoogle, FaFacebook, FaPeopleArrows } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Providers/AuthProvider';
 
 const SocialLogin = () => {
 
     const [error, setError] = useState('');
+
+    const navigate = useNavigate();
 
     const { signInWithGoogle, signInWithFacebook, signInWithGuest } = useContext(AuthContext);
 
@@ -27,6 +30,7 @@ const SocialLogin = () => {
                 })
                 console.log(user);
                 setError('');
+                navigate('/');
             })
             .catch(error => {
                 console.log(error);
@@ -50,6 +54,7 @@ const SocialLogin = () => {
                 })
                 console.log(user);
                 setError('');
+                navigate('/');
             })
             .catch(error => {
                 console.log(error);
@@ -72,6 +77,7 @@ const SocialLogin = () => {
                 }
             })
             console.log(user);
+            navigate('/');
         })
         .catch(error => console.log(error))
     }
