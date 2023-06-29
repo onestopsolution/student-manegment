@@ -26,6 +26,7 @@ const SocialLogin = () => {
                     }
                 })
                 console.log(user);
+                setError('');
             })
             .catch(error => {
                 console.log(error);
@@ -48,6 +49,7 @@ const SocialLogin = () => {
                     }
                 })
                 console.log(user);
+                setError('');
             })
             .catch(error => {
                 console.log(error);
@@ -86,7 +88,7 @@ const SocialLogin = () => {
             <div className='flex justify-center gap-5 mt-5'>
                 <button className='bg-[#4169e1] p-5 rounded-full text-white text-xl shadow-inner shadow-white hover:bg-white hover:text-[#4169e1] transition ease-in-out delay-150 hover:-translate-y-3 hover:scale-110 duration-300' onClick={handleGoogleSignIn}><FaGoogle /></button>
                 <button className='bg-[#4169e1] p-5 rounded-full text-white text-xl shadow-inner shadow-white hover:bg-white hover:text-[#4169e1]  transition ease-in-out delay-150 hover:-translate-y-3 hover:scale-110 duration-300' onClick={handleFacebookLogin}><FaFacebook /></button>
-                <button className='bg-[#4169e1] p-5 rounded-full text-white text-xl shadow-inner shadow-white hover:bg-white hover:text-[#4169e1]  transition ease-in-out delay-150 hover:-translate-y-3 hover:scale-110 duration-300' onClick={handleGuestLogin}><FaPeopleArrows /></button>
+                <button className='bg-[#4169e1] p-5 rounded-full text-white text-xl shadow-inner shadow-white hover:bg-white hover:text-[#4169e1]  transition ease-in-out delay-150 hover:-translate-y-3 hover:scale-110 duration-300' disabled onClick={handleGuestLogin}><FaPeopleArrows /></button>
             </div>
         </div>
     );
