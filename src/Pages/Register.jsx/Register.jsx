@@ -56,8 +56,8 @@ const Register = () => {
     }
 
     return (
-        <div className='bg-gradient-to-b from-[#4169e1] to-indigo-100 h-full flex items-center justify-center'>
-            <div className='box-content w-fit px-20 py-10 bg-[#4169e1] bg-opacity-60 rounded-3xl shadow-slate-900 shadow-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 my-32'>
+        <div className='min-h-screen bg-gradient-to-b from-[#4169e1] to-indigo-100 flex items-center justify-center'>
+            <div className='h-fit w-fit px-16 py-10 bg-[#4169e1] bg-opacity-60 rounded-3xl shadow-slate-900 shadow-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 mt-40 mb-10'>
                 {/* Avatar Icon */}
                 <div className='bg-[#4169e1] rounded-full h-32 w-32 flex items-center justify-center -mt-24 mx-auto shadow-2xl shadow-black'>
                     <FaUserAlt className='text-white shadow-2xl p-3 hover:-translate-y-6 shadow-black rounded-full ' size="5rem" />
