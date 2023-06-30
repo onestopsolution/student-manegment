@@ -85,7 +85,7 @@ const SocialLogin = () => {
     return (
         <div className='mt-5'>
             <p className='text-center text-red-500'>{error}</p>
-            <div className='flex items-center gap-3'>
+            <div className='flex items-center gap-3 mx-3'>
                 <hr className='w-1/2' />
                 <p className='text-white font-bold'>Or</p>
                 <hr className='w-1/2' />

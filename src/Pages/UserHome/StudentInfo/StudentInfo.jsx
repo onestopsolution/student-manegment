@@ -8,11 +8,11 @@ const StudentInfo = () => {
     const { user } = useContext(AuthContext);
 
     return (
-        <div className="hero h-fit w-fit bg-indigo-100 mx-auto mt-10 rounded-2xl py-5 px-3">
-            <div className="hero-content flex-col lg:flex-row gap-20 justify-between items-center">
+        <div className="hero h-fit w-fit bg-indigo-100 mx-auto mt-10 rounded-2xl py-5 px-5">
+            <div className="hero-content w-fit flex-col lg:flex-row gap-10 justify-between items-center">
                 <Tilt>
                     <div>
-                        <img src={user ? user.photoURL : 'https://i.ibb.co/X58Dht9/businesswoman-standing-thinking-near-big-question-mark-isolated-white-background.jpg'} className="max-w-sm h-80 rounded-xl shadow-2xl" />
+                        <img src={user ? user.photoURL : 'https://i.ibb.co/X58Dht9/businesswoman-standing-thinking-near-big-question-mark-isolated-white-background.jpg'} className="w-80 h-80 rounded-xl shadow-lg shadow-black" />
                     </div>
                 </Tilt>
                 <div>
