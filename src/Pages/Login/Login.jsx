@@ -41,7 +41,7 @@ const Login = () => {
 
     return (
         <div className='bg-gradient-to-b from-[#4169e1] to-indigo-100 h-screen flex items-center justify-center'>
-            <div className='box-content h-fit w-96 p-5 bg-[#4169e1] bg-opacity-60 rounded-3xl shadow-slate-900 shadow-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 mt-20'>
+            <div className='box-content h-fit w-96 py-5 px-1 bg-[#4169e1] bg-opacity-60 rounded-3xl shadow-slate-900 shadow-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 mt-20'>
                 {/* Avatar Icon */}
                 <div className='bg-[#4169e1] rounded-full h-32 w-32 flex items-center justify-center -mt-24 mx-auto shadow-2xl shadow-black'>
                     <FaUserAlt className='text-white shadow-2xl p-3 hover:-translate-y-6 shadow-black rounded-full ' size="5rem" />
