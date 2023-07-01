@@ -12,6 +12,8 @@ import Register from './Pages/Register.jsx/Register.jsx';
 import AuthProvider from './Providers/AuthProvider.jsx';
 import Home from './Pages/UserHome/Home/Home.jsx';
 import PrivateRoute from './Providers/PrivateRoute.jsx';
+import AdminLayout from './Layout/AdminLayout';
+import AdminHome from './Pages/Admin/Home/AdminHome';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,16 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <PrivateRoute><Home></Home></PrivateRoute>
+      }
+    ]
+  },
+  {
+    path: 'adminDashboard',
+    element: <PrivateRoute><AdminLayout></AdminLayout></PrivateRoute>,
+    children: [
+      {
+        path: 'adminHome',
+        element: <AdminHome></AdminHome>
       }
     ]
   },

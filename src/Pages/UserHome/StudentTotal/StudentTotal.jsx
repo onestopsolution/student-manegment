@@ -3,9 +3,9 @@ import Tilt from 'react-parallax-tilt';
 
 const StudentTotal = () => {
     return (
-        <div className='flex flex-col lg:flex-row justify-center gap-10 h-full text-center mt-5 xl:mt-20'>
+        <div className='flex flex-col lg:flex-row justify-center gap-10 text-center mt-5 xl:mt-20'>
             <Tilt>
-                <div className="stats shadow-2xl shadow-black w-fit sm:w-60 lg:w-60 py-5 hover:bg-indigo-500 hover:text-white">
+                <div className="stats shadow-2xl shadow-black w-fit py-3 px-5 hover:bg-indigo-500 hover:text-white">
 
                     <div className="stat">
                         <div className="stat-title text-white">Enrolled Courses</div>
@@ -15,7 +15,7 @@ const StudentTotal = () => {
                 </div>
             </Tilt>
             <Tilt>
-                <div className="stats shadow-2xl shadow-black w-fit sm:w-60 lg:w-60 py-5 hover:bg-indigo-500 hover:text-white">
+                <div className="stats shadow-2xl shadow-black w-fit py-3 px-5 hover:bg-indigo-500 hover:text-white">
 
                     <div className="stat">
                         <div className="stat-title text-white">Active Courses</div>
@@ -25,7 +25,7 @@ const StudentTotal = () => {
                 </div>
             </Tilt>
             <Tilt>
-                <div className="stats shadow-2xl shadow-black w-fit sm:w-60 lg:w-60 py-5 hover:bg-indigo-500 hover:text-white">
+                <div className="stats shadow-2xl shadow-black w-fit py-3 px-5 hover:bg-indigo-500 hover:text-white">
 
                     <div className="stat">
                         <div className="stat-title text-white">Completed Courses</div>

@@ -27,6 +27,7 @@ const Sidebar = () => {
                     <ul className='text-xl flex flex-col gap-5'>
                         <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white py-3 px-5 rounded-lg'> <FaEdit className='h-8 w-8' /> <span className='text-xl font-medium'>Edit Profile</span></Link></li>
                         <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white py-3 px-5 rounded-lg'> <FaExpeditedssl className='h-8 w-8' /> <span className='text-xl font-medium'>Change Password</span></Link></li>
+                        <li><Link to='/adminDashboard/adminHome' className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white py-3 px-5 rounded-lg'><span className='text-xl font-medium'>Admin Panel</span></Link></li>
                     </ul>
                 </div>
             </div>
