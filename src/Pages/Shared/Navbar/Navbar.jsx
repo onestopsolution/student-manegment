@@ -10,11 +10,10 @@ const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
 
     const navItems = <>
-        < li > <a>Item 1</a></li>
-        <li>
-
-        </li>
-        <li><a>Item 3</a></li>
+        <li><Link>Home</Link></li>
+        <li><Link>Instructors</Link></li>
+        <li><Link>Courses</Link></li>
+        
     </>
 
     const handleLogout = () => {

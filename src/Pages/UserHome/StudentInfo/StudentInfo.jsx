@@ -10,7 +10,7 @@ const StudentInfo = () => {
 
     return (
         <div className="hero h-fit w-fit bg-indigo-100 mx-auto rounded-2xl py-5 px-5">
-            <div className="hero-content w-fit flex-col lg:flex-row gap-10 justify-between items-center">
+            <div className="hero-content w-fit flex-col lg:flex-row gap-10 justify-between">
                 <Tilt className="tilt-img"
                     tiltMaxAngleX={35}
                     tiltMaxAngleY={35}
