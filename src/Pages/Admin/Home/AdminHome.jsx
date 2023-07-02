@@ -2,6 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import AdminTotal from '../AdminTotal/AdminTotal';
+import IncomeGraph from '../Income&ExpenseGraph/IncomeGraph';
 
 const AdminHome = () => {
 
@@ -13,6 +14,7 @@ const AdminHome = () => {
             <div className='mt-10'>
                 <AdminTotal></AdminTotal>
             </div>
+            <IncomeGraph></IncomeGraph>
         </div>
     );
 };
