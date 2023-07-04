@@ -4,6 +4,7 @@ import { AuthContext } from '../../../Providers/AuthProvider';
 import { FaSignOutAlt, FaSignInAlt } from "react-icons/fa";
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
+import logo from '../../../assets/logo/logo-removebg-preview (1).png'
 
 const Navbar = () => {
 
@@ -39,6 +40,7 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
+                <img src={logo} alt="" className='h-10' />
                 <a className="btn btn-ghost normal-case text-xs md:text-xl lg:text-xl"><span className='font-bold text-xs md:text-xl lg:text-xl text-blue-600'>Welcome</span>{user ? user.displayName : 'Guest'}</a>
             </div>
             <div className="navbar-center hidden lg:flex">
