@@ -92,9 +92,9 @@ const SocialLogin = () => {
             </div>
             <h1 className='text-center text-white mt-5 font-semibold'>Sign-In with</h1>
             <div className='flex justify-center gap-5 mt-5'>
-                <button className='bg-[#4169e1] p-5 rounded-full text-white text-xl shadow-inner shadow-white hover:bg-white hover:text-[#4169e1] transition ease-in-out delay-150 hover:-translate-y-3 hover:scale-110 duration-300' onClick={handleGoogleSignIn}><FaGoogle /></button>
-                <button className='bg-[#4169e1] p-5 rounded-full text-white text-xl shadow-inner shadow-white hover:bg-white hover:text-[#4169e1]  transition ease-in-out delay-150 hover:-translate-y-3 hover:scale-110 duration-300' onClick={handleFacebookLogin}><FaFacebook /></button>
-                <button className='bg-[#4169e1] p-5 rounded-full text-white text-xl shadow-inner shadow-white hover:bg-white hover:text-[#4169e1]  transition ease-in-out delay-150 hover:-translate-y-3 hover:scale-110 duration-300' disabled onClick={handleGuestLogin}><FaPeopleArrows /></button>
+                <button className='bg-[#120E43] p-5 rounded-full text-white text-xl shadow-inner shadow-white hover:bg-white hover:text-[#120E43] transition ease-in-out delay-150 hover:-translate-y-3 hover:scale-110 duration-300' onClick={handleGoogleSignIn}><FaGoogle /></button>
+                <button className='bg-[#120E43] p-5 rounded-full text-white text-xl shadow-inner shadow-white hover:bg-white hover:text-[#120E43]  transition ease-in-out delay-150 hover:-translate-y-3 hover:scale-110 duration-300' onClick={handleFacebookLogin}><FaFacebook /></button>
+                <button className='bg-[#120E43] p-5 rounded-full text-white text-xl shadow-inner shadow-white hover:bg-white hover:text-[#120E43]  transition ease-in-out delay-150 hover:-translate-y-3 hover:scale-110 duration-300' disabled onClick={handleGuestLogin}><FaPeopleArrows /></button>
             </div>
         </div>
     );
