@@ -54,7 +54,7 @@ const StudentGraph = () => {
         },
         {
           name: 'September',
-          present: 3490,
+          present: 3005,
           absent: 4300,
           amt: 2100,
         },
@@ -80,7 +80,7 @@ const StudentGraph = () => {
 
 
     return (
-        <ResponsiveContainer minWidth="80%" minHeight="30%" maxHeight='80%'>
+        <ResponsiveContainer minWidth="80%" maxWidth='100%' minHeight="30%" maxHeight='80%'>
         <BarChart
           width={500}
           height={300}

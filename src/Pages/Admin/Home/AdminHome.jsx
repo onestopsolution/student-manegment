@@ -9,12 +9,14 @@ const AdminHome = () => {
     const { user } = useContext(AuthContext);
 
     return (
-        <div className='mt-10 ml-10'>
-            <h1 className='text-3xl text-start font-bold'>Welcome <span className='text-indigo-600'>{user ? user.displayName : 'Guest'}</span></h1>
+        <div className='mt-10 ml-10 flex flex-col'>
+            <h1 className='text-3xl text-center lg:text-start font-bold'>Welcome <span className='text-indigo-600'>{user ? user.displayName : 'Guest'}</span></h1>
             <div className='mt-10'>
                 <AdminTotal></AdminTotal>
             </div>
-            <IncomeGraph></IncomeGraph>
+            <div className='mt-5'>
+                <IncomeGraph></IncomeGraph>
+            </div>
         </div>
     );
 };

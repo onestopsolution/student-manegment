@@ -10,8 +10,8 @@ const Home = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 mt-10 mx-auto w-fit'>
-                <div className='col-span-1 lg:col-start-0 lg:col-end-1 '>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-20 mt-10 mx-auto w-fit'>
+                <div className='col-span-1 lg:col-start-0 lg:col-end-1 flex justify-center '>
                     <Sidebar></Sidebar>
                 </div>
                 <div className='col-span-1 lg:col-start-1 lg:col-end-3 flex flex-col gap-5'>

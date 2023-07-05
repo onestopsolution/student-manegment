@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import { FaHome, FaUsers, FaClipboardList, FaHospitalUser } from "react-icons/fa";
+import { FaHome, FaUsers, FaClipboardList, FaHospitalUser, FaBars } from "react-icons/fa";
 
 const AdminLayout = () => {
 
@@ -18,7 +18,7 @@ const AdminLayout = () => {
                 {/* Page content here */}
                 <Outlet></Outlet>
 
-                <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden mt-5">Open Menu</label>
+                <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden fixed bottom-0 left-0 mb-5 ml-5"><FaBars/></label>
 
             </div>
             <div className="drawer-side">
