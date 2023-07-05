@@ -80,7 +80,7 @@ const StudentGraph = () => {
 
 
     return (
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer minWidth="80%" minHeight="30%" maxHeight='80%'>
         <BarChart
           width={500}
           height={300}

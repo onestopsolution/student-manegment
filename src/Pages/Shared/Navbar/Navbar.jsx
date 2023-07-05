@@ -41,7 +41,6 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <img src={logo} alt="" className='h-10' />
-                <a className="btn btn-ghost normal-case text-xs md:text-xl lg:text-xl"><span className='font-bold text-xs md:text-xl lg:text-xl text-blue-600'>Welcome</span>{user ? user.displayName : 'Guest'}</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
