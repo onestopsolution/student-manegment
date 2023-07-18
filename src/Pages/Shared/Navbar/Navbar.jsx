@@ -14,7 +14,7 @@ const Navbar = () => {
         <li><Link>Home</Link></li>
         <li><Link>Instructors</Link></li>
         <li><Link>Courses</Link></li>
-        
+
     </>
 
     const handleLogout = () => {
@@ -40,7 +40,10 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <img src={logo} alt="" className='h-10' />
+                <div className='flex items-center'>
+                    <img src={logo} alt="" className='h-10' />
+                    <h1 className='uppercase font-bold text-xl hidden lg:flex'><span className='text-slate-400'>one</span><span className='text-blue-900'>stop</span> -Solution</h1>
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
