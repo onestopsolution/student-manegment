@@ -91,30 +91,31 @@ const IncomeGraph = () => {
     ];
 
     return (
-
-        <ResponsiveContainer width="80%" height="80%" className='my-10'>
-            <BarChart
-                width={500}
-                height={300}
-                data={data}
-                margin={{
-                    top: 5,
-                    right: 30,
-                    left: 20,
-                    bottom: 5,
-                }}
-            >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="income" fill="#3DBE29" />82ca9d
-                <Bar dataKey="expense" fill="#E21717" />
-                <Bar dataKey="profit" fill="#E8BD0D" />
-            </BarChart>
-        </ResponsiveContainer>
-
+        <>
+            <h1 className='text-center text-3xl font-semibold bg-indigo-500 text-white px-5 py-3 rounded-full border-x-4 border-black border-b-4'>Profit & Income Graph</h1>
+            <ResponsiveContainer maxWidth="100%" minWidth="30%" maxHeight="80%" minHeight="60%" className='my-10'>
+                <BarChart
+                    width={500}
+                    height={300}
+                    data={data}
+                    margin={{
+                        top: 5,
+                        right: 30,
+                        left: 20,
+                        bottom: 5,
+                    }}
+                >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="income" fill="#3DBE29" />82ca9d
+                    <Bar dataKey="expense" fill="#E21717" />
+                    <Bar dataKey="profit" fill="#E8BD0D" />
+                </BarChart>
+            </ResponsiveContainer>
+        </>
     );
 };
 
