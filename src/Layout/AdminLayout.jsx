@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { FaHome, FaUsers, FaClipboardList, FaHospitalUser, FaBars } from "react-icons/fa";
 import { AiTwotoneNotification } from "react-icons/ai";
+import { TbCalendarDue } from "react-icons/tb";
 
 const AdminLayout = () => {
 
@@ -10,6 +11,7 @@ const AdminLayout = () => {
         <li><Link to='/adminDashboard/adminHome'><FaUsers />Manage Users</Link></li>
         <li><Link to='/adminDashboard/adminHome'><FaClipboardList />Manage Courses</Link></li>
         <li><Link to='/adminDashboard/noticeSend'><AiTwotoneNotification />Send Notice</Link></li>
+        <li><Link to='/adminDashboard/pendingDue'><TbCalendarDue />Pending Due</Link></li>
         <li><Link to='/'><FaHospitalUser />User Home</Link></li>
     </>
 

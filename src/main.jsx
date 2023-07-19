@@ -15,6 +15,7 @@ import PrivateRoute from './Providers/PrivateRoute.jsx';
 import AdminLayout from './Layout/AdminLayout';
 import AdminHome from './Pages/Admin/Home/AdminHome';
 import NoticeUpdate from './Pages/Admin/NoticeUpdate/NoticeUpdate';
+import PendingDue from './Pages/Admin/PendingDue/PendingDue';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: 'noticeSend',
         element: <NoticeUpdate></NoticeUpdate>
+      },
+      {
+        path: 'pendingDue',
+        element: <PendingDue></PendingDue>
       }
     ]
   },
