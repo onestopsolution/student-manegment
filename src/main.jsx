@@ -14,6 +14,7 @@ import Home from './Pages/UserHome/Home/Home.jsx';
 import PrivateRoute from './Providers/PrivateRoute.jsx';
 import AdminLayout from './Layout/AdminLayout';
 import AdminHome from './Pages/Admin/Home/AdminHome';
+import NoticeUpdate from './Pages/Admin/NoticeUpdate/NoticeUpdate';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: 'adminHome',
         element: <AdminHome></AdminHome>
+      },
+      {
+        path: 'noticeSend',
+        element: <NoticeUpdate></NoticeUpdate>
       }
     ]
   },

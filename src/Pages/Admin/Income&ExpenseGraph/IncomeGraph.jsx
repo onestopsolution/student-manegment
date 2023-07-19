@@ -92,7 +92,7 @@ const IncomeGraph = () => {
 
     return (
 
-        <ResponsiveContainer width="90%" height="80%" className='my-10'>
+        <ResponsiveContainer width="80%" height="80%" className='my-10'>
             <BarChart
                 width={500}
                 height={300}
@@ -109,8 +109,8 @@ const IncomeGraph = () => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="income" fill="#82ca9d" />82ca9d
-                <Bar dataKey="expense" fill="#8884d8" />
+                <Bar dataKey="income" fill="#3DBE29" />82ca9d
+                <Bar dataKey="expense" fill="#E21717" />
                 <Bar dataKey="profit" fill="#E8BD0D" />
             </BarChart>
         </ResponsiveContainer>

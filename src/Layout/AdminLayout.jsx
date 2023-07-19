@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { FaHome, FaUsers, FaClipboardList, FaHospitalUser, FaBars } from "react-icons/fa";
+import { AiTwotoneNotification } from "react-icons/ai";
 
 const AdminLayout = () => {
 
@@ -8,6 +9,7 @@ const AdminLayout = () => {
         <li><Link to='/adminDashboard/adminHome'><FaHome />Home</Link></li>
         <li><Link to='/adminDashboard/adminHome'><FaUsers />Manage Users</Link></li>
         <li><Link to='/adminDashboard/adminHome'><FaClipboardList />Manage Courses</Link></li>
+        <li><Link to='/adminDashboard/noticeSend'><AiTwotoneNotification />Send Notice</Link></li>
         <li><Link to='/'><FaHospitalUser />User Home</Link></li>
     </>
 
