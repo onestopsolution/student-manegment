@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../../Shared/Navbar/Navbar';
 import Sidebar from '../../Shared/Sidebar/Sidebar';
+import ClassRoutine from '../ClassRoutine/ClassRoutine';
 import StudentCTGraph from '../StudentCT/StudentCTGraph';
 import StudentGraph from '../StudentGraph/StudentGraph';
 import StudentInfo from '../StudentInfo/StudentInfo';
@@ -16,10 +17,11 @@ const Home = () => {
                     <Sidebar></Sidebar>
                 </div>
                 <div className='col-span-1 lg:col-start-2 lg:col-end-3 flex flex-col gap-10'>
-                        <StudentInfo></StudentInfo>
-                        <StudentTotal></StudentTotal>
+                    <StudentInfo></StudentInfo>
+                    <StudentTotal></StudentTotal>
                     <StudentGraph></StudentGraph>
                     <StudentCTGraph></StudentCTGraph>
+                    <ClassRoutine></ClassRoutine>
                 </div>
             </div>
         </div>
