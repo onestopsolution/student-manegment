@@ -1,6 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
+import Acadeiccalender from '../AcademicCalender/Acadeiccalender';
 import AdminTotal from '../AdminTotal/AdminTotal';
 import ExpenseGraph from '../ExpenseGraph/ExpenseGraph';
 import IncomeGraph from '../Income&ExpenseGraph/IncomeGraph';
@@ -18,6 +19,7 @@ const AdminHome = () => {
             <div className='mt-10 w-4/5 mr-8 flex flex-col'>
                 <IncomeGraph></IncomeGraph>
                 <ExpenseGraph></ExpenseGraph>
+                <Acadeiccalender></Acadeiccalender>
             </div>
         </div>
     );
