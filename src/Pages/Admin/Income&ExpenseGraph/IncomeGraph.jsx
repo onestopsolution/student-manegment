@@ -93,7 +93,7 @@ const IncomeGraph = () => {
     return (
         <>
             <h1 className='text-center text-3xl font-semibold bg-indigo-500 text-white px-5 py-3 rounded-full border-x-4 border-black border-b-4'>Profit & Income Graph</h1>
-            <ResponsiveContainer maxWidth="100%" minWidth="30%" maxHeight="80%" minHeight="60%" className='my-10'>
+            <ResponsiveContainer maxWidth="100%" minWidth="30%" maxHeight="60%" minHeight="30%" className='my-10'>
                 <BarChart
                     width={500}
                     height={300}

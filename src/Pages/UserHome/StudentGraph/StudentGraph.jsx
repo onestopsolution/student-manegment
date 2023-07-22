@@ -19,7 +19,7 @@ const StudentGraph = () => {
     {
       name: 'March',
       present: 2000,
-      absent: 9800,
+      absent: 5000,
       amt: 2290,
     },
     {
@@ -82,7 +82,7 @@ const StudentGraph = () => {
   return (
     <>
       <h1 className='text-3xl text-center font-bold bg-indigo-300 py-3 rounded-full border-x-4 border-black'>Student Attendance</h1>
-      <ResponsiveContainer minWidth="80%" maxWidth='100%' minHeight="30%" maxHeight='80%'>
+      <ResponsiveContainer maxWidth="100%" minWidth="30%" maxHeight="30%" minHeight="30%">
         <BarChart
           width={500}
           height={300}
