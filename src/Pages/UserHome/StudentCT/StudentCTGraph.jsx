@@ -51,7 +51,7 @@ const StudentCTGraph = () => {
     return (
         <>
             <h1 className='text-3xl text-center font-bold bg-indigo-300 py-3 rounded-full border-x-4 border-black mt-10'>CT Marks</h1>
-            <ResponsiveContainer className='my-5' maxWidth="80%" minWidth="30%" maxHeight="80%" minHeight="30%">
+            <ResponsiveContainer className='my-5' maxWidth="80%" minWidth="30%" maxHeight="30%" minHeight="10%">
                 <LineChart
                     width={500}
                     height={300}

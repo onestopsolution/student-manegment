@@ -9,7 +9,7 @@ const StudentTotal = () => {
 
                     <div className="stat">
                         <div className="stat-title text-white">Enrolled Courses</div>
-                        <div className="stat-value">10</div>
+                        <div className="stat-value text-white">10</div>
                     </div>
 
                 </div>
@@ -19,7 +19,7 @@ const StudentTotal = () => {
 
                     <div className="stat">
                         <div className="stat-title text-white">Due Payment</div>
-                        <div className="stat-value">0 BDT</div>
+                        <div className="stat-value text-white">0 BDT</div>
                     </div>
 
                 </div>
@@ -29,7 +29,7 @@ const StudentTotal = () => {
 
                     <div className="stat">
                         <div className="stat-title text-white">Due Payment Date</div>
-                        <div className="stat-value">12.07.23</div>
+                        <div className="stat-value text-white">12.07.23</div>
                     </div>
 
                 </div>

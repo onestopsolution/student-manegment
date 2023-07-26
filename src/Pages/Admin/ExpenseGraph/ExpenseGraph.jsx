@@ -66,7 +66,7 @@ const ExpenseGraph = () => {
     return (
         <>
             <h1 className='text-center text-3xl font-semibold bg-indigo-500 text-white px-5 py-3 rounded-full border-x-4 border-black border-b-4 mb-10'>Expense Graph</h1>
-            <ResponsiveContainer maxWidth="80%" minWidth="60%" maxHeight="60%" minHeight="30%">
+            <ResponsiveContainer maxWidth="80%" minWidth="60%" maxHeight="50%" minHeight="25%">
                 <AreaChart
                     width={500}
                     height={400}

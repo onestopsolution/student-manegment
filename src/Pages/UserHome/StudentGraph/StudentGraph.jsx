@@ -82,7 +82,7 @@ const StudentGraph = () => {
   return (
     <>
       <h1 className='text-3xl text-center font-bold bg-indigo-300 py-3 rounded-full border-x-4 border-black'>Student Attendance</h1>
-      <ResponsiveContainer maxWidth="100%" minWidth="30%" maxHeight="30%" minHeight="30%">
+      <ResponsiveContainer maxWidth="100%" minWidth="30%" maxHeight="30%" minHeight="10%">
         <BarChart
           width={500}
           height={300}
@@ -98,8 +98,8 @@ const StudentGraph = () => {
           <XAxis dataKey="name" />
           <Tooltip />
           <Legend />
-          <Bar dataKey="present" stackId="a" fill="#1FAA59" />
-          <Bar dataKey="absent" stackId="a" fill="#E21717" />
+          <Bar dataKey="present" stackId="a" fill="#207398" />
+          <Bar dataKey="absent" stackId="a" fill="#758283" />
         </BarChart>
       </ResponsiveContainer>
     </>
