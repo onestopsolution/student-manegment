@@ -15,7 +15,7 @@ const Sidebar = () => {
     </>
 
     return (
-        <div  data-aos="fade-right" className='max-h-screen w-fit bg-indigo-100 px-10 py-5 rounded-xl text-start mb-5 lg:mb-0'>
+        <div  data-aos="fade-right" data-aos-duration="3000" className='max-h-screen w-fit bg-indigo-100 px-10 py-5 rounded-xl text-start mb-5 lg:mb-0'>
             <div className='flex flex-col items-center'>
                 <div className='text-3xl w-fit h-fit font-bold bg-indigo-500 text-white rounded-lg text-center border-x-8 border-black'>
                     <a className="btn btn-ghost text-xs md:text-xl text-center lg:text-xl">Welcome<span className='font-bold text-xs md:text-xl lg:text-xl text-black'>{user ? user.displayName : 'Guest'}</span></a>
