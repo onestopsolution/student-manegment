@@ -16,6 +16,10 @@ import AdminLayout from './Layout/AdminLayout';
 import AdminHome from './Pages/Admin/Home/AdminHome';
 import NoticeUpdate from './Pages/Admin/NoticeUpdate/NoticeUpdate';
 import PendingDue from './Pages/Admin/PendingDue/PendingDue';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+AOS.init();
 
 const router = createBrowserRouter([
   {
