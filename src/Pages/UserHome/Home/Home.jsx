@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../../Shared/Navbar/Navbar';
 import Sidebar from '../../Shared/Sidebar/Sidebar';
 import ClassRoutine from '../ClassRoutine/ClassRoutine';
 import StudentCTGraph from '../StudentCT/StudentCTGraph';
