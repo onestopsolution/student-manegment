@@ -7,11 +7,11 @@ import StudentGraph from '../StudentGraph/StudentGraph';
 import StudentInfo from '../StudentInfo/StudentInfo';
 import StudentTotal from '../StudentTotal/StudentTotal';
 
+
 const Home = () => {
 
     return (
-        <div>
-            <Navbar></Navbar>
+        <div className='h-full'>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10 mx-auto w-fit h-fit'>
                 <div className='col-span-1 lg:col-start-0 lg:col-end-2 flex justify-center lg:fixed top-20 left-40 bottom-5'>
                     <Sidebar></Sidebar>
