@@ -9,7 +9,7 @@ const StudentInfo = () => {
     const { user } = useContext(AuthContext);
 
     return (
-        <div  data-aos="fade-left" data-aos-duration="3000" className="hero h-fit w-fit bg-indigo-100 mx-auto rounded-2xl py-2 px-3">
+        <div  data-aos="fade-left" data-aos-duration="3000" className="hero h-fit w-fit bg-indigo-100 mx-auto rounded-2xl py-5 px-5 mt-0 lg:mt-20">
             <div className="hero-content w-fit flex-col xl:flex-row gap-10 justify-between">
                 <Tilt className="tilt-img"
                     tiltMaxAngleX={35}
@@ -19,7 +19,7 @@ const StudentInfo = () => {
                     transitionSpeed={2000}
                     gyroscope={true}>
                     <div>
-                        <img src={user ? user.photoURL : 'https://i.ibb.co/X58Dht9/businesswoman-standing-thinking-near-big-question-mark-isolated-white-background.jpg'} className="w-32 h-32 rounded-xl shadow-lg shadow-black" />
+                        <img src={user ? user.photoURL : 'https://i.ibb.co/X58Dht9/businesswoman-standing-thinking-near-big-question-mark-isolated-white-background.jpg'} className="w-40 h-40 rounded-xl shadow-lg shadow-black" />
                     </div>
                 </Tilt>
                 <div>
