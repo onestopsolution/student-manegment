@@ -9,7 +9,7 @@ const AdminLayout = () => {
     const navItems = <>
         <li><Link to='/adminDashboard/adminHome'><FaHome />Home</Link></li>
         <li><Link to='/adminDashboard/adminHome'><FaUsers />Manage Users</Link></li>
-        <li><Link to='/adminDashboard/adminHome'><FaClipboardList />Manage Courses</Link></li>
+        <li><Link to='/adminDashboard/manageCourses'><FaClipboardList />Manage Courses</Link></li>
         <li><Link to='/adminDashboard/noticeSend'><AiTwotoneNotification />Send Notice</Link></li>
         <li><Link to='/adminDashboard/pendingDue'><TbCalendarDue />Pending Due</Link></li>
         <li><Link to='/'><FaHospitalUser />User Home</Link></li>

@@ -19,6 +19,7 @@ import PendingDue from './Pages/Admin/PendingDue/PendingDue';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import NoticeBoard from './Pages/UserHome/NoticeBoard/NoticeBoard';
+import ManageCourse from './Pages/Admin/ManageCourse/ManageCourse';
 
 AOS.init();
 
@@ -44,6 +45,11 @@ const router = createBrowserRouter([
       {
         path: 'adminHome',
         element: <AdminHome></AdminHome>
+      },
+      {
+        path: 'manageCourses',
+        element: <ManageCourse></ManageCourse>,
+        loader: () => fetch('https://intern-first-server-farjanaakterlaila.vercel.app/classes')
       },
       {
         path: 'noticeSend',
