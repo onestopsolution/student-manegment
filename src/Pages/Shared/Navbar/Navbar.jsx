@@ -5,6 +5,7 @@ import { FaSignOutAlt, FaSignInAlt } from "react-icons/fa";
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo/logo-removebg-preview (1).png'
+import { AiFillBell } from "react-icons/ai";
 
 const Navbar = () => {
 
@@ -51,9 +52,14 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+                <Link to='/notice'>
+                    <button className="btn-circle mr-3 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                        <AiFillBell className='h-8 w-8 text-indigo-700' />
+                    </button>
+                </Link>
                 {
                     user ? <>
-                        <button className='btn btn-error text-white' onClick={handleLogout}><span>Sign-Out</span><FaSignOutAlt /></button>
+                        <button className='btn btn-primary btn-outline text-white' onClick={handleLogout}><span>Sign-Out</span><FaSignOutAlt /></button>
                     </> : <>
                         <Link to='/login'>
                             <button className='btn btn-outline border-black text-black hover:bg-base-100 hover:text-white'><span>Sign-In</span> <FaSignInAlt /></button>
