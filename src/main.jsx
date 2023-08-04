@@ -18,6 +18,7 @@ import NoticeUpdate from './Pages/Admin/NoticeUpdate/NoticeUpdate';
 import PendingDue from './Pages/Admin/PendingDue/PendingDue';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import NoticeBoard from './Pages/UserHome/NoticeBoard/NoticeBoard';
 
 AOS.init();
 
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <PrivateRoute><Home></Home></PrivateRoute>
+      },
+      {
+        path: 'notice',
+        element: <NoticeBoard></NoticeBoard>
       }
     ]
   },

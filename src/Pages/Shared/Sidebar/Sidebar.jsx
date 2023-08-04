@@ -3,15 +3,17 @@ import { Link } from 'react-router-dom';
 import { FaIdBadge, FaHistory, FaBookOpen, FaEdit, FaExpeditedssl } from "react-icons/fa";
 import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
+import { AiFillNotification } from "react-icons/ai";
 
 const Sidebar = () => {
 
     const { user } = useContext(AuthContext);
 
     const sideBarItems = <>
-        <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-3 rounded-lg'> <FaIdBadge className='h-8 w-8' /> <span className='text-xl font-medium'>My Profile</span></Link></li>
-        <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-3 rounded-lg'> <FaBookOpen className='h-8 w-8' /> <span className='text-xl font-medium'>Enrolled Course</span></Link></li>
-        <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-3 rounded-lg'> <FaHistory className='h-8 w-8' /> <span className='text-xl font-medium'>Order History</span></Link></li>
+        <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-1 rounded-lg'> <FaIdBadge className='h-8 w-8' /> <span className='text-xl font-medium'>My Profile</span></Link></li>
+        <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-1 rounded-lg'> <FaBookOpen className='h-8 w-8' /> <span className='text-xl font-medium'>Enrolled Course</span></Link></li>
+        <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-1 rounded-lg' to='/notice'> <AiFillNotification className='h-8 w-8' /> <span className='text-xl font-medium'>Notice </span></Link></li>
+        <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-1 rounded-lg'> <FaHistory className='h-8 w-8' /> <span className='text-xl font-medium'>Order History</span></Link></li>
     </>
 
     return (
@@ -31,8 +33,8 @@ const Sidebar = () => {
                 <h1 className='text-2xl font-bold bg-indigo-500 text-white rounded-full py-3 text-center border-b-4 border-black'>Account Settings</h1>
                 <div className='mt-5'>
                     <ul className='text-xl flex flex-col gap-5'>
-                        <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white py-3 px-5 rounded-lg'> <FaEdit className='h-6 w-6' /> <span className='text-lg font-medium'>Edit Profile</span></Link></li>
-                        <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white py-3 px-5 rounded-lg'> <FaExpeditedssl className='h-6 w-6' /> <span className='text-lg font-medium'>Change Password</span></Link></li>
+                        <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white py-1 px-5 rounded-lg'> <FaEdit className='h-6 w-6' /> <span className='text-lg font-medium'>Edit Profile</span></Link></li>
+                        <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white py-1 px-5 rounded-lg'> <FaExpeditedssl className='h-6 w-6' /> <span className='text-lg font-medium'>Change Password</span></Link></li>
                         <li><Link to='/adminDashboard/adminHome' className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white py-1 px-5 rounded-lg'><span className='text-lg font-medium'>Admin Panel</span></Link></li>
                     </ul>
                 </div>

@@ -19,7 +19,6 @@ const Home = () => {
                 <div className='col-span-1 lg:col-start-2 lg:col-end-3 flex flex-col gap-5'>
                     <StudentInfo></StudentInfo>
                     <StudentTotal></StudentTotal>
-                    <NoticeBoard></NoticeBoard>
                     <StudentGraph></StudentGraph>
                     <StudentCTGraph></StudentCTGraph>
                     <ClassRoutine></ClassRoutine>
