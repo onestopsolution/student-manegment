@@ -1,17 +1,23 @@
 import React from 'react';
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
+import Tilt from 'react-parallax-tilt';
 
-const CourseCard = ({course}) => {
+const CourseCard = ({ course }) => {
     return (
-        <div className="card lg:card-side bg-base-100 shadow-xl">
-            <figure><img src="/images/stock/photo-1494232410401-ad00d5433cfa.jpg" alt="Album" /></figure>
-            <div className="card-body">
-                <h2 className="card-title">{course.Name}</h2>
-                <p>Click the button to listen on Spotiwhy app.</p>
-                <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Listen</button>
+        <Tilt>
+            <div className="card lg:card-side glass bg-indigo-100 shadow-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                <figure><img src={course.Image} alt="Album" className='w-96' /></figure>
+                <div className="card-body">
+                    <h2 className="card-title">{course.Name}</h2>
+                    <p>Instructor: {course.InstructorName}</p>
+                    <p>Price: {course.Price}</p>
+                    <div className="card-actions justify-end">
+                        <button className="btn text-3xl btn-square btn-warning text-white"><AiFillEdit /></button>
+                        <button className="btn btn-error text-3xl btn-square text-white"><AiFillDelete /></button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </Tilt>
     );
 };
 
