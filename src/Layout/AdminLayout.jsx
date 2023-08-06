@@ -22,13 +22,12 @@ const AdminLayout = () => {
                 {/* Page content here */}
                 <Outlet></Outlet>
 
-                <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden fixed bottom-0 left-0 mb-5 ml-5"><FaBars/></label>
+                <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden fixed bottom-0 left-0 mb-5 ml-5"><FaBars /></label>
 
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
-
                     <div className='my-10 bg-indigo-500 text-white py-3 rounded-full'>
                         <h1 className='text-center text-3xl font-bold'>Admin</h1>
                     </div>

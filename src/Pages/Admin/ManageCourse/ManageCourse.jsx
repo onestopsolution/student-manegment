@@ -13,7 +13,7 @@ const ManageCourse = () => {
                 <h1 className='text-3xl font-bold'>Provided Courses</h1>
                 <button className='btn btn-primary w-32'>Add Course</button>
             </div>
-            <div className='mt-10 flex flex-col md:flex-row flex-wrap items-center justify-center gap-10'>
+            <div className='my-10 flex flex-col md:flex-row flex-wrap items-center justify-center gap-10'>
                 {
                     courses.map(course => <CourseCard key={course._id} course={course}></CourseCard>)
                 }
