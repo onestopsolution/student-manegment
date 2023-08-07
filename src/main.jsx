@@ -20,6 +20,11 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import NoticeBoard from './Pages/UserHome/NoticeBoard/NoticeBoard';
 import ManageCourse from './Pages/Admin/ManageCourse/ManageCourse';
+import Classedit from './components/CourseCard/Classedit';
+import Addcourses from './components/Addcourses/Addcourses';
+
+
+
 
 AOS.init();
 
@@ -48,8 +53,8 @@ const router = createBrowserRouter([
       },
       {
         path: 'manageCourses',
-        element: <ManageCourse></ManageCourse>,
-        loader: () => fetch('https://intern-first-server-farjanaakterlaila.vercel.app/classes')
+        element: <ManageCourse></ManageCourse>
+         
       },
       {
         path: 'noticeSend',
@@ -58,6 +63,15 @@ const router = createBrowserRouter([
       {
         path: 'pendingDue',
         element: <PendingDue></PendingDue>
+      },
+      {
+        path: 'addcard',
+        element: <Addcourses></Addcourses>
+      },
+      {
+        path: 'update/:id',
+        element:<Classedit></Classedit>,
+        loader: ({ params }) => fetch(`https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/update/${params.id}`)
       }
     ]
   },
