@@ -1,6 +1,7 @@
 import React from 'react';
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import Tilt from 'react-parallax-tilt';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const CourseCard = ({ course }) => {
@@ -35,7 +36,7 @@ const CourseCard = ({ course }) => {
             }
         })
     }
-
+    const navigate = useNavigate()
     return (
         <Tilt>
             <div className="card lg:card-side glass bg-indigo-100 shadow-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
@@ -45,7 +46,7 @@ const CourseCard = ({ course }) => {
                     <p>Instructor: {course.InstructorName}</p>
                     <p>Price: {course.Price}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn text-3xl btn-square btn-warning text-white"><AiFillEdit /></button>
+                        <button className="btn text-3xl btn-square btn-warning text-white" onClick={()=>navigate(`/adminDashboard/update/${course._id}`)}><AiFillEdit /></button>
                         <button className="btn btn-error text-3xl btn-square text-white" onClick={() => handleDelete(course._id)}><AiFillDelete /></button>
                     </div>
                 </div>
