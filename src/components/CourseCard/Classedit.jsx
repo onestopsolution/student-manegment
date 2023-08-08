@@ -29,17 +29,17 @@ const Classedit = () => {
       console.log(data);
     }
     return (
-        <div className='w-full px-10 '>
-        <div className="uppercase font-semibold h-[60px] flex justify-evenly items-center">
-            <h3 className="text-3xl">Update Class</h3>
+        <div className='w-11/12 mx-5 mt-5'>
+        <div className="uppercase font-bold bg-gradient-to-r from-indigo-200 to-purple-400 mb-10 py-3 rounded-full border-x-4 border-black border-b-2">
+            <h3 className="text-3xl text-center">Update Class</h3>
         </div>
         <div className="flex justify-center items-center">
-  <div className="w-5/12   text-black p-8 border bg-indigo-300 bg-opacity-40">
-    <form onSubmit={handleSubmit(onSubmit)}>
+  <div className="w-4/5 text-black py-5 bg-gradient-to-r from-indigo-200 to-purple-200 bg-opacity-40 rounded-2xl px-10">
+    <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col items-center'>
         <div className='form-control w-full mb-4 '>
       {/* {errors.exampleRequired && <span>This field is required</span>} */}
       <label className="label"><span className="label-text text-xl font-semibold text-black">Image</span></label>
-      <input type="url"   {...register('Image')}  placeholder="image link" defaultValue={Image} className="file-input file-input-bordered w-full text-white " />
+      <input type="url"   {...register('Image')}  placeholder="image link" defaultValue={Image} className="file-input file-input-bordered w-full text-white pl-5" disabled />
      
       </div>
        <div className="form-control w-full mb-4">
@@ -47,7 +47,7 @@ const Classedit = () => {
                     <span className="label-text text-xl font-semibold text-black">Class Name</span>
                 </label>
       <input
-        className="input input-bordered w-full text-white"
+        className="input input-bordered w-full text-black bg-white"
          {...register('Name')}
        
          defaultValue={Name}
@@ -59,7 +59,7 @@ const Classedit = () => {
                     <span className="label-text text-xl font-semibold text-black">Instructor Name</span>
                 </label>
       <input
-       className="input input-bordered w-full text-white"
+       className="input input-bordered w-full text-black bg-white"
          {...register('InstructorName')}
          defaultValue={InstructorName}
      
@@ -73,7 +73,7 @@ const Classedit = () => {
                         <span className="label-text text-xl font-semibold text-black">Price</span>
                     </label>
       <input
-       className="input input-bordered w-full text-white"
+       className="input input-bordered w-full text-black bg-white"
          {...register('Price')}
         placeholder="Price"
         type="number"
@@ -83,7 +83,7 @@ const Classedit = () => {
       <div className="form-control w-full mb-4">
                     <label className="label-text text-xl font-semibold text-black">Available Seats</label>
       <input
-       className="input input-bordered w-full text-white"
+       className="input input-bordered w-fulltext-black bg-white"
          {...register('AvailableSeats', { required: true })}
         placeholder="Available Seats"
         type="number"
@@ -91,7 +91,7 @@ const Classedit = () => {
       /></div>
       
      
-      <input className="btn btn-lg  mt-4 mx-48" type="submit" value="Add Class" />
+      <input className="btn btn-primary btn-lg mt-5" type="submit" value="Update Class" />
       
     </form>
   </div>
