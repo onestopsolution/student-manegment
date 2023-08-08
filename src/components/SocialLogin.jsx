@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { FaGoogle, FaFacebook, FaPeopleArrows } from "react-icons/fa";
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Providers/AuthProvider';
 
@@ -11,30 +11,49 @@ const SocialLogin = () => {
     const [error, setError] = useState('');
 
     const navigate = useNavigate();
-
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+console.log(location);
+console.log( from)
     const { signInWithGoogle, signInWithFacebook, signInWithGuest } = useContext(AuthContext);
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()
+            // .then(result => {
+            //     const user = result.user;
+            //     Swal.fire({
+            //         title: 'User Sign-In Successfully',
+            //         icon: 'success',
+            //         showClass: {
+            //             popup: 'animate__animated animate__fadeInDown'
+            //         },
+            //         hideClass: {
+            //             popup: 'animate__animated animate__fadeOutUp'
+            //         }
+            //     })
+            //     console.log(user);
+            //     setError('');
+            //     navigate('/');
+            // })
+            // .catch(error => {
+            //     console.log(error);
+            //     setError(error.message);
+            // })
             .then(result => {
-                const user = result.user;
-                Swal.fire({
-                    title: 'User Sign-In Successfully',
-                    icon: 'success',
-                    showClass: {
-                        popup: 'animate__animated animate__fadeInDown'
+                const loggedInUser = result.user;
+                console.log(loggedInUser);
+                const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
+                fetch('https://intern-first-server-farjanaakterlaila.vercel.app/user', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
                     },
-                    hideClass: {
-                        popup: 'animate__animated animate__fadeOutUp'
-                    }
+                    body: JSON.stringify(saveUser)
                 })
-                console.log(user);
-                setError('');
-                navigate('/');
-            })
-            .catch(error => {
-                console.log(error);
-                setError(error.message);
+                    .then(res => res.json())
+                    .then(() => {
+                        navigate(from, { replace: true });
+                    })
             })
     }
 

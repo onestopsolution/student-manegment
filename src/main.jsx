@@ -22,6 +22,7 @@ import NoticeBoard from './Pages/UserHome/NoticeBoard/NoticeBoard';
 import ManageCourse from './Pages/Admin/ManageCourse/ManageCourse';
 import Classedit from './components/CourseCard/Classedit';
 import Addcourses from './components/Addcourses/Addcourses';
+import ManageUsers from './Pages/Admin/ManageUsers/ManageUsers';
 
 
 
@@ -54,6 +55,11 @@ const router = createBrowserRouter([
       {
         path: 'manageCourses',
         element: <ManageCourse></ManageCourse>
+         
+      },
+      {
+        path: 'manageUsers',
+        element: <ManageUsers></ManageUsers>
          
       },
       {
@@ -90,11 +96,20 @@ const router = createBrowserRouter([
     ]
   }
 ])
-
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+const queryClient = new QueryClient()
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
+    <QueryClientProvider client={queryClient}>
       <RouterProvider router={router}></RouterProvider>
+      </QueryClientProvider>
     </AuthProvider>
   </React.StrictMode>,
 )
