@@ -1,5 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
+
+const img_hosting_key = import.meta.env.VITE_Image_Upload;
 
 const Addcourses = () => {
     const { register, handleSubmit, reset } = useForm();
