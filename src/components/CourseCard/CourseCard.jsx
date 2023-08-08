@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import Tilt from 'react-parallax-tilt';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const CourseCard = ({ course }) => {
-
+    const [deleted, setDeleted] = useState(false);
     const handleDelete = (_id) => {
         console.log(_id);
         Swal.fire({
@@ -26,6 +26,7 @@ const CourseCard = ({ course }) => {
                 .then(data => {
                     console.log(data);
                     if(data.deletedCount > 0){
+                        setDeleted(true);
                         Swal.fire(
                             'Deleted!',
                             'Your class has been deleted.',
@@ -36,7 +37,14 @@ const CourseCard = ({ course }) => {
             }
         })
     }
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    useEffect(() => {
+        
+        if (deleted) {
+           
+            window.location.reload(); 
+        }
+    }, [deleted]);
     return (
         <Tilt>
             <div className="card lg:card-side glass bg-indigo-100 shadow-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
