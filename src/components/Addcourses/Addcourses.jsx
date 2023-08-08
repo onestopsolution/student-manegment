@@ -1,7 +1,13 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
+<<<<<<< HEAD
+
+const img_hosting_key = import.meta.env.VITE_Image_Upload;
+
+=======
 const img_hosting_key = import.meta.env.VITE_Image_Upload
+>>>>>>> origin/main
 const Addcourses = () => {
     const { register, handleSubmit, reset } = useForm();
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_key}`
