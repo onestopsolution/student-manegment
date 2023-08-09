@@ -75,6 +75,10 @@ const router = createBrowserRouter([
         element: <Addcourses></Addcourses>
       },
       {
+        path: 'adduser',
+        element: <AddUsers></AddUsers>
+      },
+      {
         path: 'update/:id',
         element:<Classedit></Classedit>,
         loader: ({ params }) => fetch(`https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/update/${params.id}`)
@@ -103,6 +107,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import AddUsers from './components/AddUsers/AddUsers';
 const queryClient = new QueryClient()
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

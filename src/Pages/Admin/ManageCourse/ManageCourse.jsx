@@ -18,7 +18,7 @@ const ManageCourse = () => {
         <div className='mt-5 mx-5'>
             <div className=' bg-indigo-300 px-10 py-3 rounded-full border-x-4 border-black border-b-2 w-full flex items-center justify-between'>
                 <h1 className='text-3xl font-bold'>Provided Courses</h1>
-               <Link to='/adminDashboard/addcard'> <button className='btn btn-primary w-32'>Add Course</button> </Link>
+               <Link to='/adminDashboard/addcard'> <button className='btn btn-primary w-32 '>Add Course</button> </Link>
             </div>
             <div className='my-10 flex flex-col md:flex-row flex-wrap items-center justify-center gap-10'>
                 {
