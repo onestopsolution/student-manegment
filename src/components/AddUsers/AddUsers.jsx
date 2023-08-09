@@ -20,7 +20,7 @@ const AddUsers = () => {
               title: 'Success!',
               text: 'Added Successfully',
               icon: 'success',
-              confirmButtonText: 'Cool'
+              confirmButtonText: 'Okay'
             })
           }
         });
