@@ -11,12 +11,12 @@ const Sidebar = () => {
     const { user } = useContext(AuthContext);
 
     const sideBarItems = <>
-        <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-2 rounded-lg'> <FaIdBadge className='h-8 w-8' /> <span className='text-xl font-medium'>My Profile</span></Link></li>
-        <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-2 rounded-lg'> <FaBookOpen className='h-8 w-8' /> <span className='text-xl font-medium'>Enrolled Course</span></Link></li>
-        <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-2 rounded-lg'> <FaHistory className='h-8 w-8' /> <span className='text-xl font-medium'>Order History</span></Link></li>
+        <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-2 rounded-lg'><FaIdBadge className='h-8 w-8' /> <span className='text-xl font-medium'>My Profile</span></Link></li>
+        <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-2 rounded-lg'><FaBookOpen className='h-8 w-8' /> <span className='text-xl font-medium'>Enrolled Course</span></Link></li>
+        <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-2 rounded-lg'><FaHistory className='h-8 w-8' /> <span className='text-xl font-medium'>Order History</span></Link></li>
         <li><Link to='/notice' className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-2 rounded-lg'> <AiFillBell className='h-8 w-8' /> <span className='text-xl font-medium'>Notice</span></Link></li>
-        <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-2 rounded-lg'> <FaBook className='h-8 w-8' /> <span className='text-xl font-medium'>Resources</span></Link></li>
-        <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-2 rounded-lg'> <SiGoogleclassroom className='h-8 w-8' /> <span className='text-xl font-medium'>Classes</span></Link></li>
+        <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-2 rounded-lg'><FaBook className='h-8 w-8' /> <span className='text-xl font-medium'>Resources</span></Link></li>
+        <li><Link to='/classes' className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-2 rounded-lg'><SiGoogleclassroom className='h-8 w-8' /> <span className='text-xl font-medium'>Classes</span></Link></li>
         <li><Link to='/adminDashboard/adminHome' className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white py-1 px-5 rounded-lg'><span className='text-lg font-medium'>Admin Panel</span></Link></li>
     </>
 

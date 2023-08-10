@@ -21,7 +21,6 @@ const Home = () => {
                     <StudentTotal></StudentTotal>
                     <StudentGraph></StudentGraph>
                     <StudentCTGraph></StudentCTGraph>
-                    <ClassRoutine></ClassRoutine>
                 </div>
             </div>
         </div>
