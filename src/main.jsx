@@ -45,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: 'classes',
         element: <ClassRoutine></ClassRoutine>
+      },
+      {
+        path: 'profile',
+        element: <MyProfile></MyProfile>
       }
     ]
   },
@@ -113,6 +117,7 @@ import {
 } from '@tanstack/react-query'
 import AddUsers from './components/AddUsers/AddUsers';
 import ClassRoutine from './Pages/UserHome/ClassRoutine/ClassRoutine';
+import MyProfile from './Pages/UserHome/MyProfile/MyProfile';
 const queryClient = new QueryClient()
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
