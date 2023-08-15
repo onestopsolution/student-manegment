@@ -56,7 +56,7 @@ const [isBatchDropdownVisible, setIsBatchDropdownVisible] = useState(false);
                         Image: imgURL
                     }
                     console.log(newCls)
-                    fetch("http://localhost:5000/student", {
+                    fetch("https://intern-first-server-farjanaakterlaila.vercel.app/student", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(newCls),
