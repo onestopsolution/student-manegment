@@ -94,12 +94,12 @@ const ManageUsers = () => {
   };
 
     return (
-    <div className="w-full">
-    <div className=" bg-indigo-300 mx-auto px-10 py-3 rounded-full border-x-4 border-black border-b-2 w-1/2 flex items-center justify-between mb-4">
-      <h3 className="text-3xl">Users</h3>
+    <div className="mx-5">
+    <div className=" bg-indigo-300 mx-5 py-3 rounded-full border-x-4 border-black border-b-2 w-full flex items-center justify-around my-5">
+      <h3 className="text-4xl font-bold">Users</h3>
       <Link to='/adminDashboard/adduser'><button className='btn btn-primary flex'><FaPlus/>Add User</button></Link>
     </div>
-    <div className="overflow-x-auto mx-40">
+    <div className="overflow-x-auto">
       <table className="table w-full text-xl">
         <thead className="text-xl text-center">
           <tr>
@@ -116,13 +116,13 @@ const ManageUsers = () => {
               <td>{index + 1}</td>
               <td>{item.name}</td>
               <td>{item.email}</td>
-              <td>
+              <td className='flex flex-col items-center justify-center gap-3'>
                 {item.role === 'Student' ? (
                   'Student'
                 ) : (
                   <button
                     onClick={() => handleMakeAdmin(item)}
-                    className="btn btn-ghost bg-indigo-700 text-white mr-4"
+                    className="btn btn-sm btn-ghost bg-indigo-700 text-white"
                     disabled={selectedUsers.includes(item._id) || item.role === 'Instructor' || item.role === 'Employee'}
                   >
                     Student
@@ -133,7 +133,7 @@ const ManageUsers = () => {
                 ) : (
                   <button
                     onClick={() => handleMakeInstr(item)}
-                    className="ml-4 btn btn-ghost bg-indigo-700 text-white"
+                    className="btn btn-sm btn-ghost bg-indigo-700 text-white"
                     disabled={selectedUsers.includes(item._id) || item.role === 'Student'||item.role === 'Employee'}
                   >
                     Instructor
@@ -144,7 +144,7 @@ const ManageUsers = () => {
                 ) : (
                   <button
                     onClick={() => handleMakeEmp(item)}
-                    className="ml-4 btn btn-ghost bg-indigo-700 text-white"
+                    className="btn btn-sm btn-ghost bg-indigo-700 text-white"
                     disabled={selectedUsers.includes(item._id) || item.role === 'Student'||item.role === 'Instructor'}
                   >
                     Employee

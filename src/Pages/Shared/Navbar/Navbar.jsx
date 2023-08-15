@@ -6,15 +6,17 @@ import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo/logo-removebg-preview (1).png'
 import { AiFillBell } from "react-icons/ai";
+import { FaHome, FaBook } from "react-icons/fa";
+import { SiGoogleclassroom } from "react-icons/si";
 
 const Navbar = () => {
 
     const { user, logout } = useContext(AuthContext);
 
     const navItems = <>
-        <li><Link>Home</Link></li>
-        <li><Link>Resources</Link></li>
-        <li><Link>Courses</Link></li>
+        <li><Link><FaHome/><span>Home</span></Link></li>
+        <li><Link><FaBook/><span>Resources</span></Link></li>
+        <li><Link to='/classes'><SiGoogleclassroom/><span>Classes</span></Link></li>
 
     </>
 
