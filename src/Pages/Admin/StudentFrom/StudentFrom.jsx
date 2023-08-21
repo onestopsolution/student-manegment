@@ -278,7 +278,7 @@ const [isBatchDropdownVisible, setIsBatchDropdownVisible] = useState(false);
 
 
 
-                        <input className="btn btn-primary btn-lg mt-5" type="submit" value="Add Class" />
+                        <input className="btn btn-primary btn-lg mt-5" type="submit" value="Add Student" />
 
                     </form>
                 </div>
