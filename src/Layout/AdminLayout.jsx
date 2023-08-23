@@ -11,6 +11,8 @@ const AdminLayout = () => {
         <li><Link to='/adminDashboard/manageUsers'><FaUsers />Manage Users</Link></li>
         <li><Link to='/adminDashboard/manageCourses'><FaClipboardList />Manage Courses</Link></li>
         <li><Link to='/adminDashboard/addstu'><FaClipboardList />Students From</Link></li>
+        <li><Link to='/adminDashboard/att'><FaClipboardList />Attendance</Link></li>
+        <li><Link to='/adminDashboard/batch'><FaClipboardList />Batch/Class Add</Link></li>
         <li><Link to='/adminDashboard/noticeSend'><AiTwotoneNotification />Send Notice</Link></li>
         <li><Link to='/adminDashboard/pendingDue'><TbCalendarDue />Pending Due</Link></li>
         <li><Link to='/'><FaHospitalUser />User Home</Link></li>

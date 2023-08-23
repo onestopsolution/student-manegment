@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 
@@ -12,10 +12,10 @@ const StudentFrom = () => {
     const [selectedInstallment, setSelectedInstallment] = useState('');
     const [selectedBatch, setSelectedBatch] = useState('');
     const [selectedClass, setSelectedClass] = useState('');
-const [isClassDropdownVisible, setIsClassDropdownVisible] = useState(false);
-const [isBatchDropdownVisible, setIsBatchDropdownVisible] = useState(false);
+    const [isClassDropdownVisible, setIsClassDropdownVisible] = useState(false);
+    const [isBatchDropdownVisible, setIsBatchDropdownVisible] = useState(false);
 
-
+    const [name, setname] = useState('');
     const [fatherName, setFatherName] = useState('');
     const [fatherNumber, setFatherNumber] = useState('');
     const [motherName, setMotherName] = useState('');
@@ -23,11 +23,29 @@ const [isBatchDropdownVisible, setIsBatchDropdownVisible] = useState(false);
 
     const [location, setLocation] = useState('');
     const [instituteName, setInstituteName] = useState('');
-    const classOptions = ['Class 8', 'Class 9', 'SSC', 'HSC', '11', '12'];
-    const batchOptions = ['A (7-8)', 'B (10-12:30)'];
+    const [classList, setClassList] = useState([]);
+    const [batchList, setBatchList] = useState([]);
     const paymentOptions = ['Monthly', 'Course Payment 1', 'Course Payment 2', 'Course Payment 3'];
 
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_key}`
+  
+
+    useEffect(() => {
+        // Fetch class and batch data from your API
+        fetch("http://localhost:5000/BatchClass")
+      
+        .then(response => response.json())
+            .then(data => {
+                const uniqueClasses = [...new Set(data.map(item => item.Class))]
+                    .filter(className => className !== ''); // Exclude empty classes
+                const uniqueBatches = [...new Set(data.map(item => item.Batch))];
+                setClassList(uniqueClasses);
+                setBatchList(uniqueBatches);
+            })
+        .catch(error => {
+            console.error('Error fetching classes and batches:', error);
+        });
+}, []);
     const onSubmit = data => {
         console.log(data)
         const formData = new FormData();
@@ -45,11 +63,13 @@ const [isBatchDropdownVisible, setIsBatchDropdownVisible] = useState(false);
                     console.log(data, imgURL)
                     const { Name, InstructorName, Price, InstactorEmail, AvailableSeats } = data;
                     const newCls = {
+name,
                         fatherName,
-                        fatherNumber:parseFloat(fatherNumber),
+                        fatherNumber: parseFloat(fatherNumber),
                         motherName,
-                        motherNumber:parseFloat( motherNumber),
+                        motherNumber: parseFloat(motherNumber),
                         WhatsAppNumber: parseFloat(whatsappNumber),
+                        instituteName,
                         Batch: selectedBatch,
                         Class: selectedClass,
                         Payment: selectedPaymentType === 'course' ? `Course Payment ${selectedInstallment}` : selectedPaymentType,
@@ -69,7 +89,7 @@ const [isBatchDropdownVisible, setIsBatchDropdownVisible] = useState(false);
                                 Swal.fire({
                                     position: 'top-end',
                                     icon: 'success',
-                                    title: 'Classes added successfully',
+                                    title: 'Student added successfully',
                                     showConfirmButton: false,
                                     timer: 1500
                                 })
@@ -94,6 +114,18 @@ const [isBatchDropdownVisible, setIsBatchDropdownVisible] = useState(false);
 
                         </div>
                         <div className="form-control w-full mb-4">
+                        <label className="label ">
+                            <span className="label-text text-xl font-semibold text-black">Name</span>
+                        </label>
+                        <input
+                            className="input input-bordered w-full text-black bg-white"
+                            value={name}
+                            onChange={(e) => setname(e.target.value)}
+                            placeholder="Name"
+                        // defaultValue={name}
+                        />
+                    </div>
+                        <div className="form-control w-full mb-4">
                             <label className="label-text text-xl font-semibold text-black">Father's Name</label>
                             <input
                                 className="input input-bordered w-full text-black bg-white"
@@ -113,18 +145,18 @@ const [isBatchDropdownVisible, setIsBatchDropdownVisible] = useState(false);
                                 placeholder="Father's Number"
                             />
                         </div> */}
-     <div className="form-control w-full mb-4">
-    <label className="label-text text-xl font-semibold text-black">Father's Number</label>
-    <input
-        type="tel" // Use type="tel" for phone numbers
-        className="input input-bordered w-full text-black bg-white"
-        value={fatherNumber}
-        onChange={(e) => setFatherNumber(e.target.value)}
-        placeholder="Father's Number"
-        pattern="^\d{11}$" // Regular expression for exactly 11 digits
-        title="Please enter a valid mobile number with exactly 11 digits"
-    />
-</div>
+                        <div className="form-control w-full mb-4">
+                            <label className="label-text text-xl font-semibold text-black">Father's Number</label>
+                            <input
+                                type="tel" // Use type="tel" for phone numbers
+                                className="input input-bordered w-full text-black bg-white"
+                                value={fatherNumber}
+                                onChange={(e) => setFatherNumber(e.target.value)}
+                                placeholder="Father's Number"
+                                pattern="^\d{11}$" // Regular expression for exactly 11 digits
+                                title="Please enter a valid mobile number with exactly 11 digits"
+                            />
+                        </div>
 
 
 
@@ -139,107 +171,101 @@ const [isBatchDropdownVisible, setIsBatchDropdownVisible] = useState(false);
                         </div>
 
                         <div className="form-control w-full mb-4">
-    <label className="label-text text-xl font-semibold text-black">Mother's Number</label>
-    <input
-        type="tel" // Use type="tel" for phone numbers
-        className="input input-bordered w-full text-black bg-white"
-        value={motherNumber}
-        onChange={(e) => setMotherNumber(e.target.value)}
-        placeholder="Mother's Number"
-        pattern="^\d{11}$" // Regular expression for exactly 11 digits
-        title="Please enter a valid mobile number with exactly 11 digits"
-    />
-</div>
-                        <div className="form-control w-full mb-4">
-                            <label className="label-text text-xl font-semibold text-black">WhatsApp Number</label>
-                           
+                            <label className="label-text text-xl font-semibold text-black">Mother's Number</label>
                             <input
-        type="tel" // Use type="tel" for phone numbers
-        className="input input-bordered w-full text-black bg-white"
-        value={whatsappNumber}
-        onChange={(e) => setWhatsappNumber(e.target.value)}
-                                placeholder="WhatsApp Number"
-        pattern="^\d{11}$" // Regular expression for exactly 11 digits
-        title="Please enter a valid mobile number with exactly 11 digits"
-    />
+                                type="tel" // Use type="tel" for phone numbers
+                                className="input input-bordered w-full text-black bg-white"
+                                value={motherNumber}
+                                onChange={(e) => setMotherNumber(e.target.value)}
+                                placeholder="Mother's Number"
+                                pattern="^\d{11}$" // Regular expression for exactly 11 digits
+                                title="Please enter a valid mobile number with exactly 11 digits"
+                            />
                         </div>
                         <div className="form-control w-full mb-4">
-    <label className="label-text text-xl font-semibold text-black">Location</label>
-    <input
-        className="input input-bordered w-full text-black bg-white"
-        value={location}
-        onChange={(e) => setLocation(e.target.value)}
-        placeholder="Location"
-    />
-</div>
+                            <label className="label-text text-xl font-semibold text-black">WhatsApp Number</label>
 
-                        {/* <div className="form-control w-full mb-4">
-                            <label className="label-text text-xl font-semibold text-black">Class</label>
-                            <select
-                                className="select select-bordered w-full bg-white text-black"
-                                value={selectedClass}
-                                onChange={(e) => setSelectedClass(e.target.value)}
-                            >
-                                <option value="">Select Class</option>
-                                {classOptions.map((option, index) => (
-                                    <option key={index} value={option}>
-                                        {option}
-                                    </option>
-                                ))}
-                            </select>
-                        </div> */}
+                            <input
+                                type="tel" // Use type="tel" for phone numbers
+                                className="input input-bordered w-full text-black bg-white"
+                                value={whatsappNumber}
+                                onChange={(e) => setWhatsappNumber(e.target.value)}
+                                placeholder="WhatsApp Number"
+                                pattern="^\d{11}$" // Regular expression for exactly 11 digits
+                                title="Please enter a valid mobile number with exactly 11 digits"
+                            />
+                        </div>
+                        <div className="form-control w-full mb-4">
+                            <label className="label-text text-xl font-semibold text-black">Location</label>
+                            <input
+                                className="input input-bordered w-full text-black bg-white"
+                                value={location}
+                                onChange={(e) => setLocation(e.target.value)}
+                                placeholder="Location"
+                            />
+                        </div>
+                        <div className="form-control w-full mb-4">
+                            <label className="label-text text-xl font-semibold text-black">Institute Name</label>
+                            <input
+                                className="input input-bordered w-full text-black bg-white"
+                                value={instituteName}
+                                onChange={(e) => setInstituteName(e.target.value)}
+                                placeholder="Institute Name"
+                            />
+                        </div>
                         <div className="form-control w-full mb-4 flex">
-    <div className="flex items-center">
-        <input
-            type="checkbox"
-            className="mr-2"
-            checked={isClassDropdownVisible}
-            onChange={() => setIsClassDropdownVisible(!isClassDropdownVisible)}
-        />
-        <label className="label-text text-xl font-semibold text-black">Class</label>
-    </div>
-    {isClassDropdownVisible && (
-        <select
-            className="select select-bordered flex-grow"
-            value={selectedClass}
-            onChange={(e) => setSelectedClass(e.target.value)}
-        >
-            <option value="">Select Class</option>
-            {classOptions.map((option, index) => (
-                <option key={index} value={option}>
-                    {option}
-                </option>
-            ))}
-        </select>
-    )}
-</div>
+                            <div className="flex items-center ">
+                                <input
+                                    type="checkbox"
+                                    className="mr-2"
+                                    checked={isClassDropdownVisible}
+                                    onChange={() => setIsClassDropdownVisible(!isClassDropdownVisible)}
+                                />
+                                <label className="label-text text-xl font-semibold text-black ">Class</label>
+                            </div>
+                            {isClassDropdownVisible && (
+                                <select
+                                    className="select select-bordered flex-grow text-black bg-white"
+                                    value={selectedClass}
+                                    onChange={(e) => setSelectedClass(e.target.value)}
+
+                                >
+                                    <option value="">Select Class</option>
+                                    {classList.map((option, index) => (
+                                        <option key={index} value={option}>
+                                            {option}
+                                        </option>
+                                    ))}
+                                </select>
+                            )}
+                        </div>
 
 
-<div className="form-control w-full mb-4 flex">
-    <div className="flex items-center">
-        <input
-            type="checkbox"
-            className="mr-2"
-            checked={isBatchDropdownVisible}
-            onChange={() => setIsBatchDropdownVisible(!isBatchDropdownVisible)}
-        />
-        <label className="label-text text-xl font-semibold text-black">Batch</label>
-    </div>
-    {isBatchDropdownVisible && (
-        <select
-            className="select select-bordered flex-grow"
-            value={selectedBatch}
-            onChange={(e) => setSelectedBatch(e.target.value)}
-        >
-            <option value="">Select Batch</option>
-            {batchOptions.map((option, index) => (
-                <option key={index} value={option}>
-                    {option}
-                </option>
-            ))}
-        </select>
-    )}
-</div>
+                        <div className="form-control w-full mb-4 flex">
+                            <div className="flex items-center">
+                                <input
+                                    type="checkbox"
+                                    className="mr-2"
+                                    checked={isBatchDropdownVisible}
+                                    onChange={() => setIsBatchDropdownVisible(!isBatchDropdownVisible)}
+                                />
+                                <label className="label-text text-xl font-semibold text-black">Batch</label>
+                            </div>
+                            {isBatchDropdownVisible && (
+                                <select
+                                    className="select select-bordered flex-grow text-black bg-white"
+                                    value={selectedBatch}
+                                    onChange={(e) => setSelectedBatch(e.target.value)}
+                                >
+                                    <option value="">Select Batch</option>
+                                    {batchList.map((option, index) => (
+                                        <option key={index} value={option}>
+                                            {option}
+                                        </option>
+                                    ))}
+                                </select>
+                            )}
+                        </div>
 
 
 
