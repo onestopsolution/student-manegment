@@ -7,7 +7,7 @@ const BatchCls = () => {
     
     const onSubmit = data => {
    
-      fetch("http://localhost:5000/BatchClass", {
+      fetch("https://intern-first-server-farjanaakterlaila.vercel.app/BatchClass", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

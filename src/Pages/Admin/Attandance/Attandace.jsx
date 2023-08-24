@@ -10,7 +10,7 @@ const Attandace = () => {
 
 useEffect(() => {
 
-          fetch("http://localhost:5000/student")
+          fetch("https://intern-first-server-farjanaakterlaila.vercel.app/student")
               .then(response => response.json())
               .then(data => {
                 setStudentList(data);
@@ -29,7 +29,7 @@ useEffect(() => {
 
     const studentId = updatedStudentList[index]._id;
     console.log(studentId,newAttendance);
-    fetch(`http://localhost:5000/student/${studentId}`, {
+    fetch(`https://intern-first-server-farjanaakterlaila.vercel.app/student/${studentId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

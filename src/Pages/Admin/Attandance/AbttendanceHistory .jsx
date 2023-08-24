@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const AttendanceHistory  = ({ student }) => {
   const [cla,setCl] = useState([]);
   useEffect(()=>{
-      fetch('http://localhost:5000/attendance')
+      fetch('https://intern-first-server-farjanaakterlaila.vercel.app/attendance')
       .then(res => res.json())
       .then(data => setCl(data))
   },[])

@@ -34,7 +34,7 @@ const StudentFrom = () => {
 
     useEffect(() => {
         // Fetch class and batch data from your API
-        fetch("http://localhost:5000/BatchClass")
+        fetch("https://intern-first-server-farjanaakterlaila.vercel.app/BatchClass")
 
             .then(response => response.json())
             .then(data => {
