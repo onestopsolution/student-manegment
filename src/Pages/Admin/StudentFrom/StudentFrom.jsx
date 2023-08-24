@@ -20,6 +20,8 @@ const StudentFrom = () => {
     const [fatherNumber, setFatherNumber] = useState('');
     const [motherName, setMotherName] = useState('');
     const [motherNumber, setMotherNumber] = useState('');
+    const [paymentAmount, setPaymentAmount] = useState('');
+
 
     const [location, setLocation] = useState('');
     const [instituteName, setInstituteName] = useState('');
@@ -28,13 +30,13 @@ const StudentFrom = () => {
     const paymentOptions = ['Monthly', 'Course Payment 1', 'Course Payment 2', 'Course Payment 3'];
 
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_key}`
-  
+
 
     useEffect(() => {
         // Fetch class and batch data from your API
         fetch("http://localhost:5000/BatchClass")
-      
-        .then(response => response.json())
+
+            .then(response => response.json())
             .then(data => {
                 const uniqueClasses = [...new Set(data.map(item => item.Class))]
                     .filter(className => className !== ''); // Exclude empty classes
@@ -42,10 +44,10 @@ const StudentFrom = () => {
                 setClassList(uniqueClasses);
                 setBatchList(uniqueBatches);
             })
-        .catch(error => {
-            console.error('Error fetching classes and batches:', error);
-        });
-}, []);
+            .catch(error => {
+                console.error('Error fetching classes and batches:', error);
+            });
+    }, []);
     const onSubmit = data => {
         console.log(data)
         const formData = new FormData();
@@ -63,7 +65,7 @@ const StudentFrom = () => {
                     console.log(data, imgURL)
                     const { Name, InstructorName, Price, InstactorEmail, AvailableSeats } = data;
                     const newCls = {
-name,
+                        name,
                         fatherName,
                         fatherNumber: parseFloat(fatherNumber),
                         motherName,
@@ -73,6 +75,7 @@ name,
                         Batch: selectedBatch,
                         Class: selectedClass,
                         Payment: selectedPaymentType === 'course' ? `Course Payment ${selectedInstallment}` : selectedPaymentType,
+                        Amount: parseFloat(paymentAmount),
                         Image: imgURL
                     }
                     console.log(newCls)
@@ -114,17 +117,17 @@ name,
 
                         </div>
                         <div className="form-control w-full mb-4">
-                        <label className="label ">
-                            <span className="label-text text-xl font-semibold text-black">Name</span>
-                        </label>
-                        <input
-                            className="input input-bordered w-full text-black bg-white"
-                            value={name}
-                            onChange={(e) => setname(e.target.value)}
-                            placeholder="Name"
-                        // defaultValue={name}
-                        />
-                    </div>
+                            <label className="label ">
+                                <span className="label-text text-xl font-semibold text-black">Name</span>
+                            </label>
+                            <input
+                                className="input input-bordered w-full text-black bg-white"
+                                value={name}
+                                onChange={(e) => setname(e.target.value)}
+                                placeholder="Name"
+                            // defaultValue={name}
+                            />
+                        </div>
                         <div className="form-control w-full mb-4">
                             <label className="label-text text-xl font-semibold text-black">Father's Name</label>
                             <input
@@ -302,6 +305,16 @@ name,
                             </div>
                         )}
 
+<div className="form-control w-full mb-4">
+    <label className="label-text text-xl font-semibold text-black">Amount</label>
+    <input
+        type="number"
+        className="input input-bordered w-full text-black bg-white"
+        value={paymentAmount}
+        onChange={(e) => setPaymentAmount(e.target.value)}
+        placeholder="Payment Amount"
+    />
+</div>
 
 
                         <input className="btn btn-primary btn-lg mt-5" type="submit" value="Add Student" />

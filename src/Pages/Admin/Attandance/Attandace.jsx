@@ -1,103 +1,151 @@
 import React, { useEffect, useState } from 'react';
-
+import Swal from 'sweetalert2';
+import { SlCalender } from 'react-icons/sl';
+import { Link } from 'react-router-dom';
+import { FaPlus } from 'react-icons/fa';
 const Attandace = () => {
-  const [attendanceData, setAttendanceData] = useState([]);
-  const [studentNames, setStudentNames] = useState([]);
-  const [batchClassInfo, setBatchClassInfo] = useState([]);
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  
 
-  const fetchStudentNames = async () => {
-    const response = await fetch('http://localhost:5000/student');
-    const data = await response.json();
-    const names = data.map(item => item.name);
-    setStudentNames(names);
-  };
+    const [studentList, setStudentList] = useState([]);
 
-  const fetchBatchClassInfo = async () => {
-    const response = await fetch('/api/batch-class-info');
-    const data = await response.json();
-    setBatchClassInfo(data);
-  };
+useEffect(() => {
 
-  const handleAttendanceChange = (index, newValue) => {
-    const updatedData = [...attendanceData];
-    updatedData[index] = parseInt(newValue); // Convert input to a number (1 or 0)
-    setAttendanceData(updatedData);
-  };
-
-  const saveAttendanceData = async () => {
-    const response = await fetch('/api/save-attendance', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ attendanceData, selectedDate })
-    });
-
-    const data = await response.json();
-    if (!response.ok) {
-      console.error('Error saving attendance data:', data);
-    } else {
-      console.log('Attendance data saved:', data);
-    }
-  };
-
-  useEffect(() => {
-    fetchStudentNames();
-    fetchBatchClassInfo();
+          fetch("http://localhost:5000/student")
+              .then(response => response.json())
+              .then(data => {
+                setStudentList(data);
+              })
+              .catch(error => {
+                  console.error('Error fetching student data:', error);
+              });
+      
   }, []);
+  const handleAttendanceChange = (index, newAttendance, newDate) => {
+    const updatedStudentList = [...studentList];
+ 
+    updatedStudentList[index].attendance = newAttendance;
+    updatedStudentList[index].lastAttendanceDate = newDate;
+    setStudentList(updatedStudentList);
 
-  useEffect(() => {
-    saveAttendanceData();
-  }, [attendanceData, selectedDate]);
-
+    const studentId = updatedStudentList[index]._id;
+    console.log(studentId,newAttendance);
+    fetch(`http://localhost:5000/student/${studentId}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ attendance: newAttendance,  date: newDate}),
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Handle success
+        Swal.fire({
+          icon: 'success',
+          title: 'Attendance Updated',
+          text: 'Student attendance has been successfully updated!',
+        });
+      })
+      .catch(error => {
+        console.error('Error updating student attendance:', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'An error occurred while updating attendance.',
+        });
+      });
+  };
+  
+  const toggleShowAllHistory = (index) => {
+    const updatedStudentList = [...studentList];
+    updatedStudentList[index].showAllHistory = !updatedStudentList[index].showAllHistory;
+    setStudentList(updatedStudentList);
+  };
     return (
      
 <div className="w-full">
+
       <div className="uppercase font-semibold h-[60px] flex justify-evenly items-center">
         <h3 className="text-3xl p-8 mb-40">Attandance sheet</h3>
       </div>
       <div className="overflow-x-auto mx-40">
+      <Link to='/adminDashboard/addatt'><button className='btn btn-primary flex justify-items-end ml-auto mb-8'><FaPlus/>Add Attandance</button></Link>
         <table className="table w-full text-xl">
           <thead className="text-xl text-center text-black border">
             <tr className='border'>
-              <th className='border'>#</th>
-              <th className='border'>Name</th>
-              <th className='border'>Date</th>
-              <th className='border'>Class</th>
-              <th className='border'>Batch</th>
-              <th className='border'>Present/Absent</th>
-              <th className='border'>Total Present</th>
+                <td className='border-2 border-black'>Id</td>
+            <th className='border-2 border-black'> Student Name</th>
+            
+            <th className='border-2 border-black'>Class</th>
+            <th className='border-2 border-black'>Batch</th>
+                        <th className='border-2 border-black'>Attendance & Date</th>
+                      
             </tr>
           </thead>
-          <tbody className="text-center">
-            {attendanceData.map((status, index) => (
+          {/* <tbody>
+                    {studentList.map((student, index) => (
+                        <tr key={index}>
+                            <td className='border-2 border-black'>{student._id}</td>
+                            <td className='border-2 border-black'>{student.name}</td>
+                            <td className='border-2 border-black'>{student.Class}</td>
+                            <td className='border-2 border-black'>{student.Batch}</td>
+                            <td className='border-2 border-black'>{student.attendance}
+              <input className='bg-white text-black border-0'
+                type="number"
+                min="0"
+                max="1"
+                value={student.attendance}
+                onChange={(e) => handleAttendanceChange(index, parseInt(e.target.value))}
+              />
+            </td>
+            <td className='border-2 border-black'>
+              <input
+                className='bg-white text-black border-0'
+                type="date"
+               
+                value={student.lastAttendanceDate}
+                onChange={(e) => handleAttendanceChange(index, student.attendance, e.target.value)}
+             
+              />
+            {student.lastAttendanceDate}
+            </td>
+                        </tr>
+                    ))}
+                </tbody> */}
+                 <tbody>
+            {studentList.map((student, index) => (
               <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{studentNames[index]}</td>
-                <td>{selectedDate.toDateString()}</td>
-                <td>{batchClassInfo[index]?.Class}</td>
-                <td>{batchClassInfo[index]?.Batch}</td>
-                <td>
-                  <input
-                    type="number"
-                    value={status}
-                    onChange={(e) => handleAttendanceChange(index, e.target.value)}
-                  />
+                <td className='border-2 border-black'>{student._id}</td>
+                <td className='border-2 border-black'>{student.name}</td>
+                <td className='border-2 border-black'>{student.Class}</td>
+                <td className='border-2 border-black'>{student.Batch}</td>
+                <td className='border-2 border-black'>
+                  <div>Date: {student.lastAttendanceDate}</div>
+                  <div>Attendance: {student.attendance}</div>
                 </td>
-                <td>Total Present</td>
+                <td className='border-2 border-black'>
+                  {student.showAllHistory ? (
+                    <td>
+                      {student.attendance_history.map((attendanceEntry, entryIndex) => (
+                        <td key={entryIndex}>
+                          <tr>Date: {attendanceEntry.date}</tr>
+                          <div>Attendance: {attendanceEntry.attendance}</div>
+                        </td>
+                      ))}
+                      <button onClick={() => toggleShowAllHistory(index)}>
+                        Hide History
+                      </button>
+                    </td>
+                  ) : (
+                    <button onClick={() => toggleShowAllHistory(index)}>
+                      Show All History
+                    </button>
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>
-          {/* <tbody className="text-center">
-            {users.map((item, index) => (
-              <tr key={item._id}>
-                <td>{index + 1}</td>
-                <td>{item.name}</td>
-                <td>{item.email}</td>
-                <td>
-                
-          </tbody> */}
+          
+        
         </table>
       </div>
     </div>

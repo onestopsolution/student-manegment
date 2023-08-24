@@ -95,6 +95,10 @@ const router = createBrowserRouter([
         element: <Attandace></Attandace>
       },
       {
+        path: 'addatt',
+        element: <Addatt></Addatt>
+      },
+      {
         path: 'batch',
         element:<BatchCls></BatchCls>
       },
@@ -135,6 +139,7 @@ import ClassRoutine from './Pages/UserHome/ClassRoutine/ClassRoutine';
 import MyProfile from './Pages/UserHome/MyProfile/MyProfile';
 import Attandace from './Pages/Admin/Attandance/Attandace';
 import BatchCls from './Pages/Admin/BatchCls/BatchCls';
+import Addatt from './Pages/Admin/Attandance/Addatt';
 
 const queryClient = new QueryClient()
 ReactDOM.createRoot(document.getElementById('root')).render(
