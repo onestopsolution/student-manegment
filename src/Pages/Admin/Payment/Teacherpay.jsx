@@ -43,7 +43,7 @@ const Teacherpay = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* row 1 */}
+                     
                         {
                             toys.map((item, index) => (
                                 <tr key={item._id}>
