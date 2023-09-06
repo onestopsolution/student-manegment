@@ -9,7 +9,7 @@ const PayDetails = () => {
     const {_id,name,totalamount,totalClass,payamount,totalduemonths,paydate,dueamount} = Jobdetail;
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-    fetch(`http://localhost:5000/adminDashboard/pay/${_id}`, {
+    fetch(`https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/pay/${_id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

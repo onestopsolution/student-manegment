@@ -61,6 +61,10 @@ const router = createBrowserRouter([
         element: <AdminHome></AdminHome>
       },
       {
+        path: 'addexpress',
+        element: <AddExpress></AddExpress>
+      },
+      {
         path: 'manageCourses',
         element: <ManageCourse></ManageCourse>
          
@@ -109,7 +113,7 @@ const router = createBrowserRouter([
       {
         path:'pay/:id',
         element:<PayDetails></PayDetails>,
-        loader: ({params}) =>fetch(`http://localhost:5000/adminDashboard/pay/${params.id}`)
+        loader: ({params}) =>fetch(`https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/pay/${params.id}`)
    },
       {
         path: 'update/:id',
@@ -151,6 +155,7 @@ import BatchCls from './Pages/Admin/BatchCls/BatchCls';
 import Addatt from './Pages/Admin/Attandance/Addatt';
 import Teacherpay from './Pages/Admin/Payment/Teacherpay';
 import PayDetails from './Pages/Admin/Payment/PayDetails';
+import AddExpress from './Pages/Admin/ExpenseGraph/AddExpress';
 
 const queryClient = new QueryClient()
 ReactDOM.createRoot(document.getElementById('root')).render(

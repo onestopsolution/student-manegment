@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 
@@ -62,7 +63,7 @@ const ExpenseGraph = () => {
             event_Entertainment: 2400
         },
     ];
-
+    const navigate = useNavigate();
     return (
         <>
             <h1 className='text-center text-3xl font-semibold bg-indigo-500 text-white px-5 py-3 rounded-full border-x-4 border-black border-b-4 mb-10'>Expense Graph</h1>
@@ -89,7 +90,7 @@ const ExpenseGraph = () => {
                     <Area type="monotone" dataKey="event_Entertainment" stackId="1" stroke="#E03B8B" fill="#E03B8B" />
                 </AreaChart>
             </ResponsiveContainer>
-            <button className='btn btn-warning mt-10 mb-5'>Add Expense</button>
+            <button className='btn btn-warning mt-10 mb-5' onClick={() => navigate('/adminDashboard/addexpress')}>Add Expense</button>
         </>
     );
 };

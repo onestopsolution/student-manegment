@@ -5,7 +5,7 @@ import { AuthContext } from '../../../Providers/AuthProvider';
 const Teacherpay = () => {
     const { user, loading } = useContext(AuthContext);
     const [toys, setToys] = useState([]);
-    const url = 'http://localhost:5000/user';
+    const url = 'https://intern-first-server-farjanaakterlaila.vercel.app/user';
 
     // Function to format the date to display only the date part (YYYY-MM-DD)
     function formatDate(dateString) {
