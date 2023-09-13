@@ -1,36 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const AddExpress = () => {
+const PayDetalisStu = () => {
+    const Jobdetail = useLoaderData();
+    console.log(Jobdetail._id)
+    const { _id, name,Batch,Payment,discount, payamount,dueamount, totalduemonths,paydate } = Jobdetail;
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const [paymentSum, setPaymentSum] = useState();
-
-    useEffect(() => {
-        // Fetch the payment sum from the API endpoint
-        fetch('https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/instructors/paymentSum')
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data.paymentSum);
-                setPaymentSum(data.paymentSum);
-            })
-            .catch((error) => {
-                console.error('Error fetching payment sum:', error);
-            });
-    }, []);
     const onSubmit = data => {
-        fetch('https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/express', {
-            method: "POST",
+        fetch(`http://localhost:5000/adminDashboard/stupay/${_id}`, {
+            method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
         })
             .then((res) => res.json())
             .then((result) => {
                 console.log(result);
-                if (result.insertedId) {
+                if (result.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Insert Successfully',
+                        text: 'Updated Successfully',
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
@@ -41,7 +31,7 @@ const AddExpress = () => {
     return (
         <div className='w-11/12 mx-5 mt-5'>
             <div className="uppercase font-bold bg-gradient-to-r from-indigo-200 to-purple-400 mb-10 py-3 rounded-full border-x-4 border-black border-b-2">
-                <h3 className="text-3xl text-center">Add Express</h3>
+                <h3 className="text-3xl text-center">Update Payment</h3>
             </div>
             <div className="flex justify-center items-center">
                 <div className="w-4/5 text-black py-5 bg-gradient-to-r from-indigo-200 to-purple-200 bg-opacity-40 rounded-2xl px-10">
@@ -49,39 +39,25 @@ const AddExpress = () => {
 
                         <div className="form-control w-full mb-4">
                             <label className="label ">
-                                <span className="label-text text-xl font-semibold text-black">Month</span>
+                                <span className="label-text text-xl font-semibold text-black">Name</span>
                             </label>
                             <input
                                 className="input input-bordered w-full text-black bg-white"
                                 {...register('name')}
-                                placeholder="mm/dd/yyyy"
-type="data"
 
-                            />
-                        </div>
-                        <div className="form-control w-full mb-4">
-                            <label className="label ">
-                                <span className="label-text text-xl font-semibold text-black">Total Teacher Payment</span>
-                            </label>
-                            <input
-                                className="input input-bordered w-full text-black bg-white"
-                                {...register('teacherPayment')}
-                                placeholder="10000"
-                                type="number"
-                                defaultValue={paymentSum}
+                               value={name}
                             />
                         </div>
 
                         <div className="form-control w-full mb-4">
                             <label className="label">
-                                <span className="label-text text-xl font-semibold text-black">Marketing</span>
+                                <span className="label-text text-xl font-semibold text-black">Batch</span>
                             </label>
                             <input
                                 className="input input-bordered w-full text-black bg-white"
-                                {...register('marketing')}
-                                placeholder="1"
-                                type="number"
-
+                                {...register('Batch')}
+                               
+                               value={Batch}
                             />
 
                         </div>
@@ -89,62 +65,59 @@ type="data"
 
                         <div className="form-control w-full mb-4">
                             <label className="label ">
-                                <span className="label-text text-xl font-semibold text-black">Stuff and Director salary</span>
+                                <span className="label-text text-xl font-semibold text-black">Payment Method</span>
                             </label>
                             <input
                                 className="input input-bordered w-full text-black bg-white"
-                                {...register('stuff_salary')}
-                                placeholder="10000"
-                                type="number"
-
+                                {...register('Payment')}
+                                
+                                value={Payment}
                             />
                         </div>
                         <div className="form-control w-full mb-4">
-                            <label className="label-text text-xl font-semibold text-black">Stationary</label>
+                            <label className="label-text text-xl font-semibold text-black">Discount</label>
                             <input
                                 className="input input-bordered w-fulltext-black bg-white"
-                                {...register('stationary')}
-                                placeholder="10000"
-                                type="number"
-
+                                {...register('discount')}
+                                placeholder="10%"
+                                type="text"
+                                defaultValue={discount}
                             /></div>
                         <div className="form-control w-full mb-4">
-                            <label className="label-text text-xl font-semibold text-black">Utility</label>
+                            <label className="label-text text-xl font-semibold text-black">Pay Amount</label>
                             <input
                                 className="input input-bordered w-fulltext-black bg-white"
-                                {...register('utility')}
+                                {...register('payamount', { required: true })}
                                 placeholder="10000"
                                 type="number"
-
+                                defaultValue={payamount}
                             /></div>
                         <div className="form-control w-full mb-4">
-                            <label className="label-text text-xl font-semibold text-black">Event Entertainment</label>
+                            <label className="label-text text-xl font-semibold text-black">Due Amount</label>
                             <input
                                 className="input input-bordered w-fulltext-black bg-white"
-                                {...register('event_Entertainment')}
+                                {...register('dueamount', { required: true })}
                                 placeholder="10000"
                                 type="number"
-
+                                defaultValue={dueamount}
                             /></div>
                         <div className="form-control w-full mb-4">
-                            <label className="label-text text-xl font-semibold text-black">
-                                Exam Invigilator
-                            </label>
+                            <label className="label-text text-xl font-semibold text-black">Total Due Months</label>
                             <input
                                 className="input input-bordered w-fulltext-black bg-white"
-                                {...register('examInvigilator')}
-                                placeholder="10000"
+                                {...register('totalduemonths', { required: true })}
+                                placeholder="1"
                                 type="number"
-
+                                defaultValue={totalduemonths}
                             /></div>
                         <div className="form-control w-full mb-4">
-                            <label className="label-text text-xl font-semibold text-black">Exam copy Checker</label>
+                            <label className="label-text text-xl font-semibold text-black">Last Pay Date</label>
                             <input
                                 className="input input-bordered w-fulltext-black bg-white"
-                                {...register('copyChecker')}
-                                placeholder="1000"
-                                type="number"
-
+                                {...register('paydate', { required: true })}
+                               // placeholder="mm/dd/yyyy"
+                               // type="date"
+                                defaultValue={paydate}
                             /></div>
 
 
@@ -157,4 +130,4 @@ type="data"
     );
 };
 
-export default AddExpress;
+export default PayDetalisStu;
