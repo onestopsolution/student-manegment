@@ -83,6 +83,10 @@ const router = createBrowserRouter([
         element: <PendingDue></PendingDue>
       },
       {
+        path: 'resourcesupload',
+        element: <Resouresc></Resouresc>
+      },
+      {
         path: 'addcard',
         element: <Addcourses></Addcourses>
       },
@@ -167,6 +171,7 @@ import PayDetails from './Pages/Admin/Payment/PayDetails';
 import AddExpress from './Pages/Admin/ExpenseGraph/AddExpress';
 import PaymentStu from './Pages/Admin/StudentFrom/PaymentStu';
 import PayDetalisStu from './Pages/Admin/StudentFrom/PayDetalisStu';
+import Resouresc from './Pages/Admin/Resources/Resouresc';
 
 const queryClient = new QueryClient()
 ReactDOM.createRoot(document.getElementById('root')).render(
