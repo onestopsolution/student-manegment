@@ -113,7 +113,7 @@ const StudentFrom = () => {
                         <div className='form-control w-full mb-4 '>
                             {/* {errors.exampleRequired && <span>This field is required</span>} */}
                             <label className="label"><span className="label-text text-xl font-semibold text-black">Image</span></label>
-                            <input type="file"   {...register("Image", { required: true })} className="file-input file-input-bordered w-full text-black bg-white" />
+                            <input type="file"   {...register("Image", { required: true })} className="file-input file-input-bordered w-full " />
 
                         </div>
                         <div className="form-control w-full mb-4">
@@ -121,7 +121,7 @@ const StudentFrom = () => {
                                 <span className="label-text text-xl font-semibold text-black">Name</span>
                             </label>
                             <input
-                                className="input input-bordered w-full text-black bg-white"
+                                className="input input-bordered w-full "
                                 value={name}
                                 onChange={(e) => setname(e.target.value)}
                                 placeholder="Name"
@@ -131,7 +131,7 @@ const StudentFrom = () => {
                         <div className="form-control w-full mb-4">
                             <label className="label-text text-xl font-semibold text-black">Father's Name</label>
                             <input
-                                className="input input-bordered w-full text-black bg-white"
+                                className="input input-bordered w-full "
                                 value={fatherName}
                                 onChange={(e) => setFatherName(e.target.value)}
                                 placeholder="Father's Name"
@@ -142,7 +142,7 @@ const StudentFrom = () => {
                             <label className="label-text text-xl font-semibold text-black">Father's Number</label>
                             <input
                             type='number'
-                                className="input input-bordered w-full text-black bg-white"
+                                className="input input-bordered w-full "
                                 value={fatherNumber}
                                 onChange={(e) => setFatherNumber(e.target.value)}
                                 placeholder="Father's Number"
@@ -152,7 +152,7 @@ const StudentFrom = () => {
                             <label className="label-text text-xl font-semibold text-black">Father's Number</label>
                             <input
                                 type="tel" // Use type="tel" for phone numbers
-                                className="input input-bordered w-full text-black bg-white"
+                                className="input input-bordered w-full "
                                 value={fatherNumber}
                                 onChange={(e) => setFatherNumber(e.target.value)}
                                 placeholder="Father's Number"
@@ -166,7 +166,7 @@ const StudentFrom = () => {
                         <div className="form-control w-full mb-4">
                             <label className="label-text text-xl font-semibold text-black">Mother's Name</label>
                             <input
-                                className="input input-bordered w-full text-black bg-white"
+                                className="input input-bordered w-full "
                                 value={motherName}
                                 onChange={(e) => setMotherName(e.target.value)}
                                 placeholder="Mother's Name"
@@ -177,7 +177,7 @@ const StudentFrom = () => {
                             <label className="label-text text-xl font-semibold text-black">Mother's Number</label>
                             <input
                                 type="tel" // Use type="tel" for phone numbers
-                                className="input input-bordered w-full text-black bg-white"
+                                className="input input-bordered w-full "
                                 value={motherNumber}
                                 onChange={(e) => setMotherNumber(e.target.value)}
                                 placeholder="Mother's Number"
@@ -190,7 +190,7 @@ const StudentFrom = () => {
 
                             <input
                                 type="tel" // Use type="tel" for phone numbers
-                                className="input input-bordered w-full text-black bg-white"
+                                className="input input-bordered w-full "
                                 value={whatsappNumber}
                                 onChange={(e) => setWhatsappNumber(e.target.value)}
                                 placeholder="WhatsApp Number"
@@ -201,7 +201,7 @@ const StudentFrom = () => {
                         <div className="form-control w-full mb-4">
                             <label className="label-text text-xl font-semibold text-black">Location</label>
                             <input
-                                className="input input-bordered w-full text-black bg-white"
+                                className="input input-bordered w-full "
                                 value={location}
                                 onChange={(e) => setLocation(e.target.value)}
                                 placeholder="Location"
@@ -210,7 +210,7 @@ const StudentFrom = () => {
                         <div className="form-control w-full mb-4">
                             <label className="label-text text-xl font-semibold text-black">Institute Name</label>
                             <input
-                                className="input input-bordered w-full text-black bg-white"
+                                className="input input-bordered w-full "
                                 value={instituteName}
                                 onChange={(e) => setInstituteName(e.target.value)}
                                 placeholder="Institute Name"
@@ -228,7 +228,7 @@ const StudentFrom = () => {
                             </div>
                             {isClassDropdownVisible && (
                                 <select
-                                    className="select select-bordered flex-grow text-black bg-white"
+                                    className="select select-bordered flex-grow "
                                     value={selectedClass}
                                     onChange={(e) => setSelectedClass(e.target.value)}
 
@@ -256,7 +256,7 @@ const StudentFrom = () => {
                             </div>
                             {isBatchDropdownVisible && (
                                 <select
-                                    className="select select-bordered flex-grow text-black bg-white"
+                                    className="select select-bordered flex-grow "
                                     value={selectedBatch}
                                     onChange={(e) => setSelectedBatch(e.target.value)}
                                 >
@@ -305,16 +305,16 @@ const StudentFrom = () => {
                             </div>
                         )}
 
-<div className="form-control w-full mb-4">
+{/* <div className="form-control w-full mb-4">
     <label className="label-text text-xl font-semibold text-black">Amount</label>
     <input
         type="number"
-        className="input input-bordered w-full text-black bg-white"
+        className="input input-bordered w-full "
         value={paymentAmount}
         onChange={(e) => setPaymentAmount(e.target.value)}
         placeholder="Payment Amount"
     />
-</div>
+</div> */}
 
 
                         <input className="btn btn-primary btn-lg mt-5" type="submit" value="Add Student" />

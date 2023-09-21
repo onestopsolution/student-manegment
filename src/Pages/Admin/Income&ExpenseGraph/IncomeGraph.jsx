@@ -131,7 +131,7 @@ export default IncomeGraph;
 
 //     useEffect(() => {
 //         // Fetch expense data from the backend
-//         fetch('http://localhost:5000/adminDashboard/express')
+//         fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/express')
 //             .then((response) => response.json())
 //             .then((data) => {
 //                 setExpenseData(data);
@@ -141,7 +141,7 @@ export default IncomeGraph;
 //             });
 
 //         // Fetch student data from the backend
-//         fetch('http://localhost:5000/student')
+//         fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/student')
 //             .then((response) => response.json())
 //             .then((data) => {
 //                 setStudentData(data);

@@ -15,7 +15,7 @@ const FileUpload = ({ files, setFiles, removeFile }) => {
     const formData = new FormData();
     formData.append("newFile", file, file.name);
 
-    const response = await fetch('http://localhost:5000/upload', {
+    const response = await fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/upload', {
       method: 'POST',
       body: formData,
     });
@@ -48,7 +48,7 @@ const FileUpload = ({ files, setFiles, removeFile }) => {
 
   // Function to fetch the updated file list
   const fetchFileList = async () => {
-    const response = await fetch('http://localhost:5000/files');
+    const response = await fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/files');
     if (response.ok) {
       const data = await response.json();
       setFiles(data); // Update the state with the new file list

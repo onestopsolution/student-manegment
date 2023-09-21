@@ -115,6 +115,14 @@ const router = createBrowserRouter([
         element:<BatchCls></BatchCls>
       },
       {
+        path: 'homework',
+        element:<Homework/>
+      },
+      {
+        path: 'homeworklist',
+        element:<Homeworklist/>
+      },
+      {
         path: 'teacherpay',
         element:<Teacherpay></Teacherpay>
       },
@@ -126,7 +134,7 @@ const router = createBrowserRouter([
       {
         path:'stupay/:id',
         element:<PayDetalisStu></PayDetalisStu>,
-        loader: ({params}) =>fetch(`http://localhost:5000/adminDashboard/stupay/${params.id}`)
+        loader: ({params}) =>fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/stupay/${params.id}`)
    },
       {
         path: 'update/:id',
@@ -172,6 +180,8 @@ import AddExpress from './Pages/Admin/ExpenseGraph/AddExpress';
 import PaymentStu from './Pages/Admin/StudentFrom/PaymentStu';
 import PayDetalisStu from './Pages/Admin/StudentFrom/PayDetalisStu';
 import Resouresc from './Pages/Admin/Resources/Resouresc';
+import Homework from './Pages/Admin/Home-Work/Homework';
+import Homeworklist from './Pages/Admin/Home-Work/Homeworklist';
 
 const queryClient = new QueryClient()
 ReactDOM.createRoot(document.getElementById('root')).render(
