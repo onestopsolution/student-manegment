@@ -166,7 +166,7 @@ const Homework = () => {
                                 <span className="label-text text-xl font-semibold text-black">Start Date</span>
                             </label>
                             <input
-                                className="input input-bordered w-full bg-white text-black"
+                                className="input input-bordered w-full "
                                 type="date"
 
                                 {...register('startdate')}
@@ -179,7 +179,7 @@ const Homework = () => {
                                 <span className="label-text text-xl font-semibold text-black">Last date</span>
                             </label>
                             <input
-                                className="input input-bordered w-full bg-white text-black"
+                                className="input input-bordered w-full "
                                 {...register('lastdate')}
 
                                 type="date"
@@ -191,7 +191,7 @@ const Homework = () => {
                                 <span className="label-text text-xl font-semibold text-black">Instuction</span>
                             </label>
                             <input
-                                className="input input-bordered w-full bg-white text-black"
+                                className="input input-bordered w-full "
                                 {...register('instruction')}
 
                                 type="text"
