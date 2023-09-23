@@ -17,6 +17,7 @@ const AdminLayout = () => {
         <li><Link to='/adminDashboard/noticeSend'><AiTwotoneNotification />Send Notice</Link></li>
         <li><Link to='/adminDashboard/resourcesupload'><AiTwotoneNotification />Resources Upload</Link></li>
         <li><Link to='/adminDashboard/homeworklist'><AiTwotoneNotification />Homework Upload</Link></li>
+        <li><Link to='/adminDashboard/brithday'><AiTwotoneNotification />Birthday Remainder</Link></li>
         <li><Link to='/adminDashboard/pendingDue'><TbCalendarDue />Pending Due</Link></li>
         <li><Link to='/adminDashboard/teacherpay'><TbCalendarDue />Teacher Pay</Link></li>
         <li><Link to='/'><FaHospitalUser />User Home</Link></li>

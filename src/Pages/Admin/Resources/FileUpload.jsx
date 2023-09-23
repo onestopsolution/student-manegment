@@ -39,7 +39,7 @@ const FileUpload = ({ files, setFiles, removeFile }) => {
     formData.append('className', className);
     formData.append('batchName', batchName);
 
-    fetch('http://localhost:5000/upload', {
+    fetch('https://intern-first-server-farjanaakterlaila.vercel.app/upload', {
       method: 'POST',
       body: formData,
     })
@@ -78,7 +78,7 @@ const FileUpload = ({ files, setFiles, removeFile }) => {
   };
   useEffect(() => {
     // Fetch class and batch data from your API
-    fetch("http://localhost:5000/BatchClass")
+    fetch("https://intern-first-server-farjanaakterlaila.vercel.app/BatchClass")
 
         .then(response => response.json())
         .then(data => {

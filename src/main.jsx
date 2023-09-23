@@ -127,6 +127,10 @@ const router = createBrowserRouter([
         element:<Teacherpay></Teacherpay>
       },
       {
+        path: 'brithday',
+        element:<Brithdayremainder></Brithdayremainder>
+      },
+      {
         path:'pay/:id',
         element:<PayDetails></PayDetails>,
         loader: ({params}) =>fetch(`https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/pay/${params.id}`)
@@ -182,6 +186,7 @@ import PayDetalisStu from './Pages/Admin/StudentFrom/PayDetalisStu';
 import Resouresc from './Pages/Admin/Resources/Resouresc';
 import Homework from './Pages/Admin/Home-Work/Homework';
 import Homeworklist from './Pages/Admin/Home-Work/Homeworklist';
+import Brithdayremainder from './Brithday/Brithdayremainder';
 
 const queryClient = new QueryClient()
 ReactDOM.createRoot(document.getElementById('root')).render(

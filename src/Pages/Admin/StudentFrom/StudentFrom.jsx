@@ -16,6 +16,7 @@ const StudentFrom = () => {
     const [isBatchDropdownVisible, setIsBatchDropdownVisible] = useState(false);
 
     const [name, setname] = useState('');
+    const [brithday, setbrithday] = useState('');
     const [fatherName, setFatherName] = useState('');
     const [fatherNumber, setFatherNumber] = useState('');
     const [motherName, setMotherName] = useState('');
@@ -66,6 +67,7 @@ const StudentFrom = () => {
                     const { Name, InstructorName, Price, InstactorEmail, AvailableSeats } = data;
                     const newCls = {
                         name,
+                        brithday,
                         fatherName,
                         fatherNumber: parseFloat(fatherNumber),
                         motherName,
@@ -125,6 +127,18 @@ const StudentFrom = () => {
                                 value={name}
                                 onChange={(e) => setname(e.target.value)}
                                 placeholder="Name"
+                            // defaultValue={name}
+                            />
+                        </div>
+                        <div className="form-control w-full mb-4">
+                            <label className="label ">
+                                <span className="label-text text-xl font-semibold text-black">Brithday</span>
+                            </label>
+                            <input
+                                className="input input-bordered w-full "
+                                value={brithday}
+                                onChange={(e) => setbrithday(e.target.value)}
+                                type="date"
                             // defaultValue={name}
                             />
                         </div>
