@@ -8,7 +8,7 @@ const Resources = () => {
 
     useEffect(() => {
         // Fetch user data from the provided URL
-        fetch(`http://localhost:5000/post-toy?email=${user?.email}`)
+        fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/post-toy?email=${user?.email}`)
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
@@ -24,7 +24,7 @@ const Resources = () => {
 
     useEffect(() => {
         // Fetch resources data from the provided URL
-        fetch('http://localhost:5000/files')
+        fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/files')
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
@@ -45,7 +45,7 @@ const Resources = () => {
             <ul>
                 {resources.map((resource) => (
                     <li key={resource._id}>
-                        <a href={`http://localhost:5000/download/${resource.filename}`} download>
+                        <a href={` https://intern-first-server-farjanaakterlaila.vercel.app/download/${resource.filename}`} download>
                             {resource.filename} (Download)
                         </a>
                     </li>

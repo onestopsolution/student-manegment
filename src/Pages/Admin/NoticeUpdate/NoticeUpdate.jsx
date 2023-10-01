@@ -53,7 +53,7 @@ const NoticeUpdate = () => {
     };
 
     // Send the POST request to your backend
-    fetch('http://localhost:5000/adminDashboard/notice', {
+    fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/notice', {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data), // Serialize the data object to JSON

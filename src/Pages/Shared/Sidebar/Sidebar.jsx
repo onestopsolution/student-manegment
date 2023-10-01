@@ -29,7 +29,7 @@ const Sidebar = () => {
     const navigate = useNavigate();
     useEffect(() => {
         // Fetch data from the provided URL
-        fetch(`http://localhost:5000/post-toy?email=${user?.email}`)
+        fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/post-toy?email=${user?.email}`)
             .then((response) => response.json())
             .then((data) => {
                 console.log(data.length)
