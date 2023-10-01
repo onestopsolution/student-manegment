@@ -5,8 +5,9 @@ import Swal from 'sweetalert2';
 
 const PayDetalisStu = () => {
     const Jobdetail = useLoaderData();
-    console.log(Jobdetail._id)
+  
     const { _id, name,Batch,Payment,discount, payamount,dueamount, totalduemonths,paydate } = Jobdetail;
+  
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/stupay/${_id}`, {
@@ -115,8 +116,8 @@ const PayDetalisStu = () => {
                             <input
                                 className="input input-bordered w-fulltext-black bg-white"
                                 {...register('paydate', { required: true })}
-                               // placeholder="mm/dd/yyyy"
-                               // type="date"
+                               placeholder="mm/dd/yyyy"
+                                type="date"
                                 defaultValue={paydate}
                             /></div>
 

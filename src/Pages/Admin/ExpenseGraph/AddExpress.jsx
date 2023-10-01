@@ -54,8 +54,8 @@ const AddExpress = () => {
                             <input
                                 className="input input-bordered w-full text-black bg-white"
                                 {...register('name')}
-                                placeholder="mm/dd/yyyy"
-type="data"
+                                placeholder="January"
+//type="data"
 
                             />
                         </div>
@@ -68,7 +68,7 @@ type="data"
                                 {...register('teacherPayment')}
                                 placeholder="10000"
                                 type="number"
-                                defaultValue={paymentSum}
+                                value={paymentSum}
                             />
                         </div>
 

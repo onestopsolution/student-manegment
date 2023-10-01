@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { useState , useEffect} from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import { FaEdit } from "react-icons/fa";
 
 const MyProfile = () => {
 
+   
     const { user } = useContext(AuthContext);
+    const [userData, setUserData] = useState([]);
+  
+  
+    useEffect(() => {
+      // Fetch data from the provided URL
+      fetch(`http://localhost:5000/post-toy?email=${user?.email}`)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          // Assuming user data is the first item in the array
+          if (data.length > 0) {
+            setUserData(data[0]);
+          }
+        })
+        .catch((error) => {
+          console.error('Error fetching data:', error);
+        });
+    }, [user]);
 
     return (
         <div className='flex mt-10 lg:mt-0 flex-col lg:flex-row items-center justify-around gap-20 min-h-screen w-11/12 my-5 ml-4 lg:ml-14 rounded-3xl'>
@@ -20,14 +39,14 @@ const MyProfile = () => {
                 <h1 className='text-3xl text-white font-bold text-center bg-gradient-to-r from-indigo-300 to-purple-500 rounded-full py-2 border-b-4 border-black'>My Profile</h1>
                 {/* <h3 className='mt-5 text-3xl ml-10'><span className='font-semibold'>Hey,</span> This is <span className='font-bold'>{user ? user.displayName : 'Guest'}</span></h3> */}
                 <div data-aos="fade-down" data-aos-duration="3000" className='mt-10 bg-gradient-to-b from-indigo-100 to-yellow-100 px-10 py-10 flex flex-col gap-5 text-xl mx-10 rounded-2xl border-x-4 border-black'>
-                    <p className='font-bold'>Name : <span>{ }</span></p>
-                    <p className='font-bold'>Father's Name : <span>{ }</span></p>
-                    <p className='font-bold'>Mother's Name : <span>{ }</span></p>
-                    <p className='font-bold'>School : <span>{ }</span></p>
-                    <p className='font-bold'>Contact : <span>{ }</span></p>
-                    <p className='font-bold'>Program : <span>{ }</span></p>
-                    <p className='font-bold'>Location : <span>{ }</span></p>
-                    <p className='font-bold'>Date of Birth : <span>{ }</span></p>
+                    <p className='font-bold'>Name : <span>{userData.name }</span></p>
+                    <p className='font-bold'>Father's Name : <span>{userData.fatherName}</span></p>
+                    <p className='font-bold'>Mother's Name : <span>{userData. motherName}</span></p>
+                    <p className='font-bold'>School : <span>{userData.instituteName}</span></p>
+                    <p className='font-bold'>Contact : <span>{userData.WhatsAppNumber}</span></p>
+                    <p className='font-bold'>Batch : <span>{userData.Batch }</span></p>
+                    <p className='font-bold'>Location : <span>{userData.location }</span></p>
+                    <p className='font-bold'>Date of Birth : <span>{userData.brithday }</span></p>
                     <div className='w-full flex items-center justify-center mt-3'>
                         <button className='btn btn-primary'><FaEdit/>Edit Profile</button>
                     </div>

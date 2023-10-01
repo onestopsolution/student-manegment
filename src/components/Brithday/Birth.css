@@ -31,12 +31,12 @@ body{
     color: var(--color-light);
 }
 
-ul{
+.ulll{
     list-style-type: none;
     
 }
 
-ul > li .flex{
+.ulll > li .flex{
     color: var(--color-dark);
     display: flex;
     justify-content: center;

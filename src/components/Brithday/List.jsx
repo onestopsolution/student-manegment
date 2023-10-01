@@ -3,7 +3,7 @@ import React from 'react';
 const List = ({info, upcoming}) => {
     
     return (
-        <ul >
+        <ul className='ulll' >
         {iterate(info, upcoming)}
     </ul>
     );

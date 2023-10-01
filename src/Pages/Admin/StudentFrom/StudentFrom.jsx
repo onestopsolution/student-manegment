@@ -22,6 +22,7 @@ const StudentFrom = () => {
     const [motherName, setMotherName] = useState('');
     const [motherNumber, setMotherNumber] = useState('');
     const [paymentAmount, setPaymentAmount] = useState('');
+    const [email, setemail] = useState('');
 
 
     const [location, setLocation] = useState('');
@@ -71,11 +72,13 @@ const StudentFrom = () => {
                         fatherName,
                         fatherNumber: parseFloat(fatherNumber),
                         motherName,
+                        email,
                         motherNumber: parseFloat(motherNumber),
                         WhatsAppNumber: parseFloat(whatsappNumber),
                         instituteName,
                         Batch: selectedBatch,
                         Class: selectedClass,
+                        location,
                         Payment: selectedPaymentType === 'course' ? `Course Payment ${selectedInstallment}` : selectedPaymentType,
                         Amount: parseFloat(paymentAmount),
                         Image: imgURL
@@ -139,6 +142,18 @@ const StudentFrom = () => {
                                 value={brithday}
                                 onChange={(e) => setbrithday(e.target.value)}
                                 type="date"
+                            // defaultValue={name}
+                            />
+                        </div>
+                        <div className="form-control w-full mb-4">
+                            <label className="label ">
+                                <span className="label-text text-xl font-semibold text-black">Email</span>
+                            </label>
+                            <input
+                                className="input input-bordered w-full "
+                                value={email}
+                                onChange={(e) => setemail(e.target.value)}
+                                placeholder='ABC@gmail.com'
                             // defaultValue={name}
                             />
                         </div>

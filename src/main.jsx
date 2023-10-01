@@ -43,6 +43,10 @@ const router = createBrowserRouter([
         element: <NoticeBoard></NoticeBoard>
       },
       {
+        path: 'resources',
+        element: <Resources/>
+      },
+      {
         path: 'classes',
         element: <ClassRoutine></ClassRoutine>
       },
@@ -107,6 +111,10 @@ const router = createBrowserRouter([
         element: <Attandace></Attandace>
       },
       {
+        path: 'addincome',
+        element: <Addincome/>
+      },
+      {
         path: 'addatt',
         element: <Addatt></Addatt>
       },
@@ -130,6 +138,15 @@ const router = createBrowserRouter([
         path: 'brithday',
         element:<Brithdayremainder></Brithdayremainder>
       },
+      {
+        path: 'exam',
+        element:<ExamList/>
+      },
+      {
+        path:'sendmessage/:id',
+        element:<Exam></Exam>,
+        loader: ({params}) =>fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/sendmessage/${params.id}`)
+   },
       {
         path:'pay/:id',
         element:<PayDetails></PayDetails>,
@@ -186,7 +203,12 @@ import PayDetalisStu from './Pages/Admin/StudentFrom/PayDetalisStu';
 import Resouresc from './Pages/Admin/Resources/Resouresc';
 import Homework from './Pages/Admin/Home-Work/Homework';
 import Homeworklist from './Pages/Admin/Home-Work/Homeworklist';
-import Brithdayremainder from './Brithday/Brithdayremainder';
+import Brithdayremainder from './components/Brithday/Brithdayremainder';
+import Exam from './Pages/Admin/Exam/Exam';
+import ExamList from './Pages/Admin/Exam/ExamList';
+import Addincome from './Pages/Admin/Income&ExpenseGraph/Addincome';
+import Resources from './Pages/UserHome/Resources/Resources';
+
 
 const queryClient = new QueryClient()
 ReactDOM.createRoot(document.getElementById('root')).render(
