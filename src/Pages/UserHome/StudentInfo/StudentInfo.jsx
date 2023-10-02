@@ -28,7 +28,7 @@ const StudentInfo = () => {
 
     return (
         <div  data-aos="fade-left" data-aos-duration="3000" className="hero h-fit w-fit bg-gradient-to-r from-indigo-200 to-purple-200 mx-auto rounded-2xl py-5 px-5 mt-0 lg:mt-20">
-            <div className="hero-content w-fit flex-col xl:flex-row gap-10 justify-between">
+            <div className="hero-content w-96 lg:w-fit flex-col xl:flex-row gap-10 justify-between">
                 <Tilt className="tilt-img"
                     tiltMaxAngleX={35}
                     tiltMaxAngleY={35}
@@ -41,7 +41,7 @@ const StudentInfo = () => {
                     </div>
                 </Tilt>
                 <div>
-                    <div className='bg-yellow-50 py-3 px-5 rounded-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 shadow-inner shadow-indigo-500'>
+                    <div className='bg-yellow-50 py-3 px-5 rounded-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 shadow-inner shadow-indigo-500 w-80'>
                         <h1 className='text-xl'>Name: <span className='font-semibold'>{user ? user.displayName : 'Guest'}</span></h1>
                        
                      <h1 className='text-xl'>School: <span className='font-semibold'>{userData.instituteName }</span></h1> 
