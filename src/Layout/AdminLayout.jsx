@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import { FaHome, FaUsers, FaClipboardList, FaHospitalUser, FaBars } from "react-icons/fa";
-import { AiTwotoneNotification } from "react-icons/ai";
+import { FaHome, FaUsers, FaClipboardList, FaHospitalUser, FaBars, FaBirthdayCake } from "react-icons/fa";
+import { AiFillWallet, AiOutlineAppstoreAdd, AiTwotoneNotification } from "react-icons/ai";
 import { TbCalendarDue } from "react-icons/tb";
+import { FcVoicePresentation } from "react-icons/fc";
+import { BsCloudUpload } from "react-icons/bs";
 import { AuthContext } from '../Providers/AuthProvider';
 import Swal from 'sweetalert2';
 
@@ -22,19 +24,19 @@ const AdminLayout = () => {
     const navItems = <>
         <li><Link to='/adminDashboard/adminHome'><FaHome />Home</Link></li>
         <li><Link to='/adminDashboard/manageUsers'><FaUsers />Manage Users</Link></li>
-        <li><Link to='/adminDashboard/manageCourses'><FaClipboardList />Manage Courses</Link></li>
+        {/* <li><Link to='/adminDashboard/manageCourses'><FaClipboardList />Manage Courses</Link></li> */}
         <li><Link to='/adminDashboard/addstu'><FaClipboardList />Students From</Link></li>
-        <li><Link to='/adminDashboard/addPayment'><FaClipboardList />Students Payment</Link></li>
-        <li><Link to='/adminDashboard/att'><FaClipboardList />Attendance</Link></li>
-        <li><Link to='/adminDashboard/batch'><FaClipboardList />Batch/Class Add</Link></li>
+        <li><Link to='/adminDashboard/addPayment'><AiFillWallet />Students Payment</Link></li>
+        <li><Link to='/adminDashboard/att'><FcVoicePresentation />Attendance</Link></li>
+        <li><Link to='/adminDashboard/batch'><AiOutlineAppstoreAdd />Batch/Class Add</Link></li>
         <li><Link to='/adminDashboard/noticeSend'><AiTwotoneNotification />Send Notice</Link></li>
-        <li><Link to='/adminDashboard/resourcesupload'><AiTwotoneNotification />Resources Upload</Link></li>
-        <li><Link to='/adminDashboard/homeworklist'><AiTwotoneNotification />Homework Upload</Link></li>
-        <li><Link to='/adminDashboard/exam'><AiTwotoneNotification />Exam Marks Upload</Link></li>
-        <li><Link to='/adminDashboard/brithday'><AiTwotoneNotification />Birthday Remainder</Link></li>
-        <li><Link to='/adminDashboard/pendingDue'><TbCalendarDue />Pending Due</Link></li>
+        <li><Link to='/adminDashboard/resourcesupload'><BsCloudUpload />Resources Upload</Link></li>
+        <li><Link to='/adminDashboard/homeworklist'><BsCloudUpload/>Homework Upload</Link></li>
+        <li><Link to='/adminDashboard/exam'><BsCloudUpload/>Exam Marks Upload</Link></li>
+        <li><Link to='/adminDashboard/brithday'><FaBirthdayCake />Birthday Remainder</Link></li>
+        {/* <li><Link to='/adminDashboard/pendingDue'><TbCalendarDue />Pending Due</Link></li> */}
         <li><Link to='/adminDashboard/teacherpay'><TbCalendarDue />Teacher Pay</Link></li>
-        <li><Link to='/'><FaHospitalUser />User Home</Link></li>
+   
         <li><button className='btn btn-primary btn-outline text-white' onClick={handleLogout}><span>Sign-Out</span></button></li>
     </>
 
