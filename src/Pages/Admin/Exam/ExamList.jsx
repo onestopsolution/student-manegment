@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
+import { AiOutlineUpload } from 'react-icons/ai';
 
 const ExamList = () => {
     const { user, loading } = useContext(AuthContext);
@@ -58,7 +59,7 @@ const ExamList = () => {
                                         className="btn btn-sm btn-ghost bg-indigo-700 text-white"
                                         onClick={() => navigate(`/adminDashboard/sendmessage/${item._id}`)}
                                     >
-                                        Pay
+                                        <AiOutlineUpload/>
                                     </button>
                                 </th>
                             </tr>

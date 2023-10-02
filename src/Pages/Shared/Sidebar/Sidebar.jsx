@@ -9,13 +9,15 @@ import { SiGoogleclassroom } from "react-icons/si";
 const Sidebar = () => {
     const { user } = useContext(AuthContext);
     const [isStudentUser, setIsStudentUser] = useState(true); // Default to student user
+    const [isAdmin, setIsAdmin] = useState(false); // Check if user is admin
 
     const sideBarItems = (
         <>
             {isStudentUser && (
                 <>
                     <li><Link to='/profile' className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-3 rounded-lg'><FaIdBadge className='h-8 w-8' /> <span className='text-xl font-medium'>My Profile</span></Link></li>
-                    {/* <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-2 rounded-lg'><FaBookOpen className='h-8 w-8' /> <span className='text-xl font-medium'>Enrolled Course</span></Link></li>
+                    {/* <li><Link className='flex items
+                    -center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-2 rounded-lg'><FaBookOpen className='h-8 w-8' /> <span className='text-xl font-medium'>Enrolled Course</span></Link></li>
         <li><Link className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-2 rounded-lg'><FaHistory className='h-8 w-8' /> <span className='text-xl font-medium'>Order History</span></Link></li> */}
                     <li><Link to='/notice' className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-3 rounded-lg'> <AiFillBell className='h-8 w-8' /> <span className='text-xl font-medium'>Notice</span></Link></li>
                     <li><Link to='/resources' className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white px-5 py-2 rounded-lg'><FaBook className='h-8 w-8' /> <span className='text-xl font-medium'>Resources</span></Link></li>
@@ -23,19 +25,33 @@ const Sidebar = () => {
                 </>
             )}
 
-
+            {/* {isAdmin && (
+                <li>
+                    <Link to='/adminDashboard/adminHome' className='flex items-center gap-3 hover:bg-indigo-500 hover:text-white py-1 px-5 rounded-lg'>
+                        <span className='text-lg font-medium'>Admin Panel</span>
+                    </Link>
+                </li>
+            )} */}
         </>
     );
+
     const navigate = useNavigate();
+
     useEffect(() => {
         // Fetch data from the provided URL
-        fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/post-toy?email=${user?.email}`)
+        fetch(`https://intern-first-server-farjanaakterlaila.vercel.app/post-toy?email=${user?.email}`)
             .then((response) => response.json())
             .then((data) => {
                 console.log(data.length)
-                if (data.length === 0)
-
+                if (data.length === 0) {
+                    setIsStudentUser(false);
+                }
+console.log(user)
+                // Check if the user is an admin based on their username and password
+                if (user?.email === 'admin@gmail.com' ) {
+                    //setIsAdmin(true);
                     navigate('/adminDashboard/adminHome')
+                }
             })
             .catch((error) => {
                 console.error('Error fetching data:', error);
