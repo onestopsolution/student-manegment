@@ -46,7 +46,7 @@ const StudentInfo = () => {
                        
                      <h1 className='text-xl'>School: <span className='font-semibold'>{userData.instituteName }</span></h1> 
                         
-                         <h1 className='text-xl'>StudentID: <span className='font-semibold'>{userData._id}</span></h1> 
+                         <h1 className='text-xl'>StudentID: <span className='font-semibold'>{userData.stuid}</span></h1> 
                          <h1 className='text-xl'>Contact: <span className='font-semibold'>{userData.WhatsAppNumber }</span></h1> 
                          <h1 className='text-xl'>Program/Course: <span className='font-semibold'>{userData.Class}</span></h1> 
                     </div>
