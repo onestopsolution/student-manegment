@@ -1,5 +1,51 @@
+/* Calendar.css */
 
-
+/* Overall calendar styles */
+.react-calendar {
+    font-size: 18px; /* Adjust the font size if needed */
+  }
+  
+  /* Styles for marked dates */
+  .attendance-marked-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Styles for dates with attendance '1' */
+  .blue-day {
+    color: rgb(3, 20, 6);
+    /* border: 2px solid blue; */
+    /* //padding: -4px; */
+    background-color: rgba(0, 255, 42, 0.425);
+    /* border-radius: 50%; */
+  }
+  
+  /* Styles for dates with attendance '0' */
+  .pink-day {
+   
+    color: rgb(155, 19, 42);
+    background-color: rgba(155, 19, 42, 0.575)
+    /* border: 2px solid pink;
+    padding: 4px; */
+    /* border-radius: 50%; */
+  }
+  
+  /* Styles for red days (Friday and Saturday) */
+  .red-day {
+    color: red;
+  }
+  
+  /* Styles for black days (other days of the week) */
+  .black-day {
+    color: black;
+  }
+  
+  
+  
 body{
     --color-dark : #343a40;
     --color-light: #f5f3f4;

@@ -30,14 +30,21 @@ const AdminLayout = () => {
         <li><Link to='/adminDashboard/att'><FcVoicePresentation />Attendance</Link></li>
         <li><Link to='/adminDashboard/batch'><AiOutlineAppstoreAdd />Batch/Class Add</Link></li>
         <li><Link to='/adminDashboard/noticeSend'><AiTwotoneNotification />Send Notice</Link></li>
-        <li><Link to='/adminDashboard/resourcesupload'><BsCloudUpload />Resources Upload</Link></li>
+        {/* <li><Link to='/adminDashboard/resourcesupload'><BsCloudUpload />Resources Upload</Link></li> */}
         <li><Link to='/adminDashboard/homeworklist'><BsCloudUpload/>Homework Upload</Link></li>
         <li><Link to='/adminDashboard/exam'><BsCloudUpload/>Exam Marks Upload</Link></li>
         <li><Link to='/adminDashboard/brithday'><FaBirthdayCake />Birthday Remainder</Link></li>
         {/* <li><Link to='/adminDashboard/pendingDue'><TbCalendarDue />Pending Due</Link></li> */}
         <li><Link to='/adminDashboard/teacherpay'><TbCalendarDue />Teacher Pay</Link></li>
    
-        <li><button className='btn btn-primary btn-outline text-white' onClick={handleLogout}><span>Sign-Out</span></button></li>
+        <li>
+  <button
+    className='btn btn-primary btn-md btn-outline text-white px-4 py-2 text-center'
+    onClick={handleLogout}
+  >
+    <span>Sign-Out</span>
+  </button>
+</li>
     </>
 
     return (

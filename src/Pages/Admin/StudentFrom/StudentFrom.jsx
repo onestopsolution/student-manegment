@@ -16,6 +16,7 @@ const StudentFrom = () => {
     const [isBatchDropdownVisible, setIsBatchDropdownVisible] = useState(false);
 
     const [name, setname] = useState('');
+    const [stuid, setstuid] = useState('');
     const [brithday, setbrithday] = useState('');
     const [fatherName, setFatherName] = useState('');
     const [fatherNumber, setFatherNumber] = useState('');
@@ -67,6 +68,7 @@ const StudentFrom = () => {
                     console.log(data, imgURL)
                     const { Name, InstructorName, Price, InstactorEmail, AvailableSeats } = data;
                     const newCls = {
+                        stuid,
                         name,
                         brithday,
                         fatherName,
@@ -120,6 +122,18 @@ const StudentFrom = () => {
                             <label className="label"><span className="label-text text-xl font-semibold text-black">Image</span></label>
                             <input type="file"   {...register("Image", { required: true })} className="file-input file-input-bordered w-full " />
 
+                        </div>
+                        <div className="form-control w-full mb-4">
+                            <label className="label ">
+                                <span className="label-text text-xl font-semibold text-black">Id</span>
+                            </label>
+                            <input
+                                className="input input-bordered w-full "
+                                value={stuid}
+                                onChange={(e) => setstuid(e.target.value)}
+                                placeholder="01"
+                            // defaultValue={name}
+                            />
                         </div>
                         <div className="form-control w-full mb-4">
                             <label className="label ">

@@ -15,7 +15,7 @@ const Navbar = () => {
 
     const navItems = <>
         <li><Link><FaHome/><span>Home</span></Link></li>
-        <li><Link><FaBook/><span>Resources</span></Link></li>
+        <li><Link to='/resources'><FaBook/><span>Home Work</span></Link></li>
         <li><Link to='/classes'><SiGoogleclassroom/><span>Classes</span></Link></li>
 
     </>

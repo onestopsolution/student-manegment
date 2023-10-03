@@ -8,7 +8,7 @@ const Addatt = () => {
   const [studentList, setStudentList] = useState([]);
 
   useEffect(() => {
-    fetch("https://intern-first-server-farjanaakterlaila.vercel.app/student")
+    fetch(" https://intern-first-server-farjanaakterlaila.vercel.app/student")
       .then(response => response.json())
       .then(data => {
         setStudentList(data);
@@ -22,7 +22,7 @@ const Addatt = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://intern-first-server-farjanaakterlaila.vercel.app/attendance', {
+      const response = await fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/attendance', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ const Addatt = () => {
   return (
     <div className='w-full px-10 '>
       <div className="uppercase font-semibold h-[60px] flex justify-evenly items-center">
-        <h3 className="text-3xl">Home Work Upload</h3>
+        <h3 className="text-3xl">Attandance Upload</h3>
       </div>
       <div className="flex justify-center items-center">
         <div className="w-5/12   text-black p-8 border bg-[#2563eb] bg-opacity-40">

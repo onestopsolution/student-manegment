@@ -14,10 +14,15 @@ const IncomeGraph = () => {
         // Calculate profit by subtracting expenses (Express) from income
         const profitData = data.map((item) => ({
           selectedMonth: item.selectedMonth,
-          income: item.income,
-          express: item.Express,
-          profit: item.income - item.Express, // Calculate profit
-        }));
+          stuincome: item.income,
+          
+          otherIncome: item.Otherincome,
+         Income:item.income + item.Otherincome,
+          Express: item.Express,
+          Profit: item.income + item.Otherincome - item.Express, // Calculate profit
+        }
+        ));
+       
         setExpenseData(profitData);
       })
       .catch((error) => {
@@ -47,9 +52,9 @@ const IncomeGraph = () => {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="income" fill="#3DBE29" />
-          <Bar dataKey="express" fill="#E21717" />
-          <Bar dataKey="profit" fill="#E8BD0D" />
+          <Bar dataKey="Income" fill="#3DBE29" />
+          <Bar dataKey="Express" fill="#E21717" />
+          <Bar dataKey="Profit" fill="#E8BD0D" />
         </BarChart>
       </ResponsiveContainer>
       <button className='btn btn-warning mt-10 mb-5' onClick={() => navigate('/adminDashboard/addincome')}>Add</button>

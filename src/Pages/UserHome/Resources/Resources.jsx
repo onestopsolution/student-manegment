@@ -1,13 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
-import { Document, Page, pdfjs } from 'react-pdf';
-import '@react-pdf-viewer/core/lib/styles/index.css'; // Import styles
+import { reload } from 'firebase/auth';
 
 const Resources = () => {
     const { user } = useContext(AuthContext);
     const [userData, setUserData] = useState([]);
     const [resources, setResources] = useState([]);
-    const [selectedResource, setSelectedResource] = useState(null);
+    const [selectedResource, setSelectedResource] = useState(0);
 
     useEffect(() => {
         // Fetch user data from the provided URL
@@ -23,17 +22,20 @@ const Resources = () => {
             .catch((error) => {
                 console.error('Error fetching user data:', error);
             });
+        }, [reload]);
 
+        useEffect(() => {
         // Fetch resources data from the provided URL
-        fetch('https://intern-first-server-farjanaakterlaila.vercel.app/files')
+        fetch('https://intern-first-server-farjanaakterlaila.vercel.app/homework')
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
                 // Filter resources based on your condition
                 const filteredResources = data.filter(
                     (resource) =>
-                        resource.batchName === userData.Batch || resource.className === userData.Class
+                        resource.Batch === userData.Batch && resource.Class === userData.Class
                 );
+                console.log(filteredResources);
                 setResources(filteredResources);
             })
             .catch((error) => {
@@ -41,36 +43,28 @@ const Resources = () => {
             });
 
         // Ensure PDF.js worker is set up properly
-        pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
-    }, [user]);
+    }, [userData]);
 
     const handleResourceClick = (resource) => {
         setSelectedResource(resource);
     };
 
     return (
-        <div>
-            <h1>Resources:</h1>
-            <ul>
-                {resources.map((resource) => (
-                    <li key={resource._id}>
-                        <button onClick={() => handleResourceClick(resource)}>
-                            {resource.filename}
-                        </button>
-                    </li>
-                ))}
-            </ul>
-
-            {selectedResource && (
-                <div>
-                    <Document
-                        file={` https://intern-first-server-farjanaakterlaila.vercel.app/pdfs/${selectedResource.filename}`}
-                        onLoadSuccess={console.log}
-                    >
-                        <Page pageNumber={1} />
-                    </Document>
+        <div className="flex flex-wrap justify-center gap-4 mt-8">
+            {resources.map((resource) => (
+                <div key={resource._id} className="card w-96 shadow-xl">
+                    <figure>
+                        <img className="w-full h-52" src={resource.Image} alt="Resource" />
+                    </figure>
+                    
+                    <div className="card-body flex flex-col items-start">
+                        <h2 className="card-title">Instruction: {resource.instruction}</h2>
+                        <h2 className="card-title">Start date: {resource.startdate}</h2>
+                        <p className="card-title">Last date: {resource.lastdate}</p>
+                        
+                    </div>
                 </div>
-            )}
+            ))}
         </div>
     );
 };

@@ -200,7 +200,7 @@ const Homework = () => {
                         </div>
 
 
-                        <input className="btn btn-lg  mt-4 mx-48" type="submit" value="Add Home Work" />
+                        <input className="btn btn-md  mt-4 mx-48" type="submit" value="Add Home Work" />
 
                     </form>
                 </div>

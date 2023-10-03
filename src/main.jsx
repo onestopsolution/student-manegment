@@ -119,6 +119,11 @@ const router = createBrowserRouter([
         element: <Addatt></Addatt>
       },
       {
+        path:'attendance/:id',
+        element:<AttendanceHistory></AttendanceHistory>,
+        loader: ({params}) =>fetch(`  https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/attendance/${params.id}`)
+   },
+      {
         path: 'batch',
         element:<BatchCls></BatchCls>
       },
@@ -208,6 +213,7 @@ import Exam from './Pages/Admin/Exam/Exam';
 import ExamList from './Pages/Admin/Exam/ExamList';
 import Addincome from './Pages/Admin/Income&ExpenseGraph/Addincome';
 import Resources from './Pages/UserHome/Resources/Resources';
+import AttendanceHistory from './Pages/Admin/Attandance/AbttendanceHistory ';
 
 
 const queryClient = new QueryClient()

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
+import { BsSearch } from 'react-icons/bs';
 
 const PaymentStu = () => {
     const { user, loading } = useContext(AuthContext);
@@ -21,11 +22,36 @@ const PaymentStu = () => {
                 setToys(data)
             })
     }, [])
-
+    const [searchText, setSearchText] = useState("");
     const navigate = useNavigate();
+    const handleSearch = () => {
+        fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/search/${searchText}`)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            setToys(data);
+          });
+      };
     return (
         <div className='mt-10 mx-12'>
         <h1 className='text-center text-3xl font-bold bg-indigo-200 rounded-lg px-5 py-2 border-x-4 border-black'>Due Payment Table</h1>
+        
+        <div className="flex justify-center mt-2">
+  <div className="p-2 text-center">
+    <input
+       onChange={(e) => setSearchText(e.target.value)}
+      type="text"
+      className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+    />
+  </div>
+  <div>
+    <button onClick={handleSearch} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded mt-2">
+      <BsSearch style={{ fontSize: "1.2rem" }} />
+    </button>
+  </div>
+</div>
+
+        
         <div className="overflow-x-auto mt-10">
             <table className="table">
                 {/* head */}

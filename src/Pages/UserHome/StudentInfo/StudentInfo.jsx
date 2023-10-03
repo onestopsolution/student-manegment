@@ -37,7 +37,7 @@ const StudentInfo = () => {
                     transitionSpeed={2000}
                     gyroscope={true}>
                     <div>
-                        <img src={user ? user.photoURL : 'https://i.ibb.co/X58Dht9/businesswoman-standing-thinking-near-big-question-mark-isolated-white-background.jpg'} className="w-40 h-40 rounded-xl shadow-lg shadow-black" />
+                        <img src={userData.Image} className="w-40 h-40 rounded-xl shadow-lg shadow-black" />
                     </div>
                 </Tilt>
                 <div>
