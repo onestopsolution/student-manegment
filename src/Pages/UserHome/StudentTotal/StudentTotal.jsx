@@ -28,7 +28,7 @@ const StudentTotal = () => {
     return (
         <div className='flex flex-col lg:flex-row flex-wrap justify-center gap-10 h-fit text-center mt-10'>
             <Tilt>
-                <div data-aos='flip-left' data-aos-duration="3000" className="stats bg-black bg-opacity-90 shadow-2xl shadow-black w-fit px-2 py-3 hover:bg-indigo-500 hover:text-white">
+                <div data-aos='flip-left' data-aos-duration="3000" className="stats bg-black bg-opacity-90 shadow-2xl shadow-black w-50 px-2 py-3 hover:bg-indigo-500 hover:text-white">
 
                     <div className="stat">
                         <div className="stat-title text-white">Enrolled Courses</div>
@@ -38,7 +38,7 @@ const StudentTotal = () => {
                 </div>
             </Tilt>
             <Tilt>
-                <div data-aos="flip-up" data-aos-duration="3000" className="stats bg-black bg-opacity-90 shadow-2xl shadow-black w-fit px-2 py-3 hover:bg-indigo-500 hover:text-white">
+                <div data-aos="flip-up" data-aos-duration="3000" className="stats bg-black bg-opacity-90 shadow-2xl shadow-black w-50 px-2 py-3 hover:bg-indigo-500 hover:text-white">
 
                     <div className="stat">
                         <div className="stat-title text-white">Due Payment</div>
@@ -48,7 +48,7 @@ const StudentTotal = () => {
                 </div>
             </Tilt>
             <Tilt>
-                <div data-aos='flip-right' data-aos-duration="3000" className="stats bg-black bg-opacity-90 shadow-2xl shadow-black w-fit px-2 py-3 hover:bg-indigo-500 hover:text-white">
+                <div data-aos='flip-right' data-aos-duration="3000" className="stats bg-black bg-opacity-90 shadow-2xl shadow-black w-50 px-2 py-3 hover:bg-indigo-500 hover:text-white">
 
                     <div className="stat">
                         <div className="stat-title text-white">Last Payment Date</div>
