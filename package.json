@@ -20,11 +20,8 @@
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "particles-bg": "^2.5.5",
-
-    "rc-calendar": "^9.15.11",
-
     "pdfjs-dist": "^3.4.120",
-
+    "rc-calendar": "^9.15.11",
     "react": "^18.2.0",
     "react-calendar": "^4.6.0",
     "react-dom": "^18.2.0",
@@ -33,6 +30,7 @@
     "react-parallax-tilt": "^1.7.151",
     "react-pdf": "^7.4.0",
     "react-router-dom": "^6.11.2",
+    "react-to-print": "^2.14.15",
     "recharts": "^2.7.2",
     "sass": "^1.66.1",
     "sort-by": "^1.2.0",

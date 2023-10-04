@@ -51,6 +51,10 @@ const router = createBrowserRouter([
         element: <ClassRoutine></ClassRoutine>
       },
       {
+        path: 'cardre',
+        element: <Report/>
+      },
+      {
         path: 'profile',
         element: <MyProfile></MyProfile>
       }
@@ -214,6 +218,7 @@ import ExamList from './Pages/Admin/Exam/ExamList';
 import Addincome from './Pages/Admin/Income&ExpenseGraph/Addincome';
 import Resources from './Pages/UserHome/Resources/Resources';
 import AttendanceHistory from './Pages/Admin/Attandance/AbttendanceHistory ';
+import Report from './Pages/UserHome/Report/Report';
 
 
 const queryClient = new QueryClient()
