@@ -10,7 +10,7 @@ const PayDetalisStu = () => {
   
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-        fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/stupay/${_id}`, {
+        fetch(`  https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/stupay/${_id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),

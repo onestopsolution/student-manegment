@@ -55,7 +55,7 @@ const BatchCls = () => {
                         />
                     </div>
 
-                    <input className="btn btn-primary btn-lg mt-5" type="submit" value="Add Student" />
+                    <input className="btn btn-primary btn-lg mt-5" type="submit" value="Add" />
 
                 </form>
             </div>

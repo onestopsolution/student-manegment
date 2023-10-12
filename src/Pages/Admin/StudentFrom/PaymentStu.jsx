@@ -25,7 +25,7 @@ const PaymentStu = () => {
     const [searchText, setSearchText] = useState("");
     const navigate = useNavigate();
     const handleSearch = () => {
-        fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/search/${searchText}`)
+        fetch(`  https://intern-first-server-farjanaakterlaila.vercel.app/search/${searchText}`)
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

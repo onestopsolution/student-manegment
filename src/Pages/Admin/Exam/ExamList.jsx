@@ -23,7 +23,7 @@ const ExamList = () => {
     const navigate = useNavigate();
     return (
         <div className='mt-10 mx-12'>
-        <h1 className='text-center text-3xl font-bold bg-indigo-200 rounded-lg px-5 py-2 border-x-4 border-black'>Due Payment Table</h1>
+        <h1 className='text-center text-3xl font-bold bg-indigo-200 rounded-lg px-5 py-2 border-x-4 border-black'>Exam Mark Sheet</h1>
         <div className="overflow-x-auto mt-10">
             <table className="table">
                 {/* head */}

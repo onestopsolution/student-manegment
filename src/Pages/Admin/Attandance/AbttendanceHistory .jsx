@@ -13,9 +13,10 @@ function AttendanceCalendar() {
 
   useEffect(() => {
     // Fetch the attendance history from the API endpoint
-    fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/attendance/${_id}`)
+    fetch(`  https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/attendance/${_id}`)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data.attendance_history)
         setAttendanceData(data.attendance_history);
       })
       .catch((error) => {
@@ -37,12 +38,12 @@ function AttendanceCalendar() {
           date.getMonth(),
           date.getDate()
         );
-
-        if (item.attendance === '1') {
-          marked[formattedDate] = { attendance: '1' };
+console.log(formattedDate,item.attendance)
+        if (item.attendance === 1) {
+          marked[formattedDate] = { attendance: 1 };
           count1++;
-        } else if (item.attendance === '0') {
-          marked[formattedDate] = { attendance: '0' };
+        } else if (item.attendance === 0) {
+          marked[formattedDate] = { attendance: 0 };
           count0++;
         }
       });
@@ -64,12 +65,12 @@ function AttendanceCalendar() {
     );
 
     // Check if the date is in the markedDates object and has attendance '1'
-    if (formattedDate in markedDates && markedDates[formattedDate].attendance === '1') {
+    if (formattedDate in markedDates && markedDates[formattedDate].attendance === 1) {
       return 'blue-day'; // Apply a custom class for dates with attendance '1'
     }
 
     // Check if the date is in the markedDates object and has attendance '0'
-    if (formattedDate in markedDates && markedDates[formattedDate].attendance === '0') {
+    if (formattedDate in markedDates && markedDates[formattedDate].attendance === 0) {
       return 'pink-day'; // Apply a custom class for dates with attendance '0'
     }
 
