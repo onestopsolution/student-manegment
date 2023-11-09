@@ -13,7 +13,7 @@ function AttendanceCalendar() {
 
   useEffect(() => {
     // Fetch the attendance history from the API endpoint
-    fetch(`  https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/attendance/${_id}`)
+    fetch(`   https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/attendance/${_id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data.attendance_history)

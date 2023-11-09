@@ -22,7 +22,7 @@ function iterate(data, flag){
     //         confirmButtonText: 'Yes, delete it!'
     //     }).then((result) => {
     //         if (result.isConfirmed) {
-    //             fetch(`https://intern-first-server-farjanaakterlaila.vercel.app/student/${id._id}`, {
+    //             fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/student/${id._id}`, {
     //                 method: 'DELETE'
     //             })
     //                 .then(res => res.json())

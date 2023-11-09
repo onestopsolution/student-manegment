@@ -12,7 +12,7 @@ const Report = () => {
 
     useEffect(() => {
         // Fetch data from the provided URL for attendance
-        fetch(`https://intern-first-server-farjanaakterlaila.vercel.app/post-toy?email=${user?.email}`)
+        fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/post-toy?email=${user?.email}`)
             .then((response) => response.json())
             .then((data) => {
                 if (data.length > 0) {
@@ -26,7 +26,7 @@ const Report = () => {
             });
 
         // Fetch data from the provided URL for ctMarksData
-        fetch(`https://intern-first-server-farjanaakterlaila.vercel.app/post-toy?email=${user?.email}`)
+        fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/post-toy?email=${user?.email}`)
             .then((response) => response.json())
             .then((data) => {
                 if (data.length > 0) {

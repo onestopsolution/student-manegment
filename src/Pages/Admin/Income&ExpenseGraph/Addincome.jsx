@@ -20,7 +20,7 @@ const Addincome = () => {
 
   useEffect(() => {
     // Fetch data from the provided URL
-    fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/express')
+    fetch('  https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/express')
       .then(response => response.json())
       .then(data => {
         setData(data);
@@ -82,7 +82,7 @@ const allsum=(calculatedItemSum.copyChecker+ calculatedItemSum.marketing+ calcul
   const [income, setIncome] = useState(0);
 // Fetch student payment data
 useEffect(() => {
-  fetch('https://intern-first-server-farjanaakterlaila.vercel.app/student')
+  fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/student')
     .then(response => response.json())
     .then(studentData => {
       // Filter student payments for the selected month
@@ -128,7 +128,7 @@ const handleMonthChange = (e) => {
     data.Express = parseFloat(data.Express);
     data.Otherincome = parseFloat(data.Otherincome);
     data.income = parseFloat(data.income);
-    fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/addincome', {
+    fetch('  https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/addincome', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
@@ -152,7 +152,7 @@ const handleMonthChange = (e) => {
 //   const [income, setIncome] = useState([]); // Initialize income state
 //  // Fetch student payment data
 //  useEffect(() => {
-//   fetch('https://intern-first-server-farjanaakterlaila.vercel.app/student')
+//   fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/student')
 //     .then(response => response.json())
 //     .then(studentData => {
 //       console.log(studentData)

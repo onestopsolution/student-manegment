@@ -35,6 +35,7 @@ const AdminLayout = () => {
         <li><Link to='/adminDashboard/exam'><BsCloudUpload/>Exam Marks Upload</Link></li>
         <li><Link to='/adminDashboard/brithday'><FaBirthdayCake />Birthday Remainder</Link></li>
         {/* <li><Link to='/adminDashboard/pendingDue'><TbCalendarDue />Pending Due</Link></li> */}
+        <li><Link to='/adminDashboard/techeratt'><TbCalendarDue />Teacher Attandance</Link></li>
         <li><Link to='/adminDashboard/teacherpay'><TbCalendarDue />Teacher Pay</Link></li>
    
         <li>

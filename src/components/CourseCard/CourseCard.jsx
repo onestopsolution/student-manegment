@@ -19,7 +19,7 @@ const CourseCard = ({ course }) => {
         })
         .then((result) => {
             if(result.isConfirmed){
-                fetch(`https://intern-first-server-farjanaakterlaila.vercel.app/classes/${_id}`, {
+                fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/classes/${_id}`, {
                     method: 'DELETE'
                 })
                 .then(res => res.json())

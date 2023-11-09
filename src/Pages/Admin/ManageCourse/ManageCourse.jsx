@@ -8,7 +8,7 @@ const ManageCourse = () => {
     // console.log(courses);
     const [cla,setCl] = useState([]);
     useEffect(()=>{
-        fetch('https://intern-first-server-farjanaakterlaila.vercel.app/classes')
+        fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/classes')
         .then(res => res.json())
         .then(data => setCl(data))
     },[])

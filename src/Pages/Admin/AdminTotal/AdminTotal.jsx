@@ -8,7 +8,7 @@ const AdminTotal = () => {
 
     useEffect(() => {
         // Fetch class and batch data from your API
-        fetch("https://intern-first-server-farjanaakterlaila.vercel.app/BatchClass")
+        fetch(" https://intern-first-server-farjanaakterlaila.vercel.app/BatchClass")
             .then(response => response.json())
             .then(data => {
                 console.log(data)
@@ -40,7 +40,7 @@ console.log(uniqueBatches.size)
 
     useEffect(() => {
         // Fetch data from the provided URL
-        fetch("https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/express")
+        fetch(" https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/express")
             .then(response => response.json())
             .then(data => {
                 setExpenseData(data);
@@ -67,7 +67,7 @@ console.log(uniqueBatches.size)
 
     useEffect(() => {
         // Fetch the payment sum from the API endpoint
-        fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/instructors/dueamountSum')
+        fetch('  https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/instructors/dueamountSum')
             .then((res) => res.json())
             .then((data) => {
                 console.log(data.paymentSum);

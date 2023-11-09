@@ -9,7 +9,7 @@ const NoticeBoard = () => {
 
     useEffect(() => {
         // Fetch user data from the provided URL
-        fetch(`https://intern-first-server-farjanaakterlaila.vercel.app/post-toy?email=${user?.email}`)
+        fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/post-toy?email=${user?.email}`)
             .then((response) => response.json())
             .then((data) => {
                 console.log(data[0]);
@@ -25,7 +25,7 @@ const NoticeBoard = () => {
 
     useEffect(() => {
         // Fetch resources data from the provided URL
-        fetch('https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/notice')
+        fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/notice')
             .then((response) => response.json())
             .then((data) => {
                 console.log(data.selectedClass);

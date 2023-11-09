@@ -14,7 +14,7 @@ const NoticeUpdate = () => {
   const [selectedBatchDisplay, setSelectedBatchDisplay] = useState('');
   useEffect(() => {
     // Fetch class and batch data from your API
-    fetch("https://intern-first-server-farjanaakterlaila.vercel.app/BatchClass")
+    fetch(" https://intern-first-server-farjanaakterlaila.vercel.app/BatchClass")
       .then(response => response.json())
       .then(data => {
         const uniqueClasses = [...new Set(data.map(item => item.Class))]
@@ -53,7 +53,7 @@ const NoticeUpdate = () => {
     };
 
     // Send the POST request to your backend
-    fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/notice', {
+    fetch('  https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/notice', {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data), // Serialize the data object to JSON

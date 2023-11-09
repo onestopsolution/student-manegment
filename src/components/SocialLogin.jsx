@@ -43,7 +43,7 @@ console.log( from)
                 const loggedInUser = result.user;
                 console.log(loggedInUser);
                 const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
-                fetch('https://intern-first-server-farjanaakterlaila.vercel.app/user', {
+                fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/user', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

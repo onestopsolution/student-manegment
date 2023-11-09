@@ -119,13 +119,19 @@ const router = createBrowserRouter([
         element: <Addincome/>
       },
       {
+        
+          path: 'techeratt',
+          element: <Teacherattandance/>
+        
+      },
+      {
         path: 'addatt',
         element: <Addatt></Addatt>
       },
       {
         path:'attendance/:id',
         element:<AttendanceHistory></AttendanceHistory>,
-        loader: ({params}) =>fetch(`  https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/attendance/${params.id}`)
+        loader: ({params}) =>fetch(`   https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/attendance/${params.id}`)
    },
       {
         path: 'batch',
@@ -154,22 +160,22 @@ const router = createBrowserRouter([
       {
         path:'sendmessage/:id',
         element:<Exam></Exam>,
-        loader: ({params}) =>fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/sendmessage/${params.id}`)
+        loader: ({params}) =>fetch(`  https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/sendmessage/${params.id}`)
    },
       {
         path:'pay/:id',
         element:<PayDetails></PayDetails>,
-        loader: ({params}) =>fetch(`https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/pay/${params.id}`)
+        loader: ({params}) =>fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/pay/${params.id}`)
    },
       {
         path:'stupay/:id',
         element:<PayDetalisStu></PayDetalisStu>,
-        loader: ({params}) =>fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/stupay/${params.id}`)
+        loader: ({params}) =>fetch(`  https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/stupay/${params.id}`)
    },
       {
         path: 'update/:id',
         element:<Classedit></Classedit>,
-        loader: ({ params }) => fetch(`https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/update/${params.id}`)
+        loader: ({ params }) => fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/update/${params.id}`)
       }
     ]
   },
@@ -219,6 +225,7 @@ import Addincome from './Pages/Admin/Income&ExpenseGraph/Addincome';
 import Resources from './Pages/UserHome/Resources/Resources';
 import AttendanceHistory from './Pages/Admin/Attandance/AbttendanceHistory ';
 import Report from './Pages/UserHome/Report/Report';
+import Teacherattandance from './Pages/Admin/Payment/Teacherattandance';
 
 
 const queryClient = new QueryClient()

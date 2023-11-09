@@ -11,7 +11,7 @@ const Exam = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data)
-        fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/sendmessage/${_id}`, {
+        fetch(`  https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/sendmessage/${_id}`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),

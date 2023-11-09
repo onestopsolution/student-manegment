@@ -7,7 +7,7 @@ const Brithdayremainder = () => {
 
     useEffect(() => {
       // Fetch data from the provided URL
-      fetch('https://intern-first-server-farjanaakterlaila.vercel.app/student')
+      fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/student')
         .then((response) => response.json())
         .then((data) => setInfo(data))
         .catch((error) => console.error('Error fetching data:', error));

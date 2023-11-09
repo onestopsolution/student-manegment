@@ -31,7 +31,7 @@ const Register = () => {
                     update(data.name, data.photoURL)
                         .then(() =>{
                             const saveUser = { name: data.name, email: data.email }
-                            fetch('https://intern-first-server-farjanaakterlaila.vercel.app/user', {
+                            fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/user', {
                                 method: 'POST',
                                 headers: {
                                     'content-type': 'application/json'

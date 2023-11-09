@@ -8,7 +8,7 @@ const ExpenseGraph = () => {
 
     useEffect(() => {
         // Fetch data from the API
-        fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/express')
+        fetch('  https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/express')
             .then((response) => response.json())
             .then((data) => {
                 setExpenseData(data);

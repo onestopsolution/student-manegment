@@ -8,7 +8,7 @@ const AddExpress = () => {
 
     useEffect(() => {
         // Fetch the payment sum from the API endpoint
-        fetch('https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/instructors/paymentSum')
+        fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/instructors/paymentSum')
             .then((res) => res.json())
             .then((data) => {
                 console.log(data.paymentSum);
@@ -19,7 +19,7 @@ const AddExpress = () => {
             });
     }, []);
     const onSubmit = data => {
-        fetch('https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/express', {
+        fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/express', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),

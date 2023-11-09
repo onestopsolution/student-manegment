@@ -18,7 +18,7 @@ const Attandace = () => {
   const navigate = useNavigate();
   useEffect(() => {
 
-    fetch(" https://intern-first-server-farjanaakterlaila.vercel.app/BatchClass")
+    fetch("  https://intern-first-server-farjanaakterlaila.vercel.app/BatchClass")
       .then(response => response.json())
       .then(data => {
         console.log(data)
@@ -28,7 +28,7 @@ const Attandace = () => {
       .catch(error => {
         console.error('Error fetching student data:', error);
       });
-    fetch(" https://intern-first-server-farjanaakterlaila.vercel.app/student")
+    fetch("  https://intern-first-server-farjanaakterlaila.vercel.app/student")
       .then(response => response.json())
       .then(data => {
         console.log(data)
@@ -53,7 +53,7 @@ const Attandace = () => {
 
   const handleAttendanceChange = (index, newAttendance) => {
     const updatedStudentList = [...studentList];
-    const date = selectedDate.toISOString().split('T')[0]; // Get the selected date in the "YYYY-MM-DD" format
+    const date = new Date().toISOString().split('T')[0]; // Get the selected date in the "YYYY-MM-DD" format
 
     // Update the student's attendance and lastAttendanceDate
     updatedStudentList[index].attendance = newAttendance;
@@ -61,9 +61,9 @@ const Attandace = () => {
     setStudentList(updatedStudentList);
 
     const studentId = updatedStudentList[index]._id;
-console.log(studentId)
+    console.log(studentId)
     // Update the attendance in the database
-    fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/student/${studentId}`, {
+    fetch(`  https://intern-first-server-farjanaakterlaila.vercel.app/student/${studentId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -97,53 +97,53 @@ console.log(studentId)
   return (
 
     <div className="w-full">
-    <div className="uppercase font-semibold h-[60px] flex justify-evenly items-center">
-      <h3 className="text-3xl p-8 mb-8">Attendance sheet</h3>
-    </div>
-    <div className="overflow-x-auto mx-40">
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div>
-          <label className="label-text text-xl font-semibold text-black">Batch: </label>
-          <select
-            className="select select-bordered flex-grow"
-            value={selectedBatch}
-            onChange={(e) => setSelectedBatch(e.target.value)}
-          >
-            <option value="">All Batches</option>
-            {batchList.map((batch) => (
-              <option key={batch._id} value={batch.Batch}>
-                {batch.Batch}
-              </option>
-            ))}
-          </select>
-          <div className='mt-4 mb-4'>
-        <label className="label-text text-xl font-semibold text-black ">Class: </label>
-        <select
-         className="select select-bordered flex-grow "
-          value={selectedClass}
-          onChange={(e) => setSelectedClass(e.target.value)}
-        >
-          <option value="">All Classes</option>
-          {classList.map((batch) => (
-            <option key={batch._id} value={batch.Class}>
-              {batch.Class}
-            </option>
-          ))}
-        
-        </select>
+      <div className="uppercase font-semibold h-[60px] flex justify-evenly items-center">
+        <h3 className="text-3xl p-8 mb-8">Attendance sheet</h3>
       </div>
+      <div className="overflow-x-auto mx-40">
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <div>
+            <label className="label-text text-xl font-semibold text-black">Batch: </label>
+            <select
+              className="select select-bordered flex-grow"
+              value={selectedBatch}
+              onChange={(e) => setSelectedBatch(e.target.value)}
+            >
+              <option value="">All Batches</option>
+              {batchList.map((batch) => (
+                <option key={batch._id} value={batch.Batch}>
+                  {batch.Batch}
+                </option>
+              ))}
+            </select>
+            <div className='mt-4 mb-4'>
+              <label className="label-text text-xl font-semibold text-black ">Class: </label>
+              <select
+                className="select select-bordered flex-grow "
+                value={selectedClass}
+                onChange={(e) => setSelectedClass(e.target.value)}
+              >
+                <option value="">All Classes</option>
+                {classList.map((batch) => (
+                  <option key={batch._id} value={batch.Class}>
+                    {batch.Class}
+                  </option>
+                ))}
+
+              </select>
+            </div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Calendar
+              className='mb-4'
+              onChange={date => setSelectedDate(date)}
+              value={selectedDate}
+            />
+          </div>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <Calendar
-            className='mb-4'
-            onChange={date => setSelectedDate(date)}
-            value={selectedDate}
-          />
-        </div>
-      </div>
         <table className="table w-full text-xl">
           <thead className="text-xl text-center text-black border">
-         
+
             <tr className='border'>
               <td className='border-2 border-black'>Id</td>
               <th className='border-2 border-black'> Student Name</th>
@@ -154,9 +154,9 @@ console.log(studentId)
 
             </tr>
           </thead>
-        
+
           <tbody>
-          {filterStudentsByBatchAndClass().map((student, index) => (
+            {filterStudentsByBatchAndClass().map((student, index) => (
               <tr key={index}>
                 <td className='border-2 border-black'>{student.stuid}</td>
                 <td className='border-2 border-black'>{student.name}</td>
@@ -167,19 +167,19 @@ console.log(studentId)
                   <div>Attendance: {student.attendance}</div>
                 </td>
                 <td className="border-2 border-black">
-                 
+
                   <div>
-                   
-                  <div style={{ display: 'flex', alignItems: 'center' }}>
-    <label>
-      <input
-        type="radio"
-        value="1"
-        checked={student.attendance === 1}
-        onChange={() => handleAttendanceChange(index, 1)}
-      /> Present
-    </label>
-  </div>
+
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                      <label>
+                        <input
+                          type="radio"
+                          value="1"
+                          checked={student.attendance === 1}
+                          onChange={() => handleAttendanceChange(index, 1)}
+                        /> Present
+                      </label>
+                    </div>
                     <label>
                       <input
                         type="radio"
