@@ -107,6 +107,10 @@ const router = createBrowserRouter([
         element: <StudentFrom></StudentFrom>
       },
       {
+        path: 'techerlist',
+        element: <Teacher></Teacher>
+      },
+      {
         path: 'addPayment',
         element: <PaymentStu></PaymentStu>
       },
@@ -226,6 +230,7 @@ import Resources from './Pages/UserHome/Resources/Resources';
 import AttendanceHistory from './Pages/Admin/Attandance/AbttendanceHistory ';
 import Report from './Pages/UserHome/Report/Report';
 import Teacherattandance from './Pages/Admin/Payment/Teacherattandance';
+import Teacher from './Pages/Admin/TeacherForm/Teacher.jsx';
 
 
 const queryClient = new QueryClient()

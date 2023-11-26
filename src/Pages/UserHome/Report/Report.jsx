@@ -5,45 +5,31 @@ import { useReactToPrint } from 'react-to-print';
 const Report = () => {
     const { user } = useContext(AuthContext);
     const [userData, setUserData] = useState([]);
-    const [attendanceCount1, setAttendanceCount1] = useState(0); // Count of attendance '1'
-    const [attendanceCount0, setAttendanceCount0] = useState(0); // Count of attendance '0'
+    const [attendanceCount1, setAttendanceCount1] = useState(0);
+    const [attendanceCount0, setAttendanceCount0] = useState(0);
     const [attendanceData, setAttendanceData] = useState([]);
     const [ctData, setCTData] = useState([]);
 
     useEffect(() => {
-        // Fetch data from the provided URL for attendance
-        fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/post-toy?email=${user?.email}`)
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.length > 0) {
-                    console.log(data[0])
-                    setAttendanceData(data[0].attendance_history);
-                    setUserData(data[0]);
-                }
-            })
-            .catch((error) => {
-                console.error('Error fetching attendance data:', error);
-            });
-
-        // Fetch data from the provided URL for ctMarksData
         fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/post-toy?email=${user?.email}`)
             .then((response) => response.json())
             .then((data) => {
                 if (data.length > 0) {
                     const userData = data[0];
                     const messageHistory = userData.message_history;
-                    // Filter out entries with "ctname," "Highest," and "Obtain" properties
                     const ctMarksData = messageHistory.filter((entry) => entry.ctname && entry.Highest && entry.Obtain);
                     setCTData(ctMarksData);
+                    setAttendanceData(data[0].attendance_history);
+                    setUserData(data[0]);
                 }
             })
             .catch((error) => {
-                console.error('Error fetching ctMarksData:', error);
+                console.error('Error fetching data:', error);
             });
     }, [user]);
 
+
     useEffect(() => {
-        // Function to mark dates with attendance '1' and '0'
         const getMarkedDates = () => {
             const marked = {};
             let count1 = 0;
@@ -69,11 +55,67 @@ const Report = () => {
         getMarkedDates();
     }, [attendanceData]);
 
+    const calculateGPAAndGrade = (obtain) => {
+        let gpa = 0;
+        let grade = '';
+    
+        if (obtain >= 80) {
+            gpa = 5.0;
+            grade = 'A+';
+        } else if (obtain >= 70 && obtain <= 79) {
+            gpa = 4.0;
+            grade = 'A';
+        } else if (obtain >= 60 && obtain <= 69) {
+            gpa = 3.5;
+            grade = 'A-';
+        } else if (obtain >= 50 && obtain <= 59) {
+            gpa = 3.0;
+            grade = 'B';
+        } else if (obtain >= 40 && obtain <= 49) {
+            gpa = 2.0;
+            grade = 'C';
+        } else if (obtain >= 33 && obtain <= 39) {
+            gpa = 1.0;
+            grade = 'D';
+        } else {
+            gpa = 0.0;
+            grade = 'F';
+        }
+    
+        return { gpa, grade };
+    };
+    const calculateTotalGPAAndGrade = () => {
+        let totalGPA = 0;
+
+        ctData.forEach((entry) => {
+            const { gpa } = calculateGPAAndGrade(entry.Obtain);
+            totalGPA += gpa;
+        });
+
+        const averageGPA = totalGPA / ctData.length;
+        let totalGrade = '';
+
+        // Determine the total grade based on the average GPA
+        if (averageGPA >= 4.50) {
+            totalGrade = 'A+';
+        } else if (averageGPA >= 3.50) {
+            totalGrade = 'A';
+        } else if (averageGPA >= 2.50) {
+            totalGrade = 'B';
+        } else if (averageGPA >= 1.50) {
+            totalGrade = 'C';
+        } else if (averageGPA >= 1.00) {
+            totalGrade = 'D';
+        } else {
+            totalGrade = 'F';
+        }
+        return { totalGPA: averageGPA, totalGrade };
+    };
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
     });
-
+    const { totalGPA , totalGrade} = calculateTotalGPAAndGrade();
     return (
         <div className="print__section mt-10 mb-8 font-serif ">
             <div className="container ">
@@ -82,69 +124,136 @@ const Report = () => {
 
                         <div ref={componentRef} className="card ">
                             <div className="float__start">
+                                <div className="border border-blue-700 m-4">
+                                    <h3 className="font-bold text-xl py-2 mb-0 text-center text-black-800">
+                                        OneStop Solution
+                                    </h3>
+                                </div>
                                 <h3 className="font-bold text-3xl py-4 mb-0  text-center text-blue-800 border-b-0">Student Report Card</h3>
-                                <h3 className="font-bold text-xl py-2 mb-0  text-center text-black-800 border-b-0" >OneStop Solution</h3>
+
+                            </div>
+                            <div className="container  mx-40 flex">
+                                <div className="float__infoss">
+                                    <ul>
+
+                                        {/* <li className='font-bold text-2xl text-blue-500 mt-4 border-t-4 border-blue-700 mb-2 '>Personal Information:</li> */}
+                                        <li ><span className='font-bold text-xl '>Name:</span> <span className='text-xl ml-4 '>{userData.name}</span></li>
+
+                                        {/* <li className='mb-4 mt-4'><span className='font-bold text-xl '>Email  </span> <span className='text-xl ml-8 '>{userData.email}</span></li>
+
+                                <li className='mb-4 mt-4'><span className='font-bold text-xl '>Date of Birth </span> <span className='text-xl ml-10'>{userData.brithday}</span></li>
+
+                                <li><span className='font-bold text-xl '>Phone No </span> <span className='text-xl ml-12 '>{userData.WhatsAppNumber}</span></li>
+
+                                <li className='font-bold text-2xl text-blue-500 mt-4 border-t-4 border-blue-700 mb-2'>Academic Information:</li> */}
+
+                                        {/* <li className='mb-4 mt-4'><span className='font-bold text-xl '>Institute Name: </span> <span className='text-xl ml-8 '>{userData.instituteName}</span></li> */}
+
+                                        <li className='mb-4 mt-4'><span className='font-bold text-xl '>Class: </span> <span className='text-xl ml-4'>{userData.Class}</span></li>
+
+                                        <li className='mb-4 mt-4'><span className='font-bold text-xl '>Batch: </span> <span className='text-xl ml-4 '>{userData.Batch}</span></li>
+
+                                        <li className='mb-4 mt-4'><span className='font-bold text-xl '>Absent: </span> <span className='text-xl ml-4 '>{attendanceCount0} days</span></li>
+
+                                        <li className='mb-4 mt-4'><span className='font-bold text-xl '>Present: </span> <span className='text-xl ml-4 '>{attendanceCount1} days</span></li>
+
+
+                                    </ul>
+                                </div>
+                                <div>
+                                    <table className="table table-bordered ml-24 " style={{ border: '2px solid black' }}>
+                                        <thead style={{ border: '2px solid black' }}>
+                                            <tr style={{ border: '2px solid black' }}>
+                                                <th style={{ border: '2px solid black' }}>Grade</th>
+                                                <th style={{ border: '2px solid black' }}>Point</th>
+                                                <th style={{ border: '2px solid black' }}>Interval</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody style={{ border: '2px solid black' }}>
+                                            <tr style={{ border: '2px solid black' }}>
+                                                <td style={{ border: '2px solid black' }}>A+</td>
+                                                <td style={{ border: '2px solid black' }}>5.00</td>
+                                                <td style={{ border: '2px solid black' }}>80.00 - 100.00</td>
+                                            </tr>
+                                            <tr style={{ border: '2px solid black' }}>
+                                                <td style={{ border: '2px solid black' }}>A</td>
+                                                <td style={{ border: '2px solid black' }}>4.00 - 4.99</td>
+                                                <td style={{ border: '2px solid black' }}>70.00 - 79.99</td>
+                                            </tr>
+                                            <tr style={{ border: '2px solid black' }}>
+                                                <td style={{ border: '2px solid black' }}>A-</td>
+                                                <td style={{ border: '2px solid black' }}>3.50 - 3.99</td>
+                                                <td style={{ border: '2px solid black' }}>60.00 - 69.99</td>
+                                            </tr>
+                                            <tr style={{ border: '2px solid black' }}>
+                                                <td style={{ border: '2px solid black' }}>B</td>
+                                                <td style={{ border: '2px solid black' }}>3.00 - 3.49</td>
+                                                <td style={{ border: '2px solid black' }}>50.00 - 59.99</td>
+                                            </tr>
+                                            <tr style={{ border: '2px solid black' }}>
+                                                <td style={{ border: '2px solid black' }}>C</td>
+                                                <td style={{ border: '2px solid black' }}>2.00 - 2.99</td>
+                                                <td style={{ border: '2px solid black' }}>40.00 - 49.99</td>
+                                            </tr>
+                                            <tr style={{ border: '2px solid black' }}>
+                                                <td style={{ border: '2px solid black' }}>D</td>
+                                                <td style={{ border: '2px solid black' }}>1.00 - 1.99</td>
+                                                <td style={{ border: '2px solid black' }}>33.00 - 39.99</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
 
-                            <div className="float__infoss mx-60">
-                                <ul>
-
-                                    <li className='font-bold text-2xl text-blue-500 mt-4 border-t-4 border-blue-700 mb-2 '>Personal Information:</li>
-                                    <li ><span className='font-bold text-xl '>Name</span> <span className='text-xl ml-12 '>{userData.name}</span></li>
-
-                                    <li className='mb-4 mt-4'><span className='font-bold text-xl '>Email  </span> <span className='text-xl ml-8 '>{userData.email}</span></li>
-
-                                    <li className='mb-4 mt-4'><span className='font-bold text-xl '>Date of Birth </span> <span className='text-xl ml-10'>{userData.brithday}</span></li>
-
-                                    <li><span className='font-bold text-xl '>Phone No </span> <span className='text-xl ml-12 '>{userData.WhatsAppNumber}</span></li>
-
-                                    <li className='font-bold text-2xl text-blue-500 mt-4 border-t-4 border-blue-700 mb-2'>Academic Information:</li>
-
-                                    <li className='mb-4 mt-4'><span className='font-bold text-xl '>Institute Name: </span> <span className='text-xl ml-8 '>{userData.instituteName}</span></li>
-
-                                    <li className='mb-4 mt-4'><span className='font-bold text-xl '>Class: </span> <span className='text-xl ml-32'>{userData.Class}</span></li>
-
-                                    <li className='mb-4 mt-4'><span className='font-bold text-xl '>Batch: </span> <span className='text-xl ml-32 '>{userData.Batch}</span></li>
-
-                                    <li className='mb-4 mt-4'><span className='font-bold text-xl '>Absent: </span> <span className='text-xl ml-28 '>{attendanceCount0} days</span></li>
-
-                                    <li className='mb-4 mt-4'><span className='font-bold text-xl '>Present: </span> <span className='text-xl ml-28 '>{attendanceCount1} days</span></li>
-
-
-                                </ul>
-                            </div>
-                            <div className="ctMarksData mx-60">
-                                <h4 className='font-bold text-2xl text-blue-500 mt-4 border-t-4 border-blue-700 mb-2'>CT Marks Data:</h4>
-                                <table className="table table-bordered" style={{ backgroundColor: 'white' }}>
-                                    <thead className='border-r-4'>
-                                        <tr className='border-r-4'>
-                                            <th className='border-r-4 font-bold'>CT Number</th>
-                                            <th className='border-r-4 font-bold'>Obtain</th>
-                                            <th className='border-r-4 font-bold'>Highest</th>
+                            <div className="ctMarksData mx-4 mt-4">
+                                <table className="table table-bordered " style={{ border: '2px solid black' }}>
+                                    <thead style={{ border: '2px solid black' }}>
+                                        <tr style={{ border: '2px solid black' }}>
+                                            <th style={{ border: '2px solid black' }}>CT Number</th>
+                                            <th style={{ border: '2px solid black' }}>Obtain</th>
+                                            <th style={{ border: '2px solid black' }}>Grade</th>
+                                            <th style={{ border: '2px solid black' }}>GPA</th>
+                                            <th style={{ border: '2px solid black' }}>Total GPA</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {ctData.map((entry, index) => (
-                                            <tr key={index}>
-                                                <td className='border-r-4'>{`Ct-${index + 1}`}</td>
-                                                <td className='border-r-4'>{entry.Obtain}</td>
-                                                <td className='border-r-4'>{entry.Highest}</td>
-                                            </tr>
-                                        ))}
+                                        {ctData.map((entry, index) => {
+                                            const { gpa, grade } = calculateGPAAndGrade(entry.Obtain);
+
+                                            return (
+                                                <tr key={index} style={{ border: '2px solid black' }}>
+                                                    <td style={{ border: '2px solid black' }}>{`Ct-${index + 1}`}</td>
+                                                    <td style={{ border: '2px solid black' }}>{entry.Obtain}</td>
+                                                    <td style={{ border: '2px solid black' }}>{grade}</td>
+                                                    <td style={{ border: '2px solid black' }}>{gpa}</td>
+                                                  
+                                                    {index === 0 && (
+                                            <td rowSpan={ctData.length} style={{ verticalAlign: 'middle', textAlign: 'center' }}>
+                                               {totalGPA.toFixed(2)}
+                                            </td>
+                                                 
+                                        )}
+                                                </tr>
+                                           
+                                            );
+                                        })}
+                                 
+                         
                                     </tbody>
                                 </table>
+                               
                             </div>
-
-                            <div className="text-center mb-4 mt-8">
-                                <button onClick={handlePrint} className="print__button btn btn-md text-blue-800">
-                                    Print
-                                </button>
-                            </div>
+                        </div>
+                        <div className="text-center mb-4 mt-8">
+                            <button onClick={handlePrint} className="print__button btn btn-md text-blue-800">
+                                Print
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     );
 };
 

@@ -37,7 +37,7 @@ const Exam = () => {
     return (
         <div className='w-11/12 mx-5 mt-5'>
         <div className="uppercase font-bold bg-gradient-to-r from-indigo-200 to-purple-400 mb-10 py-3 rounded-full border-x-4 border-black border-b-2">
-            <h3 className="text-3xl text-center">Update Payment</h3>
+            <h3 className="text-3xl text-center">Update Exam Marks</h3>
         </div>
         <div className="flex justify-center items-center">
             <div className="w-4/5 text-black py-5 bg-gradient-to-r from-indigo-200 to-purple-200 bg-opacity-40 rounded-2xl px-10">
@@ -129,7 +129,7 @@ const Exam = () => {
                    
 
 
-                    <input className="btn btn-primary btn-lg mt-5" type="submit" value="Update Payment" />
+                    <input className="btn btn-primary btn-lg mt-5" type="submit" value="Update" />
 
                 </form>
             </div>

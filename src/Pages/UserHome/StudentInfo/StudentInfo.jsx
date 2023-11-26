@@ -42,7 +42,7 @@ const StudentInfo = () => {
                 </Tilt>
                 <div>
                     <div className='bg-yellow-50 py-3 px-5 rounded-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 shadow-inner shadow-indigo-500 w-80'>
-                        <h1 className='text-xl'>Name: <span className='font-semibold'>{user ? user.displayName : 'Guest'}</span></h1>
+                        <h1 className='text-xl'>Name: <span className='font-semibold'>{userData ? userData.name : 'Guest'}</span></h1>
                        
                      <h1 className='text-xl'>School: <span className='font-semibold'>{userData.instituteName }</span></h1> 
                         

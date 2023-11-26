@@ -1,0 +1,240 @@
+import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
+const img_hosting_key = import.meta.env.VITE_Image_Upload;
+const Teacher = () => {
+
+
+
+    const { register, handleSubmit, reset } = useForm();
+    const [whatsappNumber, setWhatsappNumber] = useState('');
+    const [selectedPaymentType, setSelectedPaymentType] = useState('');
+    const [selectedInstallment, setSelectedInstallment] = useState('');
+    const [selectedBatch, setSelectedBatch] = useState('');
+    const [selectedClass, setSelectedClass] = useState('');
+    const [isClassDropdownVisible, setIsClassDropdownVisible] = useState(false);
+    const [isBatchDropdownVisible, setIsBatchDropdownVisible] = useState(false);
+
+    const [name, setname] = useState('');
+    const [role, setstuid] = useState('');
+    const [email, setemail] = useState('');
+
+
+    const [location, setLocation] = useState('');
+
+    const [classList, setClassList] = useState([]);
+    const [batchList, setBatchList] = useState([]);
+  
+
+    const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_key}`
+
+
+    useEffect(() => {
+        // Fetch class and batch data from your API
+        fetch(" https://intern-first-server-farjanaakterlaila.vercel.app/BatchClass")
+
+            .then(response => response.json())
+            .then(data => {
+                const uniqueClasses = [...new Set(data.map(item => item.Class))]
+                    .filter(className => className !== ''); // Exclude empty classes
+                const uniqueBatches = [...new Set(data.map(item => item.Batch))];
+                setClassList(uniqueClasses);
+                setBatchList(uniqueBatches);
+            })
+            .catch(error => {
+                console.error('Error fetching classes and batches:', error);
+            });
+    }, []);
+    const onSubmit = data => {
+        console.log(data)
+        const formData = new FormData();
+        formData.append('image', data.Image[0])
+
+        fetch(img_hosting_url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imgResponse => {
+                console.log(imgResponse)
+                if (imgResponse.success) {
+                    const imgURL = imgResponse.data.display_url;
+                    console.log(data, imgURL)
+                    const { Name, InstructorName, Price, InstactorEmail, AvailableSeats,role } = data;
+                    const newCls = {
+                        role:"Instructor",
+                        name,
+                        
+                        email,
+                        
+                        WhatsAppNumber: parseFloat(whatsappNumber),
+                       
+                        Batch: selectedBatch,
+                        Class: selectedClass,
+                        location,
+                        
+                        Image: imgURL
+                    }
+                    console.log(newCls)
+                    fetch(" https://intern-first-server-farjanaakterlaila.vercel.app/user", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(newCls),
+                    })
+                        .then((res) => res.json())
+                        .then(result => {
+                            console.log('after posting new class ', result)
+                            if (result.insertedId) {
+                                reset();
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'teacher added successfully',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                })
+                            }
+                        })
+                }
+            })
+
+    }
+    return (
+        <div className='w-11/12 mx-5 mt-5'>
+            <div className="uppercase font-bold bg-gradient-to-r from-indigo-200 to-purple-400 mb-10 py-3 rounded-full border-x-4 border-black border-b-2">
+                <h3 className="text-3xl text-center">Teacher's From</h3>
+            </div>
+            <div className="flex justify-center items-center">
+                <div className="w-4/5 text-black py-5 bg-gradient-to-r from-indigo-200 to-purple-200 bg-opacity-40 rounded-2xl px-10">
+                    <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col items-center'>
+                        <div className='form-control w-full mb-4 '>
+                            {/* {errors.exampleRequired && <span>This field is required</span>} */}
+                            <label className="label"><span className="label-text text-xl font-semibold text-black">Image</span></label>
+                            <input type="file"   {...register("Image", { required: true })} className="file-input file-input-bordered w-full " />
+
+                        </div>
+                        <div className="form-control w-full mb-4">
+                            <label className="label ">
+                                <span className="label-text text-xl font-semibold text-black">Role</span>
+                            </label>
+                            <input
+                                className="input input-bordered w-full "
+                                value="Instructor"
+                                onChange={(e) => setstuid(e.target.value)}
+                               
+                           
+                            />
+                        </div>
+                        <div className="form-control w-full mb-4">
+                            <label className="label ">
+                                <span className="label-text text-xl font-semibold text-black">Name</span>
+                            </label>
+                            <input
+                                className="input input-bordered w-full "
+                                value={name}
+                                onChange={(e) => setname(e.target.value)}
+                                placeholder="Name"
+                            // defaultValue={name}
+                            />
+                        </div>
+                        
+                        <div className="form-control w-full mb-4">
+                            <label className="label ">
+                                <span className="label-text text-xl font-semibold text-black">Email</span>
+                            </label>
+                            <input
+                                className="input input-bordered w-full "
+                                value={email}
+                                onChange={(e) => setemail(e.target.value)}
+                                placeholder='ABC@gmail.com'
+                            // defaultValue={name}
+                            />
+                        </div>
+                       
+                        <div className="form-control w-full mb-4">
+                            <label className="label-text text-xl font-semibold text-black">Number</label>
+
+                            <input
+                                type="tel" // Use type="tel" for phone numbers
+                                className="input input-bordered w-full "
+                                value={whatsappNumber}
+                                onChange={(e) => setWhatsappNumber(e.target.value)}
+                                placeholder="Number"
+                                pattern="^\d{11}$" // Regular expression for exactly 11 digits
+                                title="Please enter a valid mobile number with exactly 11 digits"
+                            />
+                        </div>
+                        <div className="form-control w-full mb-4">
+                            <label className="label-text text-xl font-semibold text-black">Location</label>
+                            <input
+                                className="input input-bordered w-full "
+                                value={location}
+                                onChange={(e) => setLocation(e.target.value)}
+                                placeholder="Location"
+                            />
+                        </div>
+                       
+                        <div className="form-control w-full mb-4 flex">
+                            <div className="flex items-center ">
+                                <input
+                                    type="checkbox"
+                                    className="mr-2"
+                                    checked={isClassDropdownVisible}
+                                    onChange={() => setIsClassDropdownVisible(!isClassDropdownVisible)}
+                                />
+                                <label className="label-text text-xl font-semibold text-black ">Class</label>
+                            </div>
+                            {isClassDropdownVisible && (
+                                <select
+                                    className="select select-bordered flex-grow "
+                                    value={selectedClass}
+                                    onChange={(e) => setSelectedClass(e.target.value)}
+
+                                >
+                                    <option value="">Select Class</option>
+                                    {classList.map((option, index) => (
+                                        <option key={index} value={option}>
+                                            {option}
+                                        </option>
+                                    ))}
+                                </select>
+                            )}
+                        </div>
+
+
+                        <div className="form-control w-full mb-4 flex">
+                            <div className="flex items-center">
+                                <input
+                                    type="checkbox"
+                                    className="mr-2"
+                                    checked={isBatchDropdownVisible}
+                                    onChange={() => setIsBatchDropdownVisible(!isBatchDropdownVisible)}
+                                />
+                                <label className="label-text text-xl font-semibold text-black">Batch</label>
+                            </div>
+                            {isBatchDropdownVisible && (
+                                <select
+                                    className="select select-bordered flex-grow "
+                                    value={selectedBatch}
+                                    onChange={(e) => setSelectedBatch(e.target.value)}
+                                >
+                                    <option value="">Select Batch</option>
+                                    {batchList.map((option, index) => (
+                                        <option key={index} value={option}>
+                                            {option}
+                                        </option>
+                                    ))}
+                                </select>
+                            )}
+                        </div>
+
+                        <input className="btn btn-primary btn-lg mt-5" type="submit" value="Add Teacher" />
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Teacher;
