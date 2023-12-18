@@ -43,13 +43,13 @@ const Sidebar = () => {
         fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/post-toy?email=${user?.email}`)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data.length)
+                console.log(data)
                 if (data.length === 0) {
-                    setIsStudentUser(false);
+                    setIsStudentUser(true);
                 }
-console.log(user)
+                console.log(user)
                 // Check if the user is an admin based on their username and password
-                if (user?.email === 'admin@gmail.com' ) {
+                if (user?.email === 'admin@gmail.com') {
                     //setIsAdmin(true);
                     navigate('/adminDashboard/adminHome')
                 }
