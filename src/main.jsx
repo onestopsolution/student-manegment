@@ -57,6 +57,11 @@ const router = createBrowserRouter([
       {
         path: 'profile',
         element: <MyProfile></MyProfile>
+      },
+      {
+        path:'edit/:id',
+        element:<Editprofilr></Editprofilr>,
+        loader: ({params}) =>fetch(`  https://intern-first-server-farjanaakterlaila.vercel.app/edit/${params.id}`)
       }
     ]
   },
@@ -231,6 +236,7 @@ import AttendanceHistory from './Pages/Admin/Attandance/AbttendanceHistory ';
 import Report from './Pages/UserHome/Report/Report';
 import Teacherattandance from './Pages/Admin/Payment/Teacherattandance';
 import Teacher from './Pages/Admin/TeacherForm/Teacher.jsx';
+import Editprofilr from './Pages/UserHome/MyProfile/Editprofilr.jsx';
 
 
 const queryClient = new QueryClient()
