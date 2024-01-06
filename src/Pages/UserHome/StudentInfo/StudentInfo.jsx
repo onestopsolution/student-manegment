@@ -27,7 +27,7 @@ const StudentInfo = () => {
     }, []);
 
     return (
-        <div  data-aos="fade-left" data-aos-duration="3000" className="hero h-fit w-fit bg-gradient-to-r from-indigo-200 to-purple-200 mx-auto rounded-2xl py-5 px-5 mt-0 lg:mt-20">
+        <div  data-aos="fade-left" data-aos-duration="3000" className="hero h-fit w-fit bg-gradient-to-r from-indigo-200 to-purple-200 mx-auto rounded-2xl py-5 px-5 mt-5 lg:mt-10">
             <div className="hero-content w-96 lg:w-fit flex-col xl:flex-row gap-10 justify-between">
                 <Tilt className="tilt-img"
                     tiltMaxAngleX={35}

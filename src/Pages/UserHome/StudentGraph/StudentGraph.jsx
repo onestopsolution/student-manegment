@@ -174,15 +174,15 @@ const StudentAttendanceGraph = () => {
     : [];
 
   return (
-    <div>
-      <h1 className='text-3xl text-center font-bold bg-indigo-300 py-3 rounded-full border-x-4 border-black mt-10 lg:mt-40' data-aos="zoom-in">Student Attendance</h1>
+    <div className='card glass mt-10 py-10 px-1 lg:px-10 rounded-3xl'>
+      <h1 className='text-3xl text-center font-bold bg-gradient-to-r from-[#B721FF] to-[#21D4FD] text-white py-1 rounded-full border-x-4 border-black mb-5' data-aos="zoom-in">Student Attendance</h1>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart
           data={dataForChart}
           margin={{
             top: 20,
-            right: 30,
-            left: 20,
+            right: 10,
+            left: 10,
             bottom: 5,
           }}
         >
@@ -191,8 +191,8 @@ const StudentAttendanceGraph = () => {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="presence" fill="#207398" name="Presence" />
-          <Bar dataKey="absence" fill="#758283" name="Absence" />
+          <Bar dataKey="presence" fill="#6D5ACF" name="Present" />
+          <Bar dataKey="absence" fill="#ADD8E6" name="Absence" />
         </BarChart>
       </ResponsiveContainer>
     </div>

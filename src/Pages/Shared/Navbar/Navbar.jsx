@@ -14,9 +14,9 @@ const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
 
     const navItems = <>
-        <li><Link><FaHome/><span>Home</span></Link></li>
-        <li><Link to='/resources'><FaBook/><span>Home Work</span></Link></li>
-        <li><Link to='/classes'><SiGoogleclassroom/><span>Classes</span></Link></li>
+        <li><Link><FaHome /><span className='font-semibold'>Home</span></Link></li>
+        <li><Link to='/resources'><FaBook /><span className='font-semibold'>Home Work</span></Link></li>
+        <li><Link to='/classes'><SiGoogleclassroom /><span className='font-semibold'>Classes</span></Link></li>
 
     </>
 
@@ -33,7 +33,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="navbar bg-indigo-100">
+        <div className="navbar bg-gradient-to-r from-[#8EC5FC] to-[#E0C3FC] bg-opacity-90">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -61,7 +61,9 @@ const Navbar = () => {
                 </Link>
                 {
                     user ? <>
-                        <button className='btn btn-primary btn-outline text-white' onClick={handleLogout}><span>Sign-Out</span><FaSignOutAlt /></button>
+                        <div className='w-fit h-fit font-bold bg-gradient-to-r from-[#B721FF] to-[#21D4FD] text-white rounded-lg text-center border-x-4 border-black'>
+                            <a className="btn btn-ghost text-xs md:text-md text-center lg:text-lg">Welcome<span className='font-bold text-xs md:text-md lg:text-lg text-black'>{user ? user.displayName : 'Guest'}</span></a>
+                        </div>
                     </> : <>
                         <Link to='/login'>
                             <button className='btn btn-outline border-black text-black hover:bg-base-100 hover:text-white'><span>Sign-In</span> <FaSignInAlt /></button>

@@ -3,7 +3,7 @@ import React from 'react';
 const ClassRoutine = () => {
     return (
         <div className='my-10 mx-10'>
-            <h1 data-aos="flip-down" data-aos-duration="3000" className='text-center font-bold text-3xl mb-5 bg-gradient-to-r from-indigo-300 to-purple-300 rounded-full py-2 border-b-4 border-black'>Class Routine</h1>
+            <h1 data-aos="flip-down" data-aos-duration="3000" className='text-center font-bold text-3xl mb-5 bg-gradient-to-r from-[#B721FF] to-[#21D4FD] text-white rounded-full py-2 border-b-4 border-black'>Class Routine</h1>
             <div data-aos="fade-right" data-aos-duration="3000" className="overflow-x-auto mt-10">
                 <table className="table">
                     {/* head */}
