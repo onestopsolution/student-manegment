@@ -2,6 +2,7 @@ import React, { useState , useEffect} from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import { FaEdit } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const MyProfile = () => {
 
@@ -25,7 +26,7 @@ const MyProfile = () => {
           console.error('Error fetching data:', error);
         });
     }, [user]);
-
+    const navigate = useNavigate();
     return (
         <div className='flex mt-10 lg:mt-0 flex-col lg:flex-row items-center justify-around gap-20 min-h-screen w-11/12 my-5 ml-4 lg:ml-14 rounded-3xl'>
             <div data-aos="fade-right" data-aos-duration="3000" className='w-fit md:w-96 bg-gradient-to-b from-yellow-100 to-indigo-100 px-10 py-10 rounded-xl flex flex-col items-center border-y-4 border-black'>
@@ -48,7 +49,7 @@ const MyProfile = () => {
                     <p className='font-bold'>Location : <span>{userData.location }</span></p>
                     <p className='font-bold'>Date of Birth : <span>{userData.brithday }</span></p>
                     <div className='w-full flex items-center justify-center mt-3'>
-                        <button className='btn btn-primary'><FaEdit/>Edit Profile</button>
+                        <button className='btn btn-primary' onClick={() => navigate(`/edit/${userData._id}`)}><FaEdit/>Edit Profile</button>
                     </div>
                 </div>
             </div>
