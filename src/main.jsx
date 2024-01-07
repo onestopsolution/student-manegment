@@ -40,27 +40,27 @@ const router = createBrowserRouter([
       },
       {
         path: 'notice',
-        element: <NoticeBoard></NoticeBoard>
+        element: <PrivateRoute><NoticeBoard></NoticeBoard></PrivateRoute>
       },
       {
         path: 'resources',
-        element: <Resources/>
+        element: <PrivateRoute><Resources/></PrivateRoute>
       },
       {
         path: 'classes',
-        element: <ClassRoutine></ClassRoutine>
+        element: <PrivateRoute><ClassRoutine></ClassRoutine></PrivateRoute>
       },
       {
         path: 'cardre',
-        element: <Report/>
+        element: <PrivateRoute><Report/></PrivateRoute>
       },
       {
         path: 'profile',
-        element: <MyProfile></MyProfile>
+        element: <PrivateRoute> <MyProfile></MyProfile></PrivateRoute>
       },
       {
         path:'edit/:id',
-        element:<Editprofilr></Editprofilr>,
+        element: <PrivateRoute><Editprofilr></Editprofilr></PrivateRoute>,
         loader: ({params}) =>fetch(`  https://intern-first-server-farjanaakterlaila.vercel.app/edit/${params.id}`)
       }
     ]

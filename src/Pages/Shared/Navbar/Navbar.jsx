@@ -8,17 +8,13 @@ import logo from '../../../assets/logo/logo-removebg-preview (1).png'
 import { AiFillBell } from "react-icons/ai";
 import { FaHome, FaBook } from "react-icons/fa";
 import { SiGoogleclassroom } from "react-icons/si";
+import { FaIdBadge } from "react-icons/fa";
+import { BiSolidReport } from "react-icons/bi";
+import { RiLogoutCircleLine } from "react-icons/ri";
 
 const Navbar = () => {
 
     const { user, logout } = useContext(AuthContext);
-
-    const navItems = <>
-        <li><Link><FaHome /><span className='font-semibold'>Home</span></Link></li>
-        <li><Link to='/resources'><FaBook /><span className='font-semibold'>Home Work</span></Link></li>
-        <li><Link to='/classes'><SiGoogleclassroom /><span className='font-semibold'>Classes</span></Link></li>
-
-    </>
 
     const handleLogout = () => {
         logout()
@@ -32,6 +28,15 @@ const Navbar = () => {
             .catch(error => console.log(error))
     }
 
+    const navItems = <>
+        <li><Link><FaHome className='text-xl'/><span className='font-semibold'>Home</span></Link></li>
+        <li><Link to='/resources'><FaBook className='text-xl'/><span className='font-semibold'>Resources</span></Link></li>
+        <li><Link to='/classes'><SiGoogleclassroom className='text-xl'/><span className='font-semibold'>Classes</span></Link></li>
+        <li><Link to='/cardre'><BiSolidReport className='text-xl'/><span className='font-semibold'>Statistics</span></Link></li>
+        <li className='flex lg:hidden'><Link to='/profile'><FaIdBadge className='text-xl'/><span className='font-semibold'>Profile</span></Link></li>
+        <button onClick={handleLogout} className='bg-gradient-to-r from-[#B721FF] to-[#21D4FD] text-white py-2 px-1 rounded-full flex gap-1 items-center justify-center lg:hidden'><RiLogoutCircleLine className='text-lg'/><span className='font-semibold'>Logout</span></button>
+    </>
+
     return (
         <div className="navbar bg-gradient-to-r from-[#8EC5FC] to-[#E0C3FC] bg-opacity-90">
             <div className="navbar-start">
@@ -39,7 +44,7 @@ const Navbar = () => {
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-indigo-100 rounded-box w-52">
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] py-5 px-2 shadow bg-gradient-to-r from-[#8EC5FC] to-[#E0C3FC] rounded-box w-32 flex flex-col gap-3">
                         {navItems}
                     </ul>
                 </div>
