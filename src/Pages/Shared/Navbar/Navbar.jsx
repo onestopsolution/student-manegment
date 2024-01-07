@@ -67,7 +67,7 @@ const Navbar = () => {
                 {
                     user ? <>
                         <div className='w-fit h-fit font-bold bg-gradient-to-r from-[#B721FF] to-[#21D4FD] text-white rounded-lg text-center border-x-4 border-black'>
-                            <a className="btn btn-ghost text-xs md:text-md text-center lg:text-lg">Welcome<span className='font-bold text-xs md:text-md lg:text-lg text-black'>{user ? user.displayName : 'Guest'}</span></a>
+                            <a className="btn btn-ghost text-xs md:text-md text-center lg:text-lg"><span className='hidden md:flex'>Welcome</span><span className='font-bold text-xs md:text-md lg:text-lg text-black'>{user ? user.displayName : 'Guest'}</span></a>
                         </div>
                     </> : <>
                         <Link to='/login'>

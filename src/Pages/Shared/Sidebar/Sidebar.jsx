@@ -83,7 +83,7 @@ const Sidebar = () => {
     }, [user]);
 
     return (
-        <div data-aos="fade-right" data-aos-duration="3000" className='max-h-screen w-fit bg-gradient-to-t from-[#D9AFD9] to-[#97D9E1] bg-opacity-50 px-5 lg:px-0 py-0 lg:py-5 rounded-3xl text-start mb-5 lg:mb-8 mt-0 lg:mt-8 hidden lg:flex border-x-8 lg:border-x-0  lg:border-y-8 border-black'>
+        <div data-aos="fade-right" data-aos-duration="3000" className='max-h-screen w-fit bg-gradient-to-t from-[#0093E9] to-[#80D0C7] bg-opacity-50 px-5 lg:px-0 py-0 lg:py-5 rounded-3xl text-start mb-5 lg:mb-8 mt-0 lg:mt-8 hidden lg:flex border-x-8 lg:border-x-0  lg:border-y-8 border-black'>
             <div className='flex flex-col items-center justify-center'>
                 {/* <div className='mt-5'>
                     <PiArrowFatLineDownFill className='text-indigo-300 text-3xl' />

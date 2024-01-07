@@ -54,7 +54,7 @@ const Resources = () => {
         <div className="flex flex-wrap justify-center gap-5 mt-8">
             {resources.map((resource) => (
 
-                <div key={resource._id} className="card glass bg-gradient-to-r from-[#E0C3FC] to-[#8EC5FC] text-black w-96 shadow-2xl shadow-black">
+                <div key={resource._id} className="card glass bg-gradient-to-r from-[#E0C3FC] to-[#8EC5FC] text-black w-96 shadow-2xl shadow-black mx-5">
                     <figure>
                         <img className="w-full h-52" src={resource.Image} alt="Resource" />
                     </figure>

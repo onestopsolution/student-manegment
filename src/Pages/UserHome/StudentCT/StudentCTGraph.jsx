@@ -45,7 +45,7 @@ const StudentCTMarks = () => {
   return (
 
     <div className='card glass mt-10 py-10 px-1 lg:px-10 rounded-3xl'>
-      <h1 className='text-3xl text-center font-bold bg-gradient-to-r from-[#B721FF] to-[#21D4FD] text-white py-1 rounded-full border-x-4 border-black' data-aos="zoom-out">CT Marks</h1>
+      <h1 className='text-xl lg:text-3xl text-center font-bold bg-gradient-to-r from-[#B721FF] to-[#21D4FD] text-white px-3 py-1 rounded-full border-x-4 border-black' data-aos="zoom-out">CT Marks</h1>
       <ResponsiveContainer className='my-5' maxWidth="80%" minWidth="30%" maxHeight="80%" minHeight="80%">
         <LineChart
           width={500}

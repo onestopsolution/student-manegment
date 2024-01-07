@@ -175,7 +175,7 @@ const StudentAttendanceGraph = () => {
 
   return (
     <div className='card glass mt-10 py-10 px-1 lg:px-10 rounded-3xl'>
-      <h1 className='text-3xl text-center font-bold bg-gradient-to-r from-[#B721FF] to-[#21D4FD] text-white py-1 rounded-full border-x-4 border-black mb-5' data-aos="zoom-in">Student Attendance</h1>
+      <h1 className='text-xl lg:text-3xl text-center font-bold bg-gradient-to-r from-[#B721FF] to-[#21D4FD] text-white px-3 py-1 rounded-full border-x-4 border-black mb-5' data-aos="zoom-in">Student Attendance</h1>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart
           data={dataForChart}

@@ -28,7 +28,7 @@ const StudentTotal = () => {
     return (
         <div className='flex flex-col lg:flex-row flex-wrap justify-center gap-8 h-fit text-center mt-0 lg:mt-5'>
             <Tilt>
-                <div data-aos='flip-left' data-aos-duration="3000" className="stats bg-gradient-to-r from-[#D9AFD9] to-[#97D9E1] bg-opacity-90 shadow-lg shadow-black w-50 px-2 py-3">
+                <div data-aos='flip-left' data-aos-duration="3000" className="stats bg-gradient-to-r from-[#0093E9] to-[#80D0C7] bg-opacity-90 shadow-lg shadow-black w-50 px-2 py-3">
 
                     <div className="stat">
                         <div className="stat-title text-black font-bold">Enrolled Courses</div>
@@ -38,7 +38,7 @@ const StudentTotal = () => {
                 </div>
             </Tilt>
             <Tilt>
-                <div data-aos="flip-up" data-aos-duration="3000" className="stats bg-gradient-to-r from-[#D9AFD9] to-[#97D9E1] bg-opacity-90 shadow-lg shadow-black w-50 px-2 py-3">
+                <div data-aos="flip-up" data-aos-duration="3000" className="stats bg-gradient-to-r from-[#0093E9] to-[#80D0C7] bg-opacity-90 shadow-lg shadow-black w-50 px-2 py-3">
 
                     <div className="stat">
                         <div className="stat-title text-black font-bold">Due Payment</div>
@@ -48,7 +48,7 @@ const StudentTotal = () => {
                 </div>
             </Tilt>
             <Tilt>
-                <div data-aos='flip-right' data-aos-duration="3000" className="stats bg-gradient-to-r from-[#D9AFD9] to-[#97D9E1] bg-opacity-90 shadow-lg shadow-black w-50 px-2 py-3">
+                <div data-aos='flip-right' data-aos-duration="3000" className="stats bg-gradient-to-r from-[#0093E9] to-[#80D0C7] bg-opacity-90 shadow-lg shadow-black w-50 px-2 py-3">
 
                     <div className="stat">
                         <div className="stat-title text-black font-bold">Last Payment Date</div>
