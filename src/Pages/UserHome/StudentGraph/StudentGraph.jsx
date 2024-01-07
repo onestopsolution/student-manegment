@@ -191,8 +191,8 @@ const StudentAttendanceGraph = () => {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="presence" fill="#6D5ACF" name="Present" />
-          <Bar dataKey="absence" fill="#ADD8E6" name="Absence" />
+          <Bar dataKey="presence" fill="#B721FF" name="Present" />
+          <Bar dataKey="absence" fill="#21D4FD" name="Absence" />
         </BarChart>
       </ResponsiveContainer>
     </div>

@@ -6,7 +6,7 @@ import Navbar from '../Pages/Shared/Navbar/Navbar';
 const Main = () => {
     return (
         <div className=''>
-            <ParticlesBg type="polygon" bg={true} />
+            <ParticlesBg type="circle" bg={true} />
             <Navbar></Navbar>
             <Outlet></Outlet>
         </div>
