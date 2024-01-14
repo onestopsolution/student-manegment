@@ -34,6 +34,9 @@ const MyProfile = () => {
                 <div className='mt-5'>
                     <h1 className='text-3xl font-bold text-center'>About Myself</h1>
                     <p className='mt-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum id dolorum soluta nulla, illum rerum exercitationem tempore officiis sit odio totam fuga et illo vitae. Beatae numquam tempore quisquam velit iste minus atque veniam veritatis vero! Ad illo, ab enim asperiores sapiente deserunt veniam quaerat quis quia molestiae beatae id.</p>
+                    
+                        <button className='bg-gradient-to-r from-[#B721FF] to-[#21D4FD] px-8 py-2 flex items-right justify-right gap-2 rounded-full text-white font-semibold shadow-2xl shadow-black border-x-4 border-black transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300' ><FaEdit/></button>
+                   
                 </div>
             </div>
             <div data-aos="fade-left" data-aos-duration="3000" className='w-4/5'>
