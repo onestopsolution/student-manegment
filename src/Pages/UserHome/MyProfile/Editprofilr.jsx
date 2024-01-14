@@ -10,11 +10,12 @@ const Editprofilr = () => {
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_key}`
 
     const Jobdetail = useLoaderData();
-    const { stuid,name,brithday,fatherName,fatherNumber,motherName,email,motherNumber,WhatsAppNumber,instituteName,Batch,Class, location ,Image } = Jobdetail;
+    console.log(Jobdetail);
+    const { stuid,name,brithday,fatherName,fatherNumber,motherName,email,motherNumber,WhatsAppNumber,instituteName,Batch,Class, location ,Image, _id } = Jobdetail;
   
     useEffect(() => {
       // Fetch the attendance history from the API endpoint
-      fetch(`  http://localhost:5000/student/${_id}`)
+      fetch(`  https://intern-first-server-farjanaakterlaila.vercel.app/student/${_id}`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data)
@@ -66,7 +67,7 @@ const Editprofilr = () => {
                         motherName,
                         email,
                         motherNumber: parseFloat(motherNumber),
-                        WhatsAppNumber: parseFloat(whatsappNumber),
+                        WhatsAppNumber: parseFloat(WhatsAppNumber),
                         instituteName,
                         Batch,
                         Class,
@@ -74,7 +75,7 @@ const Editprofilr = () => {
                         Image: imgURL
                     }
                     console.log(newCls)
-                    fetch(`http://localhost:5000/edit/${_id}`, {
+                    fetch(`https://intern-first-server-farjanaakterlaila.vercel.app/edit/${_id}`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(newCls),
@@ -117,7 +118,7 @@ const Editprofilr = () => {
                             </label>
                             <input
                                 className="input input-bordered w-full "
-                                value={data.stuid}
+                                value={stuid}
                                 onChange={(e) => setstuid(e.target.value)}
                                 placeholder="01"
                             // defaultValue={name}
@@ -212,7 +213,7 @@ const Editprofilr = () => {
                             <input
                                 type="tel" // Use type="tel" for phone numbers
                                 className="input input-bordered w-full "
-                                value={whatsappNumber}
+                                value={WhatsAppNumber}
                                 onChange={(e) => setWhatsappNumber(e.target.value)}
                                 placeholder="WhatsApp Number"
                                 pattern="^\d{11}$" // Regular expression for exactly 11 digits

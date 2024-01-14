@@ -26,6 +26,7 @@ const MyProfile = () => {
           console.error('Error fetching data:', error);
         });
     }, [user]);
+    // console.log(userData);
     const navigate = useNavigate();
     return (
         <div className='flex mt-8 lg:mt-0 flex-col lg:flex-row items-center justify-around gap-10 lg:gap-20 min-h-screen w-11/12 my-5 ml-4 lg:ml-14 rounded-3xl'>
