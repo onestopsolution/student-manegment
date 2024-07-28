@@ -13,7 +13,7 @@ const ManageUsers = () => {
     })
     const [selectedUsers, setSelectedUsers] = useState([]); 
 
-  const handleMakeAdmin = (user) => {
+  const handleMakeStudent = (user) => {
     if (user.role === 'Student' || selectedUsers.includes(user._id)) {
       return; 
     }
@@ -121,7 +121,7 @@ const ManageUsers = () => {
                   'Student'
                 ) : (
                   <button
-                    onClick={() => handleMakeAdmin(item)}
+                    onClick={() => handleMakeStudent(item)}
                     className="btn btn-sm btn-ghost bg-indigo-700 text-white"
                     disabled={selectedUsers.includes(item._id) || item.role === 'Instructor' || item.role === 'Employee'}
                   >

@@ -32,16 +32,18 @@ const AdminLayout = () => {
         <li><Link to='/adminDashboard/batch'><AiOutlineAppstoreAdd />Batch/Class Add</Link></li>
         <li><Link to='/adminDashboard/noticeSend'><AiTwotoneNotification />Send Notice</Link></li>
         {/* <li><Link to='/adminDashboard/resourcesupload'><BsCloudUpload />Resources Upload</Link></li> */}
-        <li><Link to='/adminDashboard/homeworklist'><BsCloudUpload/>Homework Upload</Link></li>
-        <li><Link to='/adminDashboard/exam'><BsCloudUpload/>Exam Marks Upload</Link></li>
+        <li><Link to='/adminDashboard/homeworklist'><BsCloudUpload />Homework Upload</Link></li>
+        <li><Link to='/adminDashboard/exam'><BsCloudUpload />Exam Marks Upload</Link></li>
         <li><Link to='/adminDashboard/brithday'><FaBirthdayCake />Birthday Remainder</Link></li>
         {/* <li><Link to='/adminDashboard/pendingDue'><TbCalendarDue />Pending Due</Link></li> */}
         <li><Link to='/adminDashboard/techerlist'><TbCalendarDue />Teacher From</Link></li>
         <li><Link to='/adminDashboard/techeratt'><TbCalendarDue />Teacher Attandance</Link></li>
         <li><Link to='/adminDashboard/teacherpay'><TbCalendarDue />Teacher Pay</Link></li>
 
-        <button className='btn btn-primary btn-outline text-white text-center mt-8' onClick={handleLogout}> Sign-Out <VscSignOut className='text-2xl'/> </button>
-   
+
+        <button className='btn btn-primary btn-outline text-white text-center mt-5' onClick={handleLogout}> Sign-Out <VscSignOut className='text-2xl' /> </button>
+
+
     </>
 
     return (
@@ -57,7 +59,7 @@ const AdminLayout = () => {
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
-                    <div className='my-10 bg-indigo-500 text-white py-3 rounded-full'>
+                    <div className='mt-8 mb-5 bg-indigo-500 text-white py-3 rounded-full'>
                         <h1 className='text-center text-3xl font-bold'>Admin</h1>
                     </div>
                     {/* Sidebar content here */}
