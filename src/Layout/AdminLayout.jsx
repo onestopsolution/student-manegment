@@ -7,6 +7,7 @@ import { FcVoicePresentation } from "react-icons/fc";
 import { BsCloudUpload } from "react-icons/bs";
 import { AuthContext } from '../Providers/AuthProvider';
 import Swal from 'sweetalert2';
+import { VscSignOut } from "react-icons/vsc";
 
 const AdminLayout = () => {
     const { user, logout } = useContext(AuthContext);
@@ -38,15 +39,9 @@ const AdminLayout = () => {
         <li><Link to='/adminDashboard/techerlist'><TbCalendarDue />Teacher From</Link></li>
         <li><Link to='/adminDashboard/techeratt'><TbCalendarDue />Teacher Attandance</Link></li>
         <li><Link to='/adminDashboard/teacherpay'><TbCalendarDue />Teacher Pay</Link></li>
+
+        <button className='btn btn-primary btn-outline text-white text-center mt-8' onClick={handleLogout}> Sign-Out <VscSignOut className='text-2xl'/> </button>
    
-        <li>
-  <button
-    className='btn btn-primary btn-md btn-outline text-white px-4 py-2 text-center'
-    onClick={handleLogout}
-  >
-    <span>Sign-Out</span>
-  </button>
-</li>
     </>
 
     return (
