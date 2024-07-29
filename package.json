@@ -1,5 +1,6 @@
 {
   "name": "intern-project",
+  "homepage" : "https://smsystem.revenbd.com/repositories",
   "private": true,
   "version": "0.0.0",
   "type": "module",

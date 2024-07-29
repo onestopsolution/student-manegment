@@ -40,9 +40,7 @@ const AdminLayout = () => {
         <li><Link to='/adminDashboard/techeratt'><TbCalendarDue />Teacher Attandance</Link></li>
         <li><Link to='/adminDashboard/teacherpay'><TbCalendarDue />Teacher Pay</Link></li>
 
-
         <button className='btn btn-primary btn-outline text-white text-center mt-5' onClick={handleLogout}> Sign-Out <VscSignOut className='text-2xl' /> </button>
-
 
     </>
 
