@@ -39,7 +39,7 @@ const FileUpload = ({ files, setFiles, removeFile }) => {
     formData.append('className', className);
     formData.append('batchName', batchName);
 
-    fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/upload', {
+    fetch(' https://asteriactg.com/upload', {
       method: 'POST',
       body: formData,
     })
@@ -68,7 +68,7 @@ const FileUpload = ({ files, setFiles, removeFile }) => {
   };
   const fetchFileList = async () => {
 
-    const response = await fetch('  https://intern-first-server-farjanaakterlaila.vercel.app/files');
+    const response = await fetch('  https://asteriactg.com/files');
     if (response.ok) {
       const data = await response.json();
       setFiles(data); // Update the state with the new file list
@@ -78,7 +78,7 @@ const FileUpload = ({ files, setFiles, removeFile }) => {
   };
   useEffect(() => {
     // Fetch class and batch data from your API
-    fetch(" https://intern-first-server-farjanaakterlaila.vercel.app/BatchClass")
+    fetch(" https://asteriactg.com/BatchClass")
 
         .then(response => response.json())
         .then(data => {

@@ -31,7 +31,7 @@ const Teacher = () => {
 
     useEffect(() => {
         // Fetch class and batch data from your API
-        fetch(" https://intern-first-server-farjanaakterlaila.vercel.app/BatchClass")
+        fetch(" https://asteriactg.com/BatchClass")
 
             .then(response => response.json())
             .then(data => {
@@ -76,7 +76,7 @@ const Teacher = () => {
                         Image: imgURL
                     }
                     console.log(newCls)
-                    fetch(" https://intern-first-server-farjanaakterlaila.vercel.app/user", {
+                    fetch(" https://asteriactg.com/user", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(newCls),

@@ -7,7 +7,7 @@ const AddUsers = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
    
-      fetch("https://intern-first-server-farjanaakterlaila.vercel.app/user", {
+      fetch("https://asteriactg.com/user", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

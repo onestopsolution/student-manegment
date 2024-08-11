@@ -8,7 +8,7 @@ const Homeworklist = () => {
   
 useEffect(() => {
 
-          fetch(" https://intern-first-server-farjanaakterlaila.vercel.app/homework")
+          fetch(" https://asteriactg.com/homework")
               .then(response => response.json())
               .then(data => {
                 setStudentList(data);
@@ -31,7 +31,7 @@ useEffect(() => {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
-            fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/homework/${item._id}`, {
+            fetch(` https://asteriactg.com/homework/${item._id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

@@ -13,7 +13,7 @@ const Homework = () => {
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_key}`
     useEffect(() => {
         // Fetch class and batch data from your API
-        fetch(" https://intern-first-server-farjanaakterlaila.vercel.app/BatchClass")
+        fetch(" https://asteriactg.com/BatchClass")
 
             .then(response => response.json())
             .then(data => {
@@ -58,7 +58,7 @@ const Homework = () => {
                         instruction
                     }
                     console.log(newCls)
-                    fetch(" https://intern-first-server-farjanaakterlaila.vercel.app/homework", {
+                    fetch(" https://asteriactg.com/homework", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(newCls),

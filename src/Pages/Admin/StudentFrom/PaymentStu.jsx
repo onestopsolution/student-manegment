@@ -6,7 +6,7 @@ import { BsSearch } from 'react-icons/bs';
 const PaymentStu = () => {
     const { user, loading } = useContext(AuthContext);
     const [toys, setToys] = useState([]);
-    const url = '  https://intern-first-server-farjanaakterlaila.vercel.app/student';
+    const url = '  https://asteriactg.com/student';
 
     // Function to format the date to display only the date part (YYYY-MM-DD)
     function formatDate(dateString) {
@@ -25,7 +25,7 @@ const PaymentStu = () => {
     const [searchText, setSearchText] = useState("");
     const navigate = useNavigate();
     const handleSearch = () => {
-        fetch(`   https://intern-first-server-farjanaakterlaila.vercel.app/search/${searchText}`)
+        fetch(`  https://asteriactg.com/search/${searchText}`)
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

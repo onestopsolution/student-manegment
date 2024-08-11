@@ -9,7 +9,7 @@ const Classedit = () => {
     const {_id,Image,Name,InstructorName,AvailableSeats,Price} = Jobdetail;
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-    fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/update/${_id}`, {
+    fetch(` https://asteriactg.com/adminDashboard/update/${_id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

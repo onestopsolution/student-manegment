@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const ManageUsers = () => {
 
   const { data: user = [], refetch } = useQuery(['user'], async () => {
-    const res = await fetch(' https://intern-first-server-farjanaakterlaila.vercel.app/user')
+    const res = await fetch(' https://asteriactg.com/user')
     return res.json();
   })
   const [selectedUsers, setSelectedUsers] = useState([]);
@@ -17,7 +17,7 @@ const ManageUsers = () => {
       return;
     }
 
-    fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/user/student/${user._id}`, {
+    fetch(` https://asteriactg.com/user/student/${user._id}`, {
       method: 'PATCH',
     })
       .then((res) => res.json())
@@ -41,7 +41,7 @@ const ManageUsers = () => {
       return;
     }
 
-    fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/user/instructor/${user._id}`, {
+    fetch(` https://asteriactg.com/user/instructor/${user._id}`, {
       method: 'PATCH',
     })
       .then((res) => res.json())
@@ -65,7 +65,7 @@ const ManageUsers = () => {
       return;
     }
 
-    fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/user/employee/${user._id}`, {
+    fetch(` https://asteriactg.com/user/employee/${user._id}`, {
       method: 'PATCH',
     })
       .then((res) => res.json())
@@ -89,7 +89,7 @@ const ManageUsers = () => {
       return;
     }
 
-    fetch(` https://intern-first-server-ashy.vercel.app/user/admin/${user._id}`, {
+    fetch(` https://asteriactg.com/user/admin/${user._id}`, {
       method: 'PATCH',
     })
       .then((res) => res.json())

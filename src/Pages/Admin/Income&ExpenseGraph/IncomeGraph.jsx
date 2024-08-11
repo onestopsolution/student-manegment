@@ -8,7 +8,7 @@ const IncomeGraph = () => {
 
   useEffect(() => {
     // Fetch data from the API
-    fetch('  https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/addincome')
+    fetch('  https://asteriactg.com/adminDashboard/addincome')
       .then((response) => response.json())
       .then((data) => {
         // Calculate profit by subtracting expenses (Express) from income

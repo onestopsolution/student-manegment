@@ -9,7 +9,7 @@ const FileList = ({ files, removeFile }) => {
     // Fetch the list of files from your backend when the component mounts
     const fetchData = async () => {
       try {
-        const response = await fetch('  https://intern-first-server-farjanaakterlaila.vercel.app/files'); // Replace with your backend endpoint
+        const response = await fetch('  https://asteriactg.com/files'); // Replace with your backend endpoint
         if (response.ok) {
           const data = await response.json();
           setFileList(data); // Update the file list with data from the backend
@@ -27,7 +27,7 @@ const FileList = ({ files, removeFile }) => {
   // Modify the deleteFileHandler function to also delete files from the backend
   const deleteFileHandler = async (id) => {
     try {
-      const response = await fetch(`  https://intern-first-server-farjanaakterlaila.vercel.app/files/${id}`, {
+      const response = await fetch(`  https://asteriactg.com/files/${id}`, {
         method: 'DELETE', // Replace with your backend endpoint for deleting files
       });
 

@@ -61,7 +61,7 @@ const router = createBrowserRouter([
       {
         path:'edit/:id',
         element: <PrivateRoute><Editprofilr></Editprofilr></PrivateRoute>,
-        loader: ({params}) =>fetch(`  https://intern-first-server-farjanaakterlaila.vercel.app/edit/${params.id}`)
+        loader: ({params}) =>fetch(`  https://asteriactg.com/edit/${params.id}`)
       }
     ]
   },
@@ -140,7 +140,7 @@ const router = createBrowserRouter([
       {
         path:'attendance/:id',
         element:<AttendanceHistory></AttendanceHistory>,
-        loader: ({params}) =>fetch(`   https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/attendance/${params.id}`)
+        loader: ({params}) =>fetch(`   https://asteriactg.com/adminDashboard/attendance/${params.id}`)
    },
       {
         path: 'batch',
@@ -169,22 +169,22 @@ const router = createBrowserRouter([
       {
         path:'sendmessage/:id',
         element:<Exam></Exam>,
-        loader: ({params}) =>fetch(`  https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/sendmessage/${params.id}`)
+        loader: ({params}) =>fetch(`  https://asteriactg.com/adminDashboard/sendmessage/${params.id}`)
    },
       {
         path:'pay/:id',
         element:<PayDetails></PayDetails>,
-        loader: ({params}) =>fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/pay/${params.id}`)
+        loader: ({params}) =>fetch(` https://asteriactg.com/adminDashboard/pay/${params.id}`)
    },
       {
         path:'stupay/:id',
         element:<PayDetalisStu></PayDetalisStu>,
-        loader: ({params}) =>fetch(`  https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/stupay/${params.id}`)
+        loader: ({params}) =>fetch(`  https://asteriactg.com/adminDashboard/stupay/${params.id}`)
    },
       {
         path: 'update/:id',
         element:<Classedit></Classedit>,
-        loader: ({ params }) => fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/update/${params.id}`)
+        loader: ({ params }) => fetch(` https://asteriactg.com/adminDashboard/update/${params.id}`)
       }
     ]
   },

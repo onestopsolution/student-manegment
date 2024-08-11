@@ -18,7 +18,7 @@ const Attandace = () => {
   const navigate = useNavigate();
   useEffect(() => {
 
-    fetch("  https://intern-first-server-farjanaakterlaila.vercel.app/BatchClass")
+    fetch("  https://asteriactg.com/BatchClass")
       .then(response => response.json())
       .then(data => {
         console.log(data)
@@ -28,7 +28,7 @@ const Attandace = () => {
       .catch(error => {
         console.error('Error fetching student data:', error);
       });
-    fetch("  https://intern-first-server-farjanaakterlaila.vercel.app/student")
+    fetch("  https://asteriactg.com/student")
       .then(response => response.json())
       .then(data => {
         console.log(data)
@@ -63,7 +63,7 @@ const Attandace = () => {
     const studentId = updatedStudentList[index]._id;
     console.log(studentId)
     // Update the attendance in the database
-    fetch(`  https://intern-first-server-farjanaakterlaila.vercel.app/student/${studentId}`, {
+    fetch(`  https://asteriactg.com/student/${studentId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

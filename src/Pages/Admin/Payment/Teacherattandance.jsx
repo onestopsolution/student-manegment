@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 const TeacherAttendance = () => {
     const { user, loading } = useContext(AuthContext);
     const [toys, setToys] = useState([]);
-    const url = ' https://intern-first-server-farjanaakterlaila.vercel.app/user';
+    const url = 'https://asteriactg.com/user';
     const [studentList, setStudentList] = useState([]);
     const [batchList, setBatchList] = useState([]);
     const [classList, setClassList] = useState([]);
@@ -21,7 +21,7 @@ const TeacherAttendance = () => {
     }
 
     useEffect(() => {
-        fetch(" https://intern-first-server-farjanaakterlaila.vercel.app/BatchClass")
+        fetch(" https://asteriactg.com/BatchClass")
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -62,7 +62,7 @@ const TeacherAttendance = () => {
         console.log(studentId);
 
         // Update the attendance in the database with selectedBatch and selectedClass
-        fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/teacher/${studentId}`, {
+        fetch(` https://asteriactg.com/teacher/${studentId}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

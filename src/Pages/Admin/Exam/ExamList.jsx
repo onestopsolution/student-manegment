@@ -6,7 +6,7 @@ import { AiOutlineUpload } from 'react-icons/ai';
 const ExamList = () => {
     const { user, loading } = useContext(AuthContext);
     const [toys, setToys] = useState([]);
-    const url = 'https://intern-first-server-farjanaakterlaila.vercel.app/student';
+    const url = 'https://asteriactg.com/student';
     const navigate = useNavigate();
 
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);

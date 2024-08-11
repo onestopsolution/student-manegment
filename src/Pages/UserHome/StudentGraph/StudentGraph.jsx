@@ -136,7 +136,7 @@ const StudentAttendanceGraph = () => {
 
   useEffect(() => {
     // Fetch data from the provided URL
-    fetch(`  https://intern-first-server-farjanaakterlaila.vercel.app/post-toy?email=${user?.email}`)
+    fetch(`  https://asteriactg.com/post-toy?email=${user?.email}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

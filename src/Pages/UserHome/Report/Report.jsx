@@ -11,7 +11,7 @@ const Report = () => {
     const [ctData, setCTData] = useState([]);
 
     useEffect(() => {
-        fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/post-toy?email=${user?.email}`)
+        fetch(` https://asteriactg.com/post-toy?email=${user?.email}`)
             .then((response) => response.json())
             .then((data) => {
                 if (data.length > 0) {

@@ -30,7 +30,7 @@ const Addcourses = () => {
                     const { Name, InstructorName, Price, InstactorEmail, AvailableSeats } = data;
                     const newCls = { Name, InstructorName, InstactorEmail, Price: parseFloat(Price), AvailableSeats: parseFloat(AvailableSeats), Image: imgURL }
                     console.log(newCls)
-                    fetch(" https://intern-first-server-farjanaakterlaila.vercel.app/classes", {
+                    fetch(" https://asteriactg.com/classes", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(newCls),

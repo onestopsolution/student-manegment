@@ -8,7 +8,7 @@ const Addatt = () => {
   const [studentList, setStudentList] = useState([]);
 
   useEffect(() => {
-    fetch("  https://intern-first-server-farjanaakterlaila.vercel.app/student")
+    fetch("  https://asteriactg.com/student")
       .then(response => response.json())
       .then(data => {
         setStudentList(data);
@@ -22,7 +22,7 @@ const Addatt = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('  https://intern-first-server-farjanaakterlaila.vercel.app/attendance', {
+      const response = await fetch('  https://asteriactg.com/attendance', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

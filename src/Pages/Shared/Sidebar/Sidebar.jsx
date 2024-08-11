@@ -70,7 +70,7 @@ const Sidebar = () => {
 
     useEffect(() => {
         // Fetch data from the provided URL
-        fetch(`https://intern-first-server-ashy.vercel.app/user/admin/${user?.email}`)
+        fetch(`https://asteriactg.com/user/admin/${user?.email}`)
             .then((response) => response.json())
             .then((data) => {
                 console.log(data)

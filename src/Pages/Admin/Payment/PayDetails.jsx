@@ -14,7 +14,7 @@ const PayDetails = () => {
   const [attendanceCount0, setAttendanceCount0] = useState({}); // Count of attendance '0'
   const onSubmit = data => {
     
-    fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/adminDashboard/pay/${_id}`, {
+    fetch(` https://asteriactg.com/adminDashboard/pay/${_id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -35,7 +35,7 @@ const PayDetails = () => {
   }
   useEffect(() => {
     // Fetch the attendance history from the API endpoint
-    fetch(` https://intern-first-server-farjanaakterlaila.vercel.app/teacher/${_id}`)
+    fetch(` https://asteriactg.com/teacher/${_id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data.attendance_history)

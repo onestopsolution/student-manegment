@@ -15,7 +15,7 @@ const Editprofilr = () => {
 
     useEffect(() => {
         // Fetch the attendance history from the API endpoint
-        fetch(`  https://intern-first-server-farjanaakterlaila.vercel.app/student/${_id}`)
+        fetch(`  https://asteriactg.com/student/${_id}`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data)
@@ -75,7 +75,7 @@ const Editprofilr = () => {
                         Image: imgURL
                     }
                     console.log(newCls)
-                    fetch(`https://intern-first-server-farjanaakterlaila.vercel.app/edit/${_id}`, {
+                    fetch(`https://asteriactg.com/edit/${_id}`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(newCls),
